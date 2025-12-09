@@ -1,0 +1,19 @@
+Copyright © 2025 - Corporate Admin Template
+
+This product is licensed for a single project usage.
+
+You are allowed to:
+- Use this template in one commercial or personal project.
+- Modify the source code to fit your project needs.
+- Publish your project online using this template.
+
+You are NOT allowed to:
+- Redistribute, sublicense or resell this template as a standalone product.
+- Share the source code publicly.
+- Claim ownership of the original design or structure.
+
+Support:
+Free bug fixes and updates for the first release version.
+Additional customization support may require an extra fee.
+
+Unauthorized distribution may result in legal action.

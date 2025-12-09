@@ -1,0 +1,76 @@
+## 🎨 Theme Settings System
+
+The admin panel includes a **Live Theme Configuration System** that allows users to fully customize the UI.
+
+Theme settings are stored in **localStorage**, which means:
+✔ The selected theme persists between page reloads  
+✔ Works across all pages automatically  
+✔ No database required
+
+---
+
+### Available Theme Options
+
+#### 1️⃣ Theme Mode
+- Light Theme
+- Dark Theme
+- System (auto based on OS preference)
+
+#### 2️⃣ Accent Color
+Affects buttons, pills, active indicators, graph colors:
+- Blue
+- Purple
+- Emerald
+- Orange
+
+#### 3️⃣ Corner Radius
+Controls border-roundness globally:
+- Soft
+- Rounded
+- Sharp
+
+#### 4️⃣ Neon Effect
+Adds UI glow to cards/charts:
+- None
+- Soft
+- Strong
+
+#### 5️⃣ Density
+Controls table and list spacing:
+- Comfortable (default)
+- Compact
+
+#### 6️⃣ Font Scaling
+Text accessibility control:
+- Small → 0.9x
+- Default → 1.0x
+- Large → 1.1x+
+
+---
+
+### Automatic Dark Mode Support
+
+Charts, tables, buttons and texts automatically re-render
+for the best contrast in dark mode.
+
+No page reload required ✔
+
+---
+
+### Technical Implementation
+
+- Controlled by `themeSettings.js`
+- Initial load handled in `themeInit.js`
+- CSS variables applied globally from `<body>` class
+
+Key CSS variables:
+
+--accent-color
+--radius
+--density
+--font-scale
+--neon-shadow
+
+
+Everything is modular and extendable.
+
