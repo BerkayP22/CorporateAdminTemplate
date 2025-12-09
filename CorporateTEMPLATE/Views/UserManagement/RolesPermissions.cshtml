@@ -1,0 +1,206 @@
+﻿@{
+    ViewData["Title"] = "Roles & Permissions";
+}
+@{
+    ViewData["Title"] = "Roles & Permissions";
+}
+
+<div class="container-fluid userlist-page">
+
+    <!-- HEADER -->
+    <div class="userlist-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">Roles & Permissions</h2>
+            <p class="text-muted mb-0">Manage roles, user assignments and access levels.</p>
+        </div>
+
+        <div class="d-flex gap-3 align-items-center">
+
+            <!-- Search -->
+            <div class="userlist-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="form-control" placeholder="Search roles..." />
+            </div>
+
+            <!-- Add Role -->
+            <button class="btn btn-add-user">
+                <i class="fa-solid fa-circle-plus me-2"></i>
+                Add Role
+            </button>
+        </div>
+    </div>
+
+
+    <!-- TABLE WRAPPER -->
+    <div class="userlist-wrapper">
+
+        <div class="userlist-card shadow-sm">
+            <div class="userlist-card-body">
+
+                <table class="table userlist-table mb-0">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Description</th>
+                            <th>Users</th>
+                            <th>Permissions</th>
+                            <th>Status</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <!-- ROLE: ADMIN -->
+                        <tr>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <span class="user-name">Admin</span>
+                                    <span class="text-muted small">System-wide access</span>
+                                </div>
+                            </td>
+                            <td>
+                                Full administrative access to all modules and settings.
+                            </td>
+                            <td>
+                                <span class="text-muted small">12 users</span>
+                            </td>
+                            <td>
+                                <span class="perm-badge perm-full">Full access</span>
+                                <span class="perm-badge perm-critical">Manage users</span>
+                                <span class="perm-badge perm-critical">System settings</span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-online">Active</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm user-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View details">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit role">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete role">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- ROLE: MANAGER -->
+                        <tr>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <span class="user-name">Manager</span>
+                                    <span class="text-muted small">Team and project level access</span>
+                                </div>
+                            </td>
+                            <td>
+                                Can manage assigned teams, projects and reports.
+                            </td>
+                            <td>
+                                <span class="text-muted small">8 users</span>
+                            </td>
+                            <td>
+                                <span class="perm-badge perm-limited">Limited access</span>
+                                <span class="perm-badge perm-standard">Edit projects</span>
+                                <span class="perm-badge perm-standard">View reports</span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-online">Active</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm user-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View details">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit role">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete role">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- ROLE: SUPPORT -->
+                        <tr>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <span class="user-name">Support</span>
+                                    <span class="text-muted small">Customer help & ticket access</span>
+                                </div>
+                            </td>
+                            <td>
+                                Can view and update support tickets and customer details.
+                            </td>
+                            <td>
+                                <span class="text-muted small">5 users</span>
+                            </td>
+                            <td>
+                                <span class="perm-badge perm-standard">Update tickets</span>
+                                <span class="perm-badge perm-readonly">Read-only on logs</span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-idle">Restricted</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm user-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View details">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit role">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete role">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- ROLE: VIEWER -->
+                        <tr>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <span class="user-name">Viewer</span>
+                                    <span class="text-muted small">Read-only access</span>
+                                </div>
+                            </td>
+                            <td>
+                                Can only view data and reports. No editing allowed.
+                            </td>
+                            <td>
+                                <span class="text-muted small">21 users</span>
+                            </td>
+                            <td>
+                                <span class="perm-badge perm-readonly">Read-only</span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-online">Active</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm user-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View details">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit role">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete role">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

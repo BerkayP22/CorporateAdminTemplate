@@ -1,0 +1,223 @@
+﻿/* ───────────────────────────
+   LAYOUT / SIDEBAR
+──────────────────────────── */
+
+/* Body base - font scale ile */
+body {
+    margin: 0;
+    font-family: Arial, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    transition: .3s;
+    font-size: calc(1rem * var(--font-scale, 1));
+}
+
+/* TOP BAR (asıl tasarım Layout.css’te override ediyor, burada sadece base) */
+.topbar {
+    height: 60px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-toggle {
+    font-size: 22px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* SIDEBAR */
+#sidebar {
+    width: 230px;
+    height: 100vh;
+    background: #1e1f25;
+    color: white;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    transition: .3s ease;
+    overflow-y: auto;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.35);
+}
+
+    /* Collapse */
+    #sidebar.collapsed {
+        width: 70px;
+    }
+
+/* MENU */
+.menu {
+    margin: 0;
+    padding: 20px 0;
+    list-style: none;
+}
+
+.menu-item a {
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    transition: 0.2s;
+    border-radius: 8px;
+    margin: 6px 8px;
+    border: 1px solid transparent;
+    font-size: calc(0.9rem * var(--font-scale, 1));
+}
+
+    .menu-item a:hover {
+        background: rgba(148, 163, 184, 0.16);
+        border: 1px solid var(--accent-color, #3b82f6);
+    }
+
+/* Active menu item (örnek, istersen class ekleyerek kullanırsın) */
+.menu-item.active > a {
+    background: rgba(37, 99, 235, 0.25);
+    border-color: var(--accent-color, #3b82f6);
+}
+
+/* ICON-ONLY MODE */
+#sidebar.collapsed .item-text {
+    display: none;
+}
+
+#sidebar.collapsed .submenu {
+    display: none !important;
+}
+
+/* SUBMENU */
+.submenu {
+    list-style: none;
+    display: none;
+    padding-left: 45px;
+}
+
+    .submenu li a {
+        padding: 8px 0;
+        font-size: calc(0.85rem * var(--font-scale, 1));
+    }
+
+/* Show submenu */
+.menu-item.active .submenu {
+    display: block;
+}
+
+/* MAIN CONTENT */
+#mainContent {
+    margin-left: 230px;
+    padding: 20px;
+    transition: .3s;
+}
+
+#sidebar.collapsed + #mainContent {
+    margin-left: 70px;
+}
+
+/* ───────────────────────────
+   DARK MODE
+──────────────────────────── */
+
+body.dark {
+    background: #020617;
+    color: #e5e7eb;
+}
+
+    body.dark .topbar {
+        background: #1f2933;
+        border-color: #374151;
+    }
+
+    body.dark #sidebar {
+        background: #020617;
+        color: #e5e7eb;
+        box-shadow: 0 10px 28px rgba(0,0,0,0.8);
+    }
+
+    body.dark .menu-item a {
+        color: #e5e7eb;
+    }
+
+        body.dark .menu-item a:hover {
+            background: rgba(55, 65, 81, 0.6);
+            border-color: var(--accent-color, #3b82f6);
+        }
+
+    body.dark .menu-item.active > a {
+        background: rgba(37, 99, 235, 0.35);
+        border-color: var(--accent-color, #3b82f6);
+    }
+
+/* Bootstrap default dropdown arrow’u iptal */
+.menu-item.dropdown > a::after,
+.dropdown-toggle::after {
+    content: none !important;
+    display: none !important;
+    border: none !important;
+}
+
+/* ───────────────────────────
+   THEME SETTINGS ENTEGRASYON
+──────────────────────────── */
+
+/* CARD RADIUS / SIDEBAR RADIUS
+   (Tema ayarına göre sağ kenar köşeleri) */
+
+body.theme-radius-soft #sidebar {
+    border-radius: 0 18px 18px 0;
+}
+
+body.theme-radius-rounded #sidebar {
+    border-radius: 0 24px 24px 0;
+}
+
+body.theme-radius-sharp #sidebar {
+    border-radius: 0;
+}
+
+/* Menü item radius'larını da tema ile oynatalım */
+body.theme-radius-soft .menu-item a {
+    border-radius: 999px;
+}
+
+body.theme-radius-rounded .menu-item a {
+    border-radius: 12px;
+}
+
+body.theme-radius-sharp .menu-item a {
+    border-radius: 4px;
+}
+
+/* NEON GLOW: theme-neon-* (sadece dark modda abartı glow) */
+
+body.dark.theme-neon-soft #sidebar {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.45);
+}
+
+body.dark.theme-neon-strong #sidebar {
+    box-shadow: 0 0 30px rgba(129, 140, 248, 0.85);
+}
+
+/* DENSITY: theme-density-compact
+   Menü padding ve main content padding sıkılsın */
+
+body.theme-density-compact .menu-item a {
+    padding: 8px 16px;
+    margin: 4px 6px;
+    font-size: calc(0.84rem * var(--font-scale, 1));
+}
+
+body.theme-density-compact #mainContent {
+    padding: 14px;
+}
+
+/* Daha rahat (comfortable) için istersen ileride ek yapabiliriz
+   şu an default normal değerler zaten comfortable gibi */

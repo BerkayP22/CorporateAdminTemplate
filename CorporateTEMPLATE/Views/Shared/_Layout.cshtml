@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CorporateTEMPLATE</title>
+    <link rel="stylesheet" href="~/css/Dashboard.css" />
+    <link rel="stylesheet" href="~/css/Reports.css" />
+    <link rel="stylesheet" href="~/css/Setting.css" />
+    <link rel="stylesheet" href="~/css/Customer.css" />
+    <link rel="stylesheet" href="~/css/Profile.css" />
+    <link rel="stylesheet" href="~/css/SystemLog.css" />
+    <link rel="stylesheet" href="~/css/Version.css" />
+    <link rel="stylesheet" href="~/css/Announcement.css" />
+    <link rel="stylesheet" href="~/css/sidebar.css" />
+    <link rel="stylesheet" href="~/css/Layout.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/UserManagement.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body class="light">
+
+    <header class="topbar">
+
+        <div class="topbar-left">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="search-box">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="Search something...">
+            </div>
+        </div>
+
+        <div class="topbar-right">
+            <button id="darkToggle" class="dark-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <div class="user-section" id="userMenuToggle">
+                <i class="fa-solid fa-user"></i>
+                <span>Admin</span>
+
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="#">
+                        <i class="fa-solid fa-id-badge"></i>
+                        My Profile
+                    </a>
+                    <a href="#">
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </a>
+                    <a href="#">
+                        <i class="fa-solid fa-envelope"></i>
+                        Messages
+                        <span class="badge">3</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="logout">
+                        <i class="fa-solid fa-right-from-brain"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="collapsed">
+
+        <ul class="menu">
+
+            <!-- HOME -->
+            <li class="menu-item">
+                <a asp-controller="Dashboard" asp-action="Index">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="item-text">Dashboard</span>
+                </a>
+            </li>
+
+            <!-- LOGIN DROPDOWN -->
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span class="item-text">Login</span>
+                </a>
+
+                
+                <ul class="submenu">
+                        <li><a asp-controller="Auth" asp-action="Login1">Login 1</a></li>
+                        <li><a asp-controller="Auth" asp-action="Login2">Login 2</a></li>
+                </ul>
+                
+            </li>
+
+            <!-- REGISTER DROPDOWN -->
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span class="item-text">Register</span>
+                    
+                </a>
+
+             
+                <ul class="submenu">
+                        <li><a asp-controller="Auth" asp-action="Register1">Register 1</a></li>
+                        <li><a asp-controller="Auth" asp-action="Register2">Register 2</a></li>
+                </ul>
+                
+            </li>
+            <!-- USER MANAGEMENT -->
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="item-text">User Management</span>
+                </a>
+                <ul class="submenu">
+                    <li><a asp-controller="UserManagement" asp-action="UserList">User List</a></li>
+                    <li><a asp-controller="UserManagement" asp-action="CreateUser">Create a User</a></li>
+                    <li><a asp-controller="UserManagement" asp-action="RolesPermissions">Roles & Permissions</a></li>
+                </ul>
+            </li>
+
+            <!-- CUSTOMER MANAGEMENT -->
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span class="item-text">Customer Management</span>
+                </a>
+                <ul class="submenu">
+                    <li><a asp-controller="Customer" asp-action="CustomerList">Customer List</a></li>
+                    <li><a asp-controller="Customer" asp-action="CustomerApplication">Applications</a></li>
+                    <li><a asp-controller="Customer" asp-action="CustomerDetails">Customer Details</a></li>
+                </ul>
+            </li>
+
+            <!-- VERSION CONTROL -->
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <span class="item-text">Version Control</span>
+                </a>
+                <ul class="submenu">
+                    <li><a asp-controller="Version" asp-action="AllVersions">All Versions</a></li>
+                    <li><a asp-controller="Version" asp-action="CreateVersion">Create Version</a></li>
+                    <li><a asp-controller="Version" asp-action="VersionHistory">Version History</a></li>
+                </ul>
+            </li>
+
+            <!-- ANNOUNCEMENTS -->
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span class="item-text">Announcements</span>
+                </a>
+                <ul class="submenu">
+                    <li><a asp-action="AnnouncementList" asp-controller="Announcement">Announcement List</a></li>
+                    <li><a Asp-action="CreateAnnouncement" asp-controller="Announcement">New Announcement</a></li>
+                </ul>
+            </li>
+
+            <!-- LOG MANAGEMENT -->
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa-solid fa-database"></i>
+                    <span class="item-text">Log Management</span>
+                </a>
+                <ul class="submenu">
+                    <li><a asp-controller="systemLog" asp-action="SystemLog">System Logs</a></li>
+                    <li><a asp-controller="systemLog" asp-action="ErrorLog">Error Logs</a></li>
+                    <li><a asp-controller="systemLog" asp-action="APILogs">API Logs</a></li>
+                </ul>
+            </li>
+
+            <!-- REPORTS -->
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span class="item-text">Reports</span>
+                </a>
+                <ul class="submenu">
+                    <li><a asp-controller="Reports" asp-action="MonthlyReport">Monthly Reports</a></li>
+                    <li><a asp-controller="Reports" asp-action="UserAnalytics">User Analytics</a></li>
+                    <li><a asp-controller="Reports" asp-action="PerformanceReport">Performance Report</a></li>
+                </ul>
+            </li>
+
+            <!-- SETTINGS -->
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa-solid fa-gear"></i>
+                    <span class="item-text">Settings</span>
+                </a>
+                <ul class="submenu">
+                    <li><a asp-controller="Setting" asp-action="ThemeSetting">Theme Settings</a></li>
+                    <li><a asp-controller="Setting" asp-action="APISetting">API Settings</a></li>
+                    <li><a asp-controller="Setting" asp-action="SystemSetting">System Settings</a></li>
+                </ul>
+            </li>
+
+            <!-- PROFILE -->
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="item-text">Profile</span>
+                </a>
+                <ul class="submenu">
+                    <li><a asp-controller="Profile" asp-action="myProfile">My Profile</a></li>
+                    <li><a asp-controller="Profile" asp-action="changePassword">Change Password</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main id="mainContent">
+        @RenderBody()
+    </main>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/sidebar.js"></script>
+    <script src="~/js/Version.js"></script>
+    <script src="~/js/Charts-Demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>*
+    @await RenderSectionAsync("Scripts", false)
+</body>
+</html>

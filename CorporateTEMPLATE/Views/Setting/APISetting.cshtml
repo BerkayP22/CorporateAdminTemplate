@@ -1,0 +1,300 @@
+﻿@{
+    ViewData["Title"] = "API Settings";
+}
+
+<div class="container-fluid apis-page">
+
+    <!-- HEADER -->
+    <div class="apis-header mb-4">
+        <h2 class="mb-1">API Settings</h2>
+        <p class="text-muted mb-0">
+            Configure API keys, environment endpoints and webhooks.
+        </p>
+    </div>
+
+    <!-- GRID LAYOUT -->
+    <div class="apis-grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="apis-left">
+
+            <!-- API CREDENTIALS -->
+            <div class="apis-card mb-3">
+                <div class="apis-card-header">
+                    <div>
+                        <h5 class="mb-0">API Credentials</h5>
+                        <small class="text-muted">
+                            Manage primary API key for this instance.
+                        </small>
+                    </div>
+                    <button type="button" class="btn btn-save-api">
+                        <i class="fa-solid fa-floppy-disk me-1"></i> Save
+                    </button>
+                </div>
+                <div class="apis-card-body">
+
+                    <div class="mb-3">
+                        <label class="form-label">Primary API key</label>
+                        <div class="apis-key-row">
+                            <input type="password" class="form-control" id="apiKeyInput"
+                                   value="sk_live_2x94fA9kQzP2sEXAMPLE" readonly />
+                            <button type="button" class="btn btn-sm btn-outline-secondary" id="btnToggleKey">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" id="btnCopyKey">
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="small text-muted mt-1">
+                            Keep this key secret. It grants full access to the API.
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <div class="small text-muted">
+                            Last regenerated: Dec 01, 2025 · 15:42
+                        </div>
+                        <button type="button" class="btn btn-outline-danger btn-sm" id="btnRegenerateKey">
+                            <i class="fa-solid fa-rotate me-1"></i> Regenerate key
+                        </button>
+                    </div>
+
+                    <div id="apiKeyToast" class="apis-toast" aria-hidden="true">
+                        <i class="fa-solid fa-circle-check me-2"></i>
+                        API key updated (sample only, not persisted).
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENVIRONMENT ENDPOINTS -->
+            <div class="apis-card mb-3">
+                <div class="apis-card-header">
+                    <div>
+                        <h5 class="mb-0">Environment Endpoints</h5>
+                        <small class="text-muted">Base URLs used by each environment.</small>
+                    </div>
+                    <button type="button" class="btn btn-save-api">
+                        <i class="fa-solid fa-floppy-disk me-1"></i> Save
+                    </button>
+                </div>
+                <div class="apis-card-body">
+
+                    <!-- Tabs -->
+                    <div class="apis-env-tabs mb-3">
+                        <button type="button" class="apis-env-tab active" data-env="live">Live</button>
+                        <button type="button" class="apis-env-tab" data-env="beta">Beta</button>
+                        <button type="button" class="apis-env-tab" data-env="alpha">Alpha</button>
+                    </div>
+
+                    <!-- LIVE -->
+                    <div class="apis-env-panel" data-env-panel="live">
+                        <div class="mb-3">
+                            <label class="form-label">Base URL</label>
+                            <input type="text" class="form-control"
+                                   value="https://api.corporatevm.com/live" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Timeout</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" value="30" />
+                                <span class="input-group-text">seconds</span>
+                            </div>
+                        </div>
+
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="checkbox" id="liveStrictSsl" checked />
+                            <label class="form-check-label" for="liveStrictSsl">
+                                Enforce strict TLS / SSL
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- BETA -->
+                    <div class="apis-env-panel d-none" data-env-panel="beta">
+                        <div class="mb-3">
+                            <label class="form-label">Base URL</label>
+                            <input type="text" class="form-control"
+                                   value="https://api.corporatevm.com/beta" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Timeout</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" value="40" />
+                                <span class="input-group-text">seconds</span>
+                            </div>
+                        </div>
+
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="checkbox" id="betaStrictSsl" checked />
+                            <label class="form-check-label" for="betaStrictSsl">
+                                Enforce strict TLS / SSL
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- ALPHA -->
+                    <div class="apis-env-panel d-none" data-env-panel="alpha">
+                        <div class="mb-3">
+                            <label class="form-label">Base URL</label>
+                            <input type="text" class="form-control"
+                                   value="https://api.corporatevm.com/alpha" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Timeout</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" value="45" />
+                                <span class="input-group-text">seconds</span>
+                            </div>
+                        </div>
+
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="checkbox" id="alphaStrictSsl">
+                            <label class="form-check-label" for="alphaStrictSsl">
+                                Relax SSL validation (not recommended)
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="apis-right">
+
+            <!-- RATE LIMITING -->
+            <div class="apis-card mb-3">
+                <div class="apis-card-header">
+                    <div>
+                        <h5 class="mb-0">Rate limiting</h5>
+                        <small class="text-muted">Control request quotas per client.</small>
+                    </div>
+                    <button type="button" class="btn btn-save-api">
+                        <i class="fa-solid fa-floppy-disk me-1"></i> Save
+                    </button>
+                </div>
+                <div class="apis-card-body">
+
+                    <div class="mb-3">
+                        <label class="form-label">Max requests per minute</label>
+                        <input type="range" class="form-range" id="rateLimitRange" min="60" max="1200" step="60" value="600" />
+                        <div class="d-flex justify-content-between small">
+                            <span>60</span>
+                            <span id="rateLimitValue">600</span>
+                            <span>1200</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Burst limit</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" value="50" />
+                            <span class="input-group-text">requests</span>
+                        </div>
+                        <div class="small text-muted">
+                            Maximum allowed short burst before throttling kicks in.
+                        </div>
+                    </div>
+
+                    <div class="form-check mb-1">
+                        <input class="form-check-input" type="checkbox" id="softBlockToggle" checked />
+                        <label class="form-check-label" for="softBlockToggle">
+                            Use soft blocking before permanent suspension
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- WEBHOOK SETTINGS -->
+            <div class="apis-card mb-3">
+                <div class="apis-card-header">
+                    <div>
+                        <h5 class="mb-0">Webhook settings</h5>
+                        <small class="text-muted">
+                            Configure callbacks for version / deployment events.
+                        </small>
+                    </div>
+                    <button type="button" class="btn btn-save-api">
+                        <i class="fa-solid fa-floppy-disk me-1"></i> Save
+                    </button>
+                </div>
+                <div class="apis-card-body">
+
+                    <div class="mb-3">
+                        <label class="form-label">Webhook URL</label>
+                        <input type="text" class="form-control"
+                               value="https://hooks.example.com/version-events" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Subscribed events</label>
+                        <div class="row g-2 small">
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="evVersionCreated" checked />
+                                    <label class="form-check-label" for="evVersionCreated">
+                                        Version created
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="evVersionDeployed" checked />
+                                    <label class="form-check-label" for="evVersionDeployed">
+                                        Version deployed
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="evDeploymentFailed" checked />
+                                    <label class="form-check-label" for="evDeploymentFailed">
+                                        Deployment failed
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="evCustomerUpdated" />
+                                    <label class="form-check-label" for="evCustomerUpdated">
+                                        Customer updated
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <div>
+                            <div class="form-label mb-0">Send test webhook</div>
+                            <div class="small text-muted">
+                                Sends a sample payload to the URL above.
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" id="btnTestWebhook">
+                            <i class="fa-solid fa-paper-plane me-1"></i> Send test
+                        </button>
+                    </div>
+
+                    <div id="webhookToast" class="apis-toast" aria-hidden="true">
+                        <i class="fa-solid fa-circle-check me-2"></i>
+                        Test webhook enqueued (sample only).
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/apiSettings.js"></script>
+}

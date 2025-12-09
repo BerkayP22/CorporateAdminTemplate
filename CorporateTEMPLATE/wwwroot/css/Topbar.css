@@ -1,0 +1,225 @@
+﻿/* ==========================
+   TOPBAR SEARCH & USER AREA
+========================== */
+
+/* SEARCH BAR */
+.search-box {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ccc;
+    width: 260px;
+    transition: 0.2s;
+    font-size: calc(0.9rem * var(--font-scale, 1));
+}
+
+    .search-box i {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .search-box input {
+        border: none;
+        outline: none;
+        width: 100%;
+        background: transparent;
+        font-size: calc(0.9rem * var(--font-scale, 1));
+    }
+
+    /* Odaklanınca accent rengi ile highlight */
+    .search-box:focus-within {
+        border-color: var(--accent-color, #3b82f6);
+        box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.35);
+    }
+
+/* User Area */
+.user-section {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: 0.2s;
+    color: #333;
+    font-size: calc(0.9rem * var(--font-scale, 1));
+}
+
+    .user-section:hover {
+        background: #e6e6e6;
+    }
+
+/* USER DROPDOWN */
+.user-dropdown {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    width: 180px;
+    display: none;
+    overflow: hidden;
+    animation: fadeIn .25s ease;
+    z-index: 200;
+}
+
+    /* JS'te .show class'ı ekleniyor */
+    .user-dropdown.show {
+        display: block;
+    }
+
+    .user-dropdown a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        border-bottom: 1px solid #eee;
+        font-size: calc(0.88rem * var(--font-scale, 1));
+    }
+
+        .user-dropdown a:hover {
+            background: #f5f5f5;
+        }
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* DARK MODE BUTTON */
+#darkToggle {
+    border: none;
+    background: #ddd;
+    padding: 8px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+    #darkToggle i {
+        font-size: 14px;
+    }
+
+    #darkToggle:hover {
+        background: #bbb;
+    }
+
+    /* Aktifken (JS istersen class ekleyebilirsin: .is-dark) */
+    #darkToggle.is-dark {
+        background: var(--accent-color, #3b82f6);
+        color: #fff;
+    }
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark .search-box {
+    background: #111827;
+    border: 1px solid #1f2937;
+}
+
+    body.dark .search-box i {
+        color: #9ca3af;
+    }
+
+    body.dark .search-box input {
+        color: #e5e7eb;
+    }
+
+    body.dark .search-box:focus-within {
+        border-color: var(--accent-color, #3b82f6);
+        box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
+    }
+
+body.dark .user-section {
+    color: #e5e7eb;
+}
+
+    body.dark .user-section:hover {
+        background: #1f2937;
+    }
+
+body.dark .user-dropdown {
+    background: #020617;
+    border: 1px solid #1f2937;
+}
+
+    body.dark .user-dropdown a {
+        color: #e5e7eb;
+        border-bottom-color: #111827;
+    }
+
+        body.dark .user-dropdown a:hover {
+            background: #111827;
+        }
+
+/* ==========================
+   THEME SETTINGS ENTEGRASYON
+========================== */
+
+/* Radius: searchbox, user-section, darkToggle */
+
+body.theme-radius-soft .search-box,
+body.theme-radius-soft .user-section,
+body.theme-radius-soft #darkToggle {
+    border-radius: 999px;
+}
+
+body.theme-radius-rounded .search-box,
+body.theme-radius-rounded .user-section,
+body.theme-radius-rounded #darkToggle {
+    border-radius: 18px;
+}
+
+body.theme-radius-sharp .search-box,
+body.theme-radius-sharp .user-section,
+body.theme-radius-sharp #darkToggle {
+    border-radius: 6px;
+}
+
+/* Neon: topbar butonu ve user bölümü hafif glow (dark + neon) */
+
+body.dark.theme-neon-soft #darkToggle {
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.55);
+}
+
+body.dark.theme-neon-soft .user-section:hover {
+    box-shadow: 0 0 14px rgba(129, 140, 248, 0.5);
+}
+
+body.dark.theme-neon-strong #darkToggle {
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.85);
+}
+
+body.dark.theme-neon-strong .user-section:hover {
+    box-shadow: 0 0 20px rgba(129, 140, 248, 0.9);
+}
+
+/* Density: searchbox & user-area daha sıkı olsun */
+
+body.theme-density-compact .search-box {
+    padding: 4px 10px;
+    width: 220px;
+}
+
+body.theme-density-compact .user-section {
+    padding: 6px 10px;
+}

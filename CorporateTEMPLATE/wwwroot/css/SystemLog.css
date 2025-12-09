@@ -1,0 +1,650 @@
+﻿/* BASE */
+.logs-page {
+    padding: 20px;
+}
+
+/* Filters */
+.logs-filter-group {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75rem;
+}
+
+    .logs-filter-group .form-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+.logs-table-wrapper {
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+}
+
+.logs-date-sep {
+    align-self: center;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.logs-search {
+    gap: 6px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    padding: 4px 10px;
+}
+
+    .logs-search i {
+        color: #6b7280;
+    }
+
+    .logs-search input {
+        border: none;
+        box-shadow: none;
+        background: transparent !important;
+        width: 150px;
+    }
+
+        .logs-search input:focus {
+            box-shadow: none;
+        }
+
+.logs-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+/* Levels */
+.log-level {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+    .log-level.error {
+        background: rgba(239, 68, 68, 0.22);
+        color: #b91c1c;
+    }
+
+    .log-level.warning {
+        background: rgba(234, 179, 8, 0.22);
+        color: #92400e;
+    }
+
+    .log-level.info {
+        background: rgba(59, 130, 246, 0.22);
+        color: #1d4ed8;
+    }
+
+    .log-level.debug {
+        background: rgba(148, 163, 184, 0.28);
+        color: #374151;
+    }
+
+/* Hover */
+.log-row:hover {
+    background: #f9fafb;
+}
+
+.log-details-row {
+    display: none;
+}
+
+.log-details-box {
+    background: #f3f4f6;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 0.82rem;
+}
+
+.btn-log-details {
+    border-radius: 8px;
+    padding: 4px 6px;
+    border: none;
+    background: transparent;
+    color: #64748b;
+}
+
+    .btn-log-details:hover {
+        color: #3b82f6;
+    }
+
+/* DARK MODE */
+body.dark .logs-table-wrapper {
+    background: #020617 !important;
+    border-color: #1e293b !important;
+}
+
+body.dark .logs-search {
+    background: #111827 !important;
+    border-color: #1f2937 !important;
+}
+
+    body.dark .logs-search i {
+        color: #94a3b8 !important;
+    }
+
+    body.dark .logs-search input {
+        color: #e5e7eb !important;
+    }
+
+body.dark .log-row {
+    border-color: #1f2937 !important;
+}
+
+    body.dark .log-row:hover {
+        background: #111827 !important;
+    }
+
+body.dark .log-details-box {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+}
+
+body.dark .log-level.error {
+    background: rgba(239, 68, 68, 0.3) !important;
+    color: #fecaca !important;
+}
+
+body.dark .log-level.warning {
+    background: rgba(234, 179, 8, 0.3) !important;
+    color: #fde68a !important;
+}
+
+body.dark .log-level.info {
+    background: rgba(59, 130, 246, 0.3) !important;
+    color: #bfdbfe !important;
+}
+
+body.dark .log-level.debug {
+    background: rgba(148, 163, 184, 0.35) !important;
+    color: #e5e7eb !important;
+}
+
+body.dark td, body.dark th {
+    color: #e5e7eb !important;
+}
+
+/* ==========================
+   ERROR LOGS - CARD STYLE
+========================== */
+
+.err-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.1fr);
+    gap: 18px;
+}
+
+.err-main,
+.err-side {
+    min-width: 0;
+}
+
+/* Error card */
+.err-card {
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.err-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.err-badge {
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.err-critical {
+    background: rgba(248, 113, 113, 0.22);
+    color: #b91c1c;
+}
+
+.err-error {
+    background: rgba(239, 68, 68, 0.18);
+    color: #b91c1c;
+}
+
+.err-code {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.err-time {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+/* Env pill */
+.err-env-pill {
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.err-env-prod {
+    background: rgba(239, 68, 68, 0.08);
+    color: #b91c1c;
+}
+
+.err-env-stg {
+    background: rgba(59, 130, 246, 0.08);
+    color: #1d4ed8;
+}
+
+/* Body */
+.err-title {
+    font-size: 0.94rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #111827;
+}
+
+.err-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+    .err-meta i {
+        margin-right: 4px;
+    }
+
+.err-message {
+    font-size: 0.86rem;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+/* Stack trace */
+.err-stack-toggle {
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    color: #4b5563;
+}
+
+    .err-stack-toggle:hover {
+        border-color: #3b82f6;
+        color: #1d4ed8;
+        background: #eff6ff;
+    }
+
+.err-stack {
+    display: none;
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    color: #e5e7eb;
+    overflow-x: auto;
+}
+
+    .err-stack pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+
+/* Summary card */
+.err-summary-card {
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+}
+
+.err-summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+    .err-summary-row span:first-child {
+        color: #6b7280;
+    }
+
+.err-summary-subtitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.err-summary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .err-summary-list li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+    }
+
+/* Slightly tighter search for error page */
+.err-search {
+    max-width: 220px;
+}
+
+/* DARK MODE - ERROR CARDS */
+body.dark .err-card,
+body.dark .err-summary-card {
+    background: #020617 !important;
+    border-color: #1f2937 !important;
+}
+
+body.dark .err-title {
+    color: #e5e7eb !important;
+}
+
+body.dark .err-meta {
+    color: #9ca3af !important;
+}
+
+body.dark .err-message {
+    color: #e5e7eb !important;
+}
+
+body.dark .err-code,
+body.dark .err-time {
+    color: #9ca3af !important;
+}
+
+/* badges & env dark */
+body.dark .err-critical {
+    background: rgba(248, 113, 113, 0.4) !important;
+    color: #fee2e2 !important;
+}
+
+body.dark .err-error {
+    background: rgba(239, 68, 68, 0.35) !important;
+    color: #fecaca !important;
+}
+
+body.dark .err-env-prod {
+    background: rgba(239, 68, 68, 0.18) !important;
+    color: #fecaca !important;
+}
+
+body.dark .err-env-stg {
+    background: rgba(59, 130, 246, 0.2) !important;
+    color: #bfdbfe !important;
+}
+
+/* stack button dark */
+body.dark .err-stack-toggle {
+    background: #020617 !important;
+    border-color: #1f2937 !important;
+    color: #e5e7eb !important;
+}
+
+    body.dark .err-stack-toggle:hover {
+        background: #111827 !important;
+        border-color: #3b82f6 !important;
+        color: #bfdbfe !important;
+    }
+
+/* summary dark */
+body.dark .err-summary-row span:first-child {
+    color: #9ca3af !important;
+}
+
+/* responsive */
+@media (max-width: 992px) {
+    .err-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .err-card {
+        padding: 12px 12px;
+    }
+
+    .err-summary-card {
+        padding: 12px 12px;
+    }
+}
+
+
+/* ==========================
+   API LOGS
+========================== */
+
+.api-table-wrapper {
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.api-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 900px;
+}
+
+    .api-table thead tr {
+        background-color: #f3f4f6;
+    }
+
+    .api-table thead th {
+        padding: 10px 14px;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #6b7280;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .api-table tbody td {
+        padding: 9px 14px;
+        font-size: 0.88rem;
+        border-bottom: 1px solid #e5e7eb;
+        vertical-align: middle;
+    }
+
+.api-row {
+    transition: background-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+    .api-row:hover {
+        background-color: #f9fafb;
+        box-shadow: inset 3px 0 0 #3b82f6;
+    }
+
+/* Method tags */
+.api-method-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+    .api-method-tag.get {
+        background: rgba(59, 130, 246, 0.18);
+        color: #1d4ed8;
+    }
+
+    .api-method-tag.post {
+        background: rgba(16, 185, 129, 0.18);
+        color: #047857;
+    }
+
+    .api-method-tag.put {
+        background: rgba(234, 179, 8, 0.18);
+        color: #92400e;
+    }
+
+    .api-method-tag.delete {
+        background: rgba(239, 68, 68, 0.18);
+        color: #b91c1c;
+    }
+
+/* Status tags */
+.api-status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+    .api-status-tag.s2xx {
+        background: rgba(16, 185, 129, 0.18);
+        color: #047857;
+    }
+
+    .api-status-tag.s4xx {
+        background: rgba(234, 179, 8, 0.24);
+        color: #92400e;
+    }
+
+    .api-status-tag.s5xx {
+        background: rgba(239, 68, 68, 0.22);
+        color: #b91c1c;
+    }
+
+/* Details */
+.api-details-row {
+    display: none;
+}
+
+.api-details-box {
+    background: #f3f4f6;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+}
+
+.api-details-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 6px;
+    color: #4b5563;
+}
+
+.api-details-body div {
+    margin-bottom: 2px;
+}
+
+/* Search width */
+.api-search {
+    max-width: 260px;
+}
+
+/* DARK MODE - API LOGS */
+body.dark .api-table-wrapper {
+    background: #020617 !important;
+    border-color: #1f2937 !important;
+}
+
+body.dark .api-table,
+body.dark .api-table thead,
+body.dark .api-table tbody,
+body.dark .api-table tr,
+body.dark .api-table th,
+body.dark .api-table td {
+    background-color: #020617 !important;
+}
+
+    body.dark .api-table thead tr {
+        background-color: #0b1120 !important;
+    }
+
+    body.dark .api-table thead th {
+        color: #9ca3af !important;
+        border-bottom-color: #1f2937 !important;
+    }
+
+    body.dark .api-table tbody td {
+        color: #e5e7eb !important;
+        border-bottom-color: #1f2937 !important;
+    }
+
+body.dark .api-row:hover {
+    background-color: #020617 !important;
+    box-shadow: inset 3px 0 0 #3b82f6 !important;
+}
+
+body.dark .api-details-box {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+}
+
+/* method tags dark */
+body.dark .api-method-tag.get {
+    background: rgba(59, 130, 246, 0.3) !important;
+    color: #bfdbfe !important;
+}
+
+body.dark .api-method-tag.post {
+    background: rgba(16, 185, 129, 0.3) !important;
+    color: #a7f3d0 !important;
+}
+
+body.dark .api-method-tag.put {
+    background: rgba(234, 179, 8, 0.3) !important;
+    color: #fef3c7 !important;
+}
+
+body.dark .api-method-tag.delete {
+    background: rgba(239, 68, 68, 0.32) !important;
+    color: #fecaca !important;
+}
+
+/* status tags dark */
+body.dark .api-status-tag.s2xx {
+    background: rgba(16, 185, 129, 0.32) !important;
+    color: #bbf7d0 !important;
+}
+
+body.dark .api-status-tag.s4xx {
+    background: rgba(234, 179, 8, 0.35) !important;
+    color: #fef3c7 !important;
+}
+
+body.dark .api-status-tag.s5xx {
+    background: rgba(239, 68, 68, 0.35) !important;
+    color: #fee2e2 !important;
+}
+
+/* responsive */
+@media (max-width: 992px) {
+    .api-table-wrapper {
+        margin-top: 6px;
+    }
+}
+
+@media (max-width: 576px) {
+    .api-details-box {
+        padding: 8px 9px;
+    }
+}

@@ -1,0 +1,289 @@
+﻿@{
+    ViewData["Title"] = "Create Announcement";
+}
+
+<div class="container-fluid announcement-page">
+
+    <!-- HEADER -->
+    <div class="announcement-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">Create Announcement</h2>
+            <p class="text-muted mb-0">
+                Share system messages, feature updates or maintenance windows with your users.
+            </p>
+        </div>
+
+        <div class="d-flex gap-2">
+            <a asp-controller="Announcements" asp-action="AnnouncementList" class="btn btn-outline-secondary btn-sm">
+                <i class="fa-solid fa-arrow-left-long me-1"></i>
+                Back to list
+            </a>
+        </div>
+    </div>
+
+
+    <!-- LAYOUT -->
+    <div class="announcement-layout ann-create-layout">
+
+        <!-- LEFT: FORM -->
+        <div class="announcement-main">
+
+            <div class="ann-card">
+                <div class="ann-card-body">
+
+                    <form>
+
+                        <!-- TITLE -->
+                        <div class="ann-form-group mb-3">
+                            <label class="form-label">Title</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="annTitleInput"
+                                   placeholder="Planned maintenance · Database cluster (TR1)" />
+                        </div>
+
+                        <!-- TYPE / STATUS -->
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="ann-form-group">
+                                    <label class="form-label">Type</label>
+                                    <select class="form-select" id="annTypeSelect">
+                                        <option value="system">System</option>
+                                        <option value="maintenance" selected>Maintenance</option>
+                                        <option value="feature">Feature</option>
+                                        <option value="info">Info</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="ann-form-group">
+                                    <label class="form-label">Status</label>
+                                    <select class="form-select" id="annStatusSelect">
+                                        <option value="draft" selected>Draft</option>
+                                        <option value="scheduled">Scheduled</option>
+                                        <option value="active">Active</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="ann-form-group">
+                                    <label class="form-label">Priority</label>
+                                    <select class="form-select" id="annPrioritySelect">
+                                        <option value="normal" selected>Normal</option>
+                                        <option value="high">High</option>
+                                        <option value="critical">Critical</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DATES -->
+                        <div class="row g-3 mt-1">
+                            <div class="col-md-6">
+                                <div class="ann-form-group">
+                                    <label class="form-label">Publish date</label>
+                                    <input type="date" class="form-control" id="annPublishDate" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ann-form-group">
+                                    <label class="form-label">Visible until</label>
+                                    <input type="date" class="form-control" id="annVisibleUntil" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AUDIENCE / PIN -->
+                        <div class="row g-3 mt-1">
+                            <div class="col-md-8">
+                                <div class="ann-form-group">
+                                    <label class="form-label">Audience</label>
+                                    <select class="form-select" id="annAudienceSelect">
+                                        <option selected>All customers</option>
+                                        <option>All admin users</option>
+                                        <option>EMEA tenants</option>
+                                        <option>Selected beta customers</option>
+                                        <option>Internal users only</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 d-flex align-items-end">
+                                <div class="form-check ann-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="annPinnedCheck" />
+                                    <label class="form-check-label" for="annPinnedCheck">
+                                        Pin this announcement
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MESSAGE -->
+                        <div class="ann-form-group mt-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control"
+                                      id="annMessageInput"
+                                      rows="5"
+                                      placeholder="Explain what is happening, when, and which users are affected..."></textarea>
+                        </div>
+
+                        <!-- BUTTONS -->
+                        <div class="d-flex justify-content-end gap-2 mt-4">
+                            <button type="button" class="btn btn-outline-secondary">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa-solid fa-paper-plane me-1"></i>
+                                Save announcement
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT: PREVIEW / HELP -->
+        <div class="announcement-side">
+
+            <!-- PREVIEW CARD -->
+            <div class="ann-card mb-3">
+                <div class="ann-card-header">
+                    <h5 class="mb-0">Preview</h5>
+                </div>
+                <div class="ann-card-body ann-preview-card">
+
+                    <div class="ann-preview-top">
+                        <span class="ann-preview-type-pill" id="previewTypePill">Maintenance</span>
+                        <span class="ann-preview-status-chip" id="previewStatusChip">Draft</span>
+                    </div>
+
+                    <div class="ann-preview-title" id="previewTitle">
+                        Planned maintenance · Database cluster (TR1)
+                    </div>
+
+                    <div class="ann-preview-meta" id="previewMeta">
+                        <span class="me-2">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span id="previewPublishDate">Publish date not set</span>
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-users"></i>
+                            <span id="previewAudience">All customers</span>
+                        </span>
+                    </div>
+
+                    <p class="ann-preview-message" id="previewMessage">
+                        Use this area to explain the maintenance window or update in simple terms.
+                        Include timing, affected services and any expected impact.
+                    </p>
+
+                    <div class="ann-preview-pin" id="previewPinRow" style="display:none;">
+                        <i class="fa-solid fa-thumbtack me-1"></i>
+                        This announcement will be pinned.
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIPS CARD -->
+            <div class="ann-card mb-3">
+                <div class="ann-card-header">
+                    <h5 class="mb-0">Writing tips</h5>
+                </div>
+                <div class="ann-card-body">
+                    <ul class="small mb-0 ann-tips-list">
+                        <li>Start with what is happening and when.</li>
+                        <li>Specify which customers or environments are affected.</li>
+                        <li>Mention if there is expected downtime or degraded performance.</li>
+                        <li>Keep title short but descriptive.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const titleInput = document.getElementById("annTitleInput");
+            const messageInput = document.getElementById("annMessageInput");
+            const typeSelect = document.getElementById("annTypeSelect");
+            const statusSelect = document.getElementById("annStatusSelect");
+            const publishInput = document.getElementById("annPublishDate");
+            const audienceSelect = document.getElementById("annAudienceSelect");
+            const pinnedCheck = document.getElementById("annPinnedCheck");
+
+            const previewTitle = document.getElementById("previewTitle");
+            const previewMessage = document.getElementById("previewMessage");
+            const previewTypePill = document.getElementById("previewTypePill");
+            const previewStatusChip = document.getElementById("previewStatusChip");
+            const previewPublishDate = document.getElementById("previewPublishDate");
+            const previewAudience = document.getElementById("previewAudience");
+            const previewPinRow = document.getElementById("previewPinRow");
+
+            function updatePreview() {
+                // Title
+                previewTitle.textContent = titleInput.value.trim() !== ""
+                    ? titleInput.value
+                    : "Planned maintenance · Database cluster (TR1)";
+
+                // Message
+                previewMessage.textContent = messageInput.value.trim() !== ""
+                    ? messageInput.value
+                    : "Use this area to explain the maintenance window or update in simple terms. Include timing, affected services and any expected impact.";
+
+                // Type text
+                let typeText = "Maintenance";
+                switch (typeSelect.value) {
+                    case "system": typeText = "System"; break;
+                    case "maintenance": typeText = "Maintenance"; break;
+                    case "feature": typeText = "Feature"; break;
+                    case "info": typeText = "Info"; break;
+                }
+                previewTypePill.textContent = typeText;
+
+                // Status text
+                let statusText = "Draft";
+                switch (statusSelect.value) {
+                    case "draft": statusText = "Draft"; break;
+                    case "scheduled": statusText = "Scheduled"; break;
+                    case "active": statusText = "Active"; break;
+                }
+                previewStatusChip.textContent = statusText;
+
+                // Publish date
+                if (publishInput.value) {
+                    previewPublishDate.textContent = publishInput.value;
+                } else {
+                    previewPublishDate.textContent = "Publish date not set";
+                }
+
+                // Audience
+                previewAudience.textContent = audienceSelect.value;
+
+                // Pin
+                previewPinRow.style.display = pinnedCheck.checked ? "block" : "none";
+            }
+
+            titleInput.addEventListener("input", updatePreview);
+            messageInput.addEventListener("input", updatePreview);
+            typeSelect.addEventListener("change", updatePreview);
+            statusSelect.addEventListener("change", updatePreview);
+            publishInput.addEventListener("change", updatePreview);
+            audienceSelect.addEventListener("change", updatePreview);
+            pinnedCheck.addEventListener("change", updatePreview);
+
+            // first init
+            updatePreview();
+        });
+    </script>
+}

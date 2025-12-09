@@ -1,0 +1,455 @@
+﻿@{
+    ViewData["Title"] = "Monthly Report";
+}
+
+<div class="container-fluid mr-page">
+
+    <!-- HEADER -->
+    <div class="mr-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">Monthly Report</h2>
+            <p class="text-muted mb-0">
+                Key metrics, activity and financial indicators per month.
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+            <!-- YEAR -->
+            <div class="mr-filter-group">
+                <label class="form-label mb-0">Year</label>
+                <select class="form-select form-select-sm">
+                    <option>2024</option>
+                    <option selected>2025</option>
+                </select>
+            </div>
+
+            <!-- APPLICATION -->
+            <div class="mr-filter-group">
+                <label class="form-label mb-0">Application</label>
+                <select class="form-select form-select-sm">
+                    <option selected>All applications</option>
+                    <option>Customer Portal</option>
+                    <option>Version Manager</option>
+                    <option>Reporting</option>
+                </select>
+            </div>
+
+            <!-- ENV -->
+            <div class="mr-filter-group">
+                <label class="form-label mb-0">Environment</label>
+                <select class="form-select form-select-sm">
+                    <option selected>All</option>
+                    <option>Live</option>
+                    <option>Beta</option>
+                    <option>Alpha</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- LAYOUT -->
+    <div class="mr-layout">
+
+        <!-- LEFT SIDE -->
+        <div class="mr-left">
+
+            <!-- OVERVIEW KPIs -->
+            <div class="mr-card mb-3">
+                <div class="mr-card-header">
+                    <h5 class="mb-0">Monthly overview</h5>
+                    <small class="text-muted">
+                        High-level summary for the selected period.
+                    </small>
+                </div>
+                <div class="mr-card-body">
+                    <div class="mr-kpi-grid">
+
+                        <div class="mr-kpi-box">
+                            <div class="mr-kpi-label">Total deployments</div>
+                            <div class="mr-kpi-value">128</div>
+                            <div class="mr-kpi-sub">
+                                <span class="mr-kpi-pill up">
+                                    <i class="fa-solid fa-arrow-up"></i> +14% vs last month
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mr-kpi-box">
+                            <div class="mr-kpi-label">Active customers</div>
+                            <div class="mr-kpi-value">214</div>
+                            <div class="mr-kpi-sub">
+                                <span class="mr-kpi-pill neutral">
+                                    <i class="fa-solid fa-circle"></i> Stable
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mr-kpi-box">
+                            <div class="mr-kpi-label">Incidents</div>
+                            <div class="mr-kpi-value">6</div>
+                            <div class="mr-kpi-sub">
+                                <span class="mr-kpi-pill down">
+                                    <i class="fa-solid fa-arrow-down"></i> -25% vs last month
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVITY TREND -->
+            <div class="mr-card mb-3">
+                <div class="mr-card-header">
+                    <h5 class="mb-0">Activity trend</h5>
+                    <small class="text-muted">
+                        Deployments & activity per month (sample values).
+                    </small>
+                </div>
+                <div class="mr-card-body">
+
+                    <div class="mr-trend-grid">
+                        <div class="mr-trend-item" data-percent="64">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Jan</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="72">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Feb</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="81">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Mar</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="56">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Apr</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="69">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">May</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="88">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Jun</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="93">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Jul</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="77">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Aug</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="62">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Sep</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="58">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Oct</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="71">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Nov</div>
+                        </div>
+                        <div class="mr-trend-item" data-percent="84">
+                            <div class="mr-trend-bar">
+                                <div class="mr-trend-fill"></div>
+                            </div>
+                            <div class="mr-trend-label">Dec</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- MONTHLY SUMMARY TABLE -->
+            <div class="mr-card mb-3">
+                <div class="mr-card-header">
+                    <h5 class="mb-0">Monthly summary (sample data)</h5>
+                    <small class="text-muted">
+                        Deployments, incidents and uptime per month.
+                    </small>
+                </div>
+                <div class="mr-card-body">
+                    <div class="table-responsive">
+                        <table class="table mr-table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Deployments</th>
+                                    <th>Incidents</th>
+                                    <th>Uptime</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>September</td>
+                                    <td>93</td>
+                                    <td>8</td>
+                                    <td>99.3%</td>
+                                </tr>
+                                <tr>
+                                    <td>October</td>
+                                    <td>87</td>
+                                    <td>10</td>
+                                    <td>99.1%</td>
+                                </tr>
+                                <tr>
+                                    <td>November</td>
+                                    <td>102</td>
+                                    <td>7</td>
+                                    <td>99.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>December</td>
+                                    <td>128</td>
+                                    <td>6</td>
+                                    <td>99.7%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="mr-right">
+
+            <!-- REVENUE VS COST -->
+            <div class="mr-card mb-3">
+                <div class="mr-card-header">
+                    <h5 class="mb-0">Revenue vs cost</h5>
+                    <small class="text-muted">
+                        Simplified view for internal tracking (sample values).
+                    </small>
+                </div>
+                <div class="mr-card-body">
+
+                    <div class="mr-fin-row" data-revenue="120" data-cost="80">
+                        <div class="mr-fin-label">September</div>
+                        <div class="mr-fin-track">
+                            <div class="mr-fin-rev"></div>
+                            <div class="mr-fin-cost"></div>
+                        </div>
+                        <div class="mr-fin-values small">
+                            <span>Rev 120k</span> · <span>Cost 80k</span>
+                        </div>
+                    </div>
+
+                    <div class="mr-fin-row" data-revenue="135" data-cost="82">
+                        <div class="mr-fin-label">October</div>
+                        <div class="mr-fin-track">
+                            <div class="mr-fin-rev"></div>
+                            <div class="mr-fin-cost"></div>
+                        </div>
+                        <div class="mr-fin-values small">
+                            <span>Rev 135k</span> · <span>Cost 82k</span>
+                        </div>
+                    </div>
+
+                    <div class="mr-fin-row" data-revenue="148" data-cost="86">
+                        <div class="mr-fin-label">November</div>
+                        <div class="mr-fin-track">
+                            <div class="mr-fin-rev"></div>
+                            <div class="mr-fin-cost"></div>
+                        </div>
+                        <div class="mr-fin-values small">
+                            <span>Rev 148k</span> · <span>Cost 86k</span>
+                        </div>
+                    </div>
+
+                    <div class="mr-fin-row" data-revenue="159" data-cost="90">
+                        <div class="mr-fin-label">December</div>
+                        <div class="mr-fin-track">
+                            <div class="mr-fin-rev"></div>
+                            <div class="mr-fin-cost"></div>
+                        </div>
+                        <div class="mr-fin-values small">
+                            <span>Rev 159k</span> · <span>Cost 90k</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ENVIRONMENT USAGE -->
+            <div class="mr-card mb-3">
+                <div class="mr-card-header">
+                    <h5 class="mb-0">Environment usage</h5>
+                    <small class="text-muted">
+                        Share of deployments by environment.
+                    </small>
+                </div>
+                <div class="mr-card-body mr-env-body">
+
+                    <div class="mr-env-item">
+                        <div class="mr-env-circle" data-percent="68">
+                            <div class="mr-env-inner">
+                                <div class="mr-env-value">68%</div>
+                            </div>
+                        </div>
+                        <div class="mr-env-label">Live</div>
+                    </div>
+
+                    <div class="mr-env-item">
+                        <div class="mr-env-circle" data-percent="21">
+                            <div class="mr-env-inner">
+                                <div class="mr-env-value">21%</div>
+                            </div>
+                        </div>
+                        <div class="mr-env-label">Beta</div>
+                    </div>
+
+                    <div class="mr-env-item">
+                        <div class="mr-env-circle" data-percent="11">
+                            <div class="mr-env-inner">
+                                <div class="mr-env-value">11%</div>
+                            </div>
+                        </div>
+                        <div class="mr-env-label">Alpha</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RELEASE TIMELINE -->
+            <div class="mr-card mb-3">
+                <div class="mr-card-header">
+                    <h5 class="mb-0">Release timeline</h5>
+                    <small class="text-muted">
+                        Notable releases in recent months.
+                    </small>
+                </div>
+                <div class="mr-card-body">
+                    <ul class="mr-timeline mb-0">
+                        <li>
+                            <div class="mr-tl-dot live"></div>
+                            <div class="mr-tl-content">
+                                <div class="mr-tl-title">v3.4.0 – Live</div>
+                                <small>December 02, 2025 · New deployment pipeline, improved rollback safety.</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mr-tl-dot beta"></div>
+                            <div class="mr-tl-content">
+                                <div class="mr-tl-title">v3.3.0 – Beta</div>
+                                <small>November 18, 2025 · Beta version of bulk customer import.</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mr-tl-dot live"></div>
+                            <div class="mr-tl-content">
+                                <div class="mr-tl-title">v3.2.1 – Live</div>
+                                <small>October 09, 2025 · Minor fixes, stability improvements.</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mr-tl-dot alpha"></div>
+                            <div class="mr-tl-content">
+                                <div class="mr-tl-title">v3.2.0 – Alpha</div>
+                                <small>September 27, 2025 · Early access for new analytics widgets.</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* =========
+               TREND BARS
+            ===========*/
+            document.querySelectorAll(".mr-trend-item").forEach(item => {
+                const raw = item.getAttribute("data-percent") || "0";
+                const percent = Math.min(100, Math.max(0, parseInt(raw, 10) || 0));
+                const fill = item.querySelector(".mr-trend-fill");
+                if (!fill) return;
+
+                fill.style.height = percent + "%";
+
+                let cls = "mr-trend-good";
+                if (percent < 50) cls = "mr-trend-bad";
+                else if (percent < 75) cls = "mr-trend-mid";
+
+                fill.classList.add(cls);
+            });
+
+            /* =========
+               FINANCIAL BARS
+            ===========*/
+            document.querySelectorAll(".mr-fin-row").forEach(row => {
+                const rawR = row.getAttribute("data-revenue") || "0";
+                const rawC = row.getAttribute("data-cost") || "0";
+                let r = parseFloat(rawR) || 0;
+                let c = parseFloat(rawC) || 0;
+
+                const total = (r + c) || 1;
+                const rPercent = (r / total) * 100;
+                const cPercent = (c / total) * 100;
+
+                const revEl = row.querySelector(".mr-fin-rev");
+                const costEl = row.querySelector(".mr-fin-cost");
+
+                if (revEl) revEl.style.width = rPercent + "%";
+                if (costEl) costEl.style.width = cPercent + "%";
+            });
+
+            /* =========
+               ENV GAUGES
+            ===========*/
+            document.querySelectorAll(".mr-env-circle").forEach(circle => {
+                const raw = circle.getAttribute("data-percent") || "0";
+                const percent = Math.min(100, Math.max(0, parseInt(raw, 10) || 0));
+
+                let color = "#22c55e";
+                if (percent < 30) color = "#6366f1";      // alpha-ish mor
+                else if (percent < 60) color = "#f59e0b"; // beta-ish turuncu
+
+                const deg = (percent / 100) * 360;
+                circle.style.background = `conic-gradient(${color} ${deg}deg, #1f2937 0deg)`;
+
+                const valueEl = circle.querySelector(".mr-env-value");
+                if (valueEl) valueEl.textContent = percent + "%";
+            });
+
+        });
+    </script>
+}

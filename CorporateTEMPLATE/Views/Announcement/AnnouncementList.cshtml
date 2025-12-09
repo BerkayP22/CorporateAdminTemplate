@@ -1,0 +1,299 @@
+﻿@{
+    ViewData["Title"] = "Announcements";
+}
+
+<div class="container-fluid announcement-page">
+
+    <!-- HEADER -->
+    <div class="announcement-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">Announcements</h2>
+            <p class="text-muted mb-0">
+                System-wide messages, maintenance windows and feature updates.
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+            <!-- STATUS FILTER -->
+            <div class="ann-filter-group">
+                <label class="form-label mb-0" for="statusFilter">Status</label>
+                <select id="statusFilter" class="form-select form-select-sm">
+                    <option value="all" selected>All</option>
+                    <option value="active">Active</option>
+                    <option value="scheduled">Scheduled</option>
+                    <option value="expired">Expired</option>
+                    <option value="draft">Draft</option>
+                </select>
+            </div>
+
+            <!-- TYPE FILTER -->
+            <div class="ann-filter-group">
+                <label class="form-label mb-0" for="typeFilter">Type</label>
+                <select id="typeFilter" class="form-select form-select-sm">
+                    <option value="all" selected>All</option>
+                    <option value="system">System</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="feature">Feature</option>
+                    <option value="info">Info</option>
+                </select>
+            </div>
+
+            <!-- CREATE BUTTON -->
+            <a Asp-action="CreateAnnouncement" asp-controller="Announcement"
+                class="btn btn-primary btn-sm ann-create-btn">
+                <i class="fa-solid fa-plus me-1"></i>
+                Create announcement
+            </a>
+        </div>
+    </div>
+
+
+    <!-- LAYOUT -->
+    <div class="announcement-layout">
+
+        <!-- LEFT: LIST -->
+        <div class="announcement-main">
+
+            <div class="ann-card">
+                <div class="ann-card-header">
+                    <div>
+                        <h5 class="mb-0">Announcement list</h5>
+                        <small class="text-muted">Most recent first.</small>
+                    </div>
+                </div>
+
+                <div class="ann-card-body">
+                    <div class="table-responsive">
+                        <table class="table ann-table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Publish date</th>
+                                    <th>Visible until</th>
+                                    <th>Audience</th>
+                                    <th>Created by</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- ACTIVE SYSTEM ANNOUNCEMENT -->
+                                <tr class="ann-row"
+                                    data-status="active"
+                                    data-type="system">
+                                    <td>
+                                        <div class="ann-title">
+                                            <span class="ann-title-text">
+                                                Platform performance improvements deployed
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="ann-type-pill ann-type-system">System</span>
+                                    </td>
+                                    <td>
+                                        <span class="ann-status-chip ann-status-active">Active</span>
+                                    </td>
+                                    <td>2025-12-01</td>
+                                    <td>2025-12-10</td>
+                                    <td>All customers</td>
+                                    <td>Öykü B.</td>
+                                </tr>
+
+                                <!-- SCHEDULED MAINTENANCE -->
+                                <tr class="ann-row"
+                                    data-status="scheduled"
+                                    data-type="maintenance">
+                                    <td>
+                                        <div class="ann-title">
+                                            <span class="ann-title-text">
+                                                Planned maintenance · Database cluster (TR1)
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="ann-type-pill ann-type-maintenance">Maintenance</span>
+                                    </td>
+                                    <td>
+                                        <span class="ann-status-chip ann-status-scheduled">Scheduled</span>
+                                    </td>
+                                    <td>2025-12-05</td>
+                                    <td>2025-12-06</td>
+                                    <td>EMEA tenants</td>
+                                    <td>Burak K.</td>
+                                </tr>
+
+                                <!-- FEATURE ANNOUNCEMENT -->
+                                <tr class="ann-row"
+                                    data-status="active"
+                                    data-type="feature">
+                                    <td>
+                                        <div class="ann-title">
+                                            <span class="ann-title-text">
+                                                New “Version History” view now available
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="ann-type-pill ann-type-feature">Feature</span>
+                                    </td>
+                                    <td>
+                                        <span class="ann-status-chip ann-status-active">Active</span>
+                                    </td>
+                                    <td>2025-11-28</td>
+                                    <td>2026-01-31</td>
+                                    <td>All admin users</td>
+                                    <td>Eda H.</td>
+                                </tr>
+
+                                <!-- INFO ANNOUNCEMENT -->
+                                <tr class="ann-row"
+                                    data-status="expired"
+                                    data-type="info">
+                                    <td>
+                                        <div class="ann-title">
+                                            <span class="ann-title-text">
+                                                New pricing page and documentation links
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="ann-type-pill ann-type-info">Info</span>
+                                    </td>
+                                    <td>
+                                        <span class="ann-status-chip ann-status-expired">Expired</span>
+                                    </td>
+                                    <td>2025-09-15</td>
+                                    <td>2025-10-15</td>
+                                    <td>Partners</td>
+                                    <td>Marketing</td>
+                                </tr>
+
+                                <!-- DRAFT FEATURE -->
+                                <tr class="ann-row"
+                                    data-status="draft"
+                                    data-type="feature">
+                                    <td>
+                                        <div class="ann-title">
+                                            <span class="ann-title-text">
+                                                Early access program · Log Analyzer
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="ann-type-pill ann-type-feature">Feature</span>
+                                    </td>
+                                    <td>
+                                        <span class="ann-status-chip ann-status-draft">Draft</span>
+                                    </td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>Selected beta customers</td>
+                                    <td>Product Team</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT: SIDE PANEL -->
+        <div class="announcement-side">
+
+            <!-- STATS CARD -->
+            <div class="ann-card mb-3">
+                <div class="ann-card-header">
+                    <h5 class="mb-0">Announcement stats</h5>
+                </div>
+                <div class="ann-card-body">
+                    <ul class="ann-stat-list">
+                        <li>
+                            <span>Active</span>
+                            <span>2</span>
+                        </li>
+                        <li>
+                            <span>Scheduled</span>
+                            <span>1</span>
+                        </li>
+                        <li>
+                            <span>Expired</span>
+                            <span>1</span>
+                        </li>
+                        <li>
+                            <span>Drafts</span>
+                            <span>1</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PINNED ANNOUNCEMENT -->
+            <div class="ann-card mb-3">
+                <div class="ann-card-header">
+                    <h5 class="mb-0">Pinned announcement</h5>
+                </div>
+                <div class="ann-card-body ann-pinned">
+                    <div class="ann-pinned-label">
+                        <i class="fa-solid fa-thumbtack me-1"></i>
+                        Currently pinned
+                    </div>
+                    <div class="ann-pinned-title">
+                        Planned maintenance · Database cluster (TR1)
+                    </div>
+                    <div class="ann-pinned-meta text-muted">
+                        2025-12-05 · Affects EMEA tenants only.
+                    </div>
+                    <button class="btn btn-outline-secondary btn-sm w-100 mt-2">
+                        <i class="fa-solid fa-gear me-1"></i>
+                        Manage pinned announcement
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const statusFilter = document.getElementById("statusFilter");
+            const typeFilter = document.getElementById("typeFilter");
+            const rows = document.querySelectorAll(".ann-row");
+
+            function applyFilters() {
+                const statusVal = statusFilter.value;
+                const typeVal = typeFilter.value;
+
+                rows.forEach(row => {
+                    const rowStatus = row.getAttribute("data-status");
+                    const rowType = row.getAttribute("data-type");
+
+                    const statusMatch = (statusVal === "all" || statusVal === rowStatus);
+                    const typeMatch = (typeVal === "all" || typeVal === rowType);
+
+                    if (statusMatch && typeMatch) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                });
+            }
+
+            statusFilter.addEventListener("change", applyFilters);
+            typeFilter.addEventListener("change", applyFilters);
+
+            // ilk yüklemede
+            applyFilters();
+        });
+    </script>
+}

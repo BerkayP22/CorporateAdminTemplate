@@ -1,0 +1,222 @@
+﻿@{
+    ViewData["Title"] = "Customer List";
+}
+
+<div class="container-fluid customer-page">
+
+    <!-- HEADER -->
+    <div class="customer-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">Customers</h2>
+            <p class="text-muted mb-0">Manage your company accounts, contacts and statuses.</p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+            <!-- SEARCH -->
+            <div class="customer-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="form-control" placeholder="Search companies..." />
+            </div>
+
+            <!-- FILTER -->
+            <select class="form-select customer-filter">
+                <option selected>All statuses</option>
+                <option>Active</option>
+                <option>Trial</option>
+                <option>Blocked</option>
+            </select>
+
+            <!-- ADD CUSTOMER -->
+            <button class="btn btn-add-customer">
+                <i class="fa-solid fa-building-circle-plus me-2"></i>
+                Add Customer
+            </button>
+        </div>
+    </div>
+
+
+    <!-- CARD WRAPPER -->
+    <div class="customer-wrapper">
+
+        <div class="customer-card shadow-sm">
+            <div class="customer-card-body">
+
+                <table class="table customer-table mb-0">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Contact</th>
+                            <th>Industry</th>
+                            <th>Country</th>
+                            <th>Status</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <!-- ROW 1 -->
+                        <tr>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <span class="cust-company-name">St Solutions A.Ş.</span>
+                                    <span class="cust-company-meta">
+                                        <span class="cust-code">CUST-1023</span>
+                                        <span class="cust-tier tier-gold">Gold Tier</span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cust-contact">
+                                    <div class="cust-contact-name">Mehmet Yılmaz</div>
+                                    <div class="cust-contact-extra">
+                                        <i class="fa-regular fa-envelope"></i> mehmet@stsolutions.com
+                                    </div>
+                                </div>
+                            </td>
+                            <td>FinTech</td>
+                            <td>Türkiye</td>
+                            <td>
+                                <span class="cust-status-badge cust-status-active">Active</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm cust-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View details">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit customer">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete customer">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- ROW 2 -->
+                        <tr>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <span class="cust-company-name">Globex Corporation</span>
+                                    <span class="cust-company-meta">
+                                        <span class="cust-code">CUST-2098</span>
+                                        <span class="cust-tier tier-silver">Silver Tier</span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cust-contact">
+                                    <div class="cust-contact-name">Sarah Johnson</div>
+                                    <div class="cust-contact-extra">
+                                        <i class="fa-regular fa-envelope"></i> sarah.j@globex.com
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Retail</td>
+                            <td>United Kingdom</td>
+                            <td>
+                                <span class="cust-status-badge cust-status-trial">Trial</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm cust-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View details">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit customer">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete customer">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- ROW 3 -->
+                        <tr>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <span class="cust-company-name">Northwind Traders</span>
+                                    <span class="cust-company-meta">
+                                        <span class="cust-code">CUST-3142</span>
+                                        <span class="cust-tier tier-bronze">Bronze Tier</span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cust-contact">
+                                    <div class="cust-contact-name">Ayşe Demir</div>
+                                    <div class="cust-contact-extra">
+                                        <i class="fa-regular fa-envelope"></i> ayse.demir@northwind.com
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Logistics</td>
+                            <td>Germany</td>
+                            <td>
+                                <span class="cust-status-badge cust-status-blocked">Blocked</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm cust-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View details">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit customer">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete customer">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- ROW 4 -->
+                        <tr>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <span class="cust-company-name">Acme Technologies</span>
+                                    <span class="cust-company-meta">
+                                        <span class="cust-code">CUST-4011</span>
+                                        <span class="cust-tier tier-gold">Gold Tier</span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cust-contact">
+                                    <div class="cust-contact-name">John Carter</div>
+                                    <div class="cust-contact-extra">
+                                        <i class="fa-regular fa-envelope"></i> j.carter@acme.com
+                                    </div>
+                                </div>
+                            </td>
+                            <td>SaaS</td>
+                            <td>USA</td>
+                            <td>
+                                <span class="cust-status-badge cust-status-active">Active</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm cust-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View details">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit customer">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete customer">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

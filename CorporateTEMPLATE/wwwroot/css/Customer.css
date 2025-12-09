@@ -1,0 +1,1215 @@
+﻿/* ==========================
+   CUSTOMER LIST - BASE
+========================== */
+
+.customer-page {
+    padding: 20px;
+}
+
+.customer-header h2 {
+    font-size: 1.35rem;
+}
+
+/* WRAPPER */
+.customer-wrapper {
+    width: 100%;
+}
+
+/* CARD */
+.customer-card {
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.customer-card-body {
+    padding: 0;
+    overflow-x: auto; /* responsive: küçük ekranda yatay scroll */
+}
+
+/* SEARCH BAR */
+.customer-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+}
+
+    .customer-search i {
+        color: #9ca3af;
+        font-size: 0.9rem;
+    }
+
+    .customer-search .form-control {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        font-size: 0.9rem;
+        padding: 0;
+    }
+
+        .customer-search .form-control:focus {
+            box-shadow: none;
+        }
+
+/* FILTER */
+.customer-filter {
+    width: 150px;
+    font-size: 0.85rem;
+}
+
+/* ADD CUSTOMER BUTTON */
+.btn-add-customer {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border: none !important;
+    color: #ffffff;
+    padding: 9px 16px;
+    font-weight: 600;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.15s ease;
+}
+
+    .btn-add-customer:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(22, 163, 74, 0.35);
+        filter: brightness(1.03);
+    }
+
+/* ==========================
+   TABLE LAYOUT
+========================== */
+
+.customer-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 900px; /* küçük ekran scroll için */
+}
+
+    /* HEAD */
+    .customer-table thead tr {
+        background-color: #f3f4f6;
+    }
+
+    .customer-table thead th {
+        padding: 10px 14px;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #6b7280;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+        /* Sütun genişlikleri */
+        .customer-table thead th:nth-child(1),
+        .customer-table tbody td:nth-child(1) {
+            width: 28%;
+        }
+
+        .customer-table thead th:nth-child(2),
+        .customer-table tbody td:nth-child(2) {
+            width: 26%;
+        }
+
+        .customer-table thead th:nth-child(3),
+        .customer-table tbody td:nth-child(3) {
+            width: 14%;
+        }
+
+        .customer-table thead th:nth-child(4),
+        .customer-table tbody td:nth-child(4) {
+            width: 12%;
+        }
+
+        .customer-table thead th:nth-child(5),
+        .customer-table tbody td:nth-child(5) {
+            width: 10%;
+        }
+
+        .customer-table thead th:nth-child(6),
+        .customer-table tbody td:nth-child(6) {
+            width: 10%;
+        }
+
+    /* BODY */
+    .customer-table tbody td {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #e5e7eb;
+        vertical-align: middle;
+    }
+
+    /* Satır hover – solda renkli border varmış gibi efekt */
+    .customer-table tbody tr {
+        transition: background-color 0.12s ease, box-shadow 0.12s ease;
+    }
+
+        .customer-table tbody tr:hover {
+            background-color: #f9fafb;
+            box-shadow: inset 3px 0 0 #22c55e;
+        }
+
+/* ==========================
+   COMPANY & CONTACT
+========================== */
+
+.cust-company-name {
+    font-weight: 600;
+    color: #111827;
+}
+
+.cust-company-meta {
+    margin-top: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.78rem;
+}
+
+.cust-code {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+.cust-tier {
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.tier-gold {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.tier-silver {
+    background: #e5e7eb;
+    color: #4b5563;
+}
+
+.tier-bronze {
+    background: #ffedd5;
+    color: #c05621;
+}
+
+/* CONTACT */
+.cust-contact-name {
+    font-weight: 500;
+    color: #111827;
+}
+
+.cust-contact-extra {
+    font-size: 0.8rem;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 2px;
+}
+
+/* STATUS BADGES */
+.cust-status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.cust-status-active {
+    background: rgba(34, 197, 94, 0.12);
+    color: #15803d;
+}
+
+.cust-status-trial {
+    background: rgba(234, 179, 8, 0.12);
+    color: #92400e;
+}
+
+.cust-status-blocked {
+    background: rgba(248, 113, 113, 0.12);
+    color: #b91c1c;
+}
+
+/* ACTION BUTTONS */
+.cust-actions .btn {
+    border-radius: 8px;
+}
+
+.cust-actions .btn-outline-info {
+    border-color: #0ea5e9;
+    color: #0284c7;
+}
+
+    .cust-actions .btn-outline-info:hover {
+        background: #0ea5e9;
+        color: #ffffff;
+    }
+
+.cust-actions .btn-outline-primary {
+    border-color: #3b82f6;
+    color: #1d4ed8;
+}
+
+    .cust-actions .btn-outline-primary:hover {
+        background: #3b82f6;
+        color: #ffffff;
+    }
+
+.cust-actions .btn-outline-danger {
+    border-color: #ef4444;
+    color: #b91c1c;
+}
+
+    .cust-actions .btn-outline-danger:hover {
+        background: #ef4444;
+        color: #ffffff;
+    }
+
+/* ==========================
+   DARK MODE (IMPORTANT OVERRIDES)
+========================== */
+
+body.dark .customer-card {
+    background: #020617 !important;
+    border-color: #1e293b !important;
+}
+
+/* Tablonun içini full karartalım */
+body.dark .customer-table,
+body.dark .customer-table thead,
+body.dark .customer-table tbody,
+body.dark .customer-table tr,
+body.dark .customer-table th,
+body.dark .customer-table td {
+    background-color: #020617 !important;
+}
+
+    /* Head */
+    body.dark .customer-table thead tr {
+        background-color: #0b1120 !important;
+    }
+
+    body.dark .customer-table thead th {
+        color: #9ca3af !important;
+        border-bottom-color: #1f2937 !important;
+    }
+
+    /* Body */
+    body.dark .customer-table tbody tr {
+        border-bottom: 1px solid #1f2937 !important;
+    }
+
+    body.dark .customer-table tbody td {
+        color: #e5e7eb !important;
+    }
+
+    /* Hover efekti */
+    body.dark .customer-table tbody tr:hover {
+        background-color: #020617 !important;
+        box-shadow: inset 3px 0 0 #22c55e !important;
+    }
+
+/* Search dark */
+body.dark .customer-search {
+    background: #020617 !important;
+    border-color: #1f2937 !important;
+}
+
+    body.dark .customer-search .form-control {
+        color: #e5e7eb !important;
+    }
+
+    body.dark .customer-search i {
+        color: #94a3b8 !important;
+    }
+
+/* Filter dark */
+body.dark .customer-filter {
+    background-color: #020617 !important;
+    border-color: #1f2937 !important;
+    color: #e5e7eb !important;
+}
+
+/* Company & contact dark */
+body.dark .cust-company-name,
+body.dark .cust-contact-name {
+    color: #e5e7eb !important;
+}
+
+body.dark .cust-contact-extra {
+    color: #9ca3af !important;
+}
+
+/* Tier & code dark */
+body.dark .cust-code {
+    background: #111827 !important;
+    color: #c7d2fe !important;
+}
+
+body.dark .tier-gold {
+    background: rgba(234, 179, 8, 0.2) !important;
+    color: #facc15 !important;
+}
+
+body.dark .tier-silver {
+    background: rgba(148, 163, 184, 0.2) !important;
+    color: #e5e7eb !important;
+}
+
+body.dark .tier-bronze {
+    background: rgba(249, 115, 22, 0.2) !important;
+    color: #fed7aa !important;
+}
+
+/* Status dark */
+body.dark .cust-status-active {
+    background: rgba(34, 197, 94, 0.22) !important;
+    color: #bbf7d0 !important;
+}
+
+body.dark .cust-status-trial {
+    background: rgba(234, 179, 8, 0.22) !important;
+    color: #fee2b3 !important;
+}
+
+body.dark .cust-status-blocked {
+    background: rgba(248, 113, 113, 0.22) !important;
+    color: #fecaca !important;
+}
+
+/* Actions dark */
+body.dark .cust-actions .btn-outline-info {
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
+}
+
+body.dark .cust-actions .btn-outline-primary {
+    border-color: #60a5fa !important;
+    color: #60a5fa !important;
+}
+
+body.dark .cust-actions .btn-outline-danger {
+    border-color: #f87171 !important;
+    color: #f87171 !important;
+}
+
+body.dark .cust-actions .btn-outline-info:hover {
+    background: #38bdf8 !important;
+    color: #020617 !important;
+}
+
+body.dark .cust-actions .btn-outline-primary:hover {
+    background: #60a5fa !important;
+    color: #020617 !important;
+}
+
+body.dark .cust-actions .btn-outline-danger:hover {
+    background: #f87171 !important;
+    color: #020617 !important;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 992px) {
+    .customer-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .customer-search {
+        width: 100%;
+    }
+
+    .btn-add-customer {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .customer-filter {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .customer-page {
+        padding: 12px;
+    }
+}
+
+
+
+/* ==========================
+   CUSTOMER APPLICATIONS TABLE
+========================== */
+
+.customer-app-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 900px;
+}
+
+    /* Head */
+    .customer-app-table thead tr {
+        background-color: #eff1f5;
+    }
+
+    .customer-app-table thead th {
+        padding: 10px 14px;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #6b7280;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+        /* Sütun genişlikleri */
+        .customer-app-table thead th:nth-child(1),
+        .customer-app-table tbody td:nth-child(1) {
+            width: 20%;
+        }
+
+        .customer-app-table thead th:nth-child(2),
+        .customer-app-table tbody td:nth-child(2) {
+            width: 25%;
+        }
+
+        .customer-app-table thead th:nth-child(3),
+        .customer-app-table tbody td:nth-child(3) {
+            width: 10%;
+        }
+
+        .customer-app-table thead th:nth-child(4),
+        .customer-app-table tbody td:nth-child(4) {
+            width: 15%;
+        }
+
+        .customer-app-table thead th:nth-child(5),
+        .customer-app-table tbody td:nth-child(5) {
+            width: 18%;
+        }
+
+        .customer-app-table thead th:nth-child(6),
+        .customer-app-table tbody td:nth-child(6) {
+            width: 7%;
+        }
+
+        .customer-app-table thead th:nth-child(7),
+        .customer-app-table tbody td:nth-child(7) {
+            width: 5%;
+        }
+
+    /* Body */
+    .customer-app-table tbody td {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #e5e7eb;
+        vertical-align: middle;
+    }
+
+    .customer-app-table tbody tr {
+        transition: background-color 0.12s ease, box-shadow 0.12s ease;
+    }
+
+        .customer-app-table tbody tr:hover {
+            background-color: #f9fafb;
+            box-shadow: inset 3px 0 0 #3b82f6;
+        }
+
+/* Company block */
+.cust-company-block .cust-company-name {
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Uygulama listesi */
+.cust-app-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cust-app-item {
+    padding: 7px 9px;
+    border-radius: 10px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+}
+
+.cust-app-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #111827;
+}
+
+.cust-app-meta {
+    font-size: 0.78rem;
+    color: #6b7280;
+}
+
+/* Since & activity alanları */
+.cust-since {
+    font-weight: 500;
+    color: #111827;
+}
+
+.cust-since-sub {
+    margin-top: 2px;
+}
+
+.cust-activity-main {
+    font-weight: 500;
+    color: #111827;
+}
+
+.cust-activity-sub {
+    margin-top: 2px;
+}
+
+/* Feedback chip */
+.feedback-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    border: 1px solid transparent;
+    background: #f9fafb;
+    color: #374151;
+}
+
+    .feedback-chip i {
+        font-size: 0.9rem;
+    }
+
+/* Feedback duruma göre renkler */
+.feedback-positive {
+    border-color: #22c55e;
+    background: rgba(34, 197, 94, 0.08);
+    color: #15803d;
+}
+
+.feedback-neutral {
+    border-color: #eab308;
+    background: rgba(234, 179, 8, 0.08);
+    color: #92400e;
+}
+
+.feedback-negative {
+    border-color: #ef4444;
+    background: rgba(248, 113, 113, 0.08);
+    color: #b91c1c;
+}
+
+/* Health badge */
+.health-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.health-healthy {
+    background: rgba(34, 197, 94, 0.12);
+    color: #15803d;
+}
+
+.health-watch {
+    background: rgba(234, 179, 8, 0.12);
+    color: #92400e;
+}
+
+.health-danger {
+    background: rgba(248, 113, 113, 0.12);
+    color: #b91c1c;
+}
+
+/* ==========================
+   DARK MODE - CUSTOMER APPS
+========================== */
+
+body.dark .customer-app-table,
+body.dark .customer-app-table thead,
+body.dark .customer-app-table tbody,
+body.dark .customer-app-table tr,
+body.dark .customer-app-table th,
+body.dark .customer-app-table td {
+    background-color: #020617 !important;
+}
+
+    body.dark .customer-app-table thead tr {
+        background-color: #0b1120 !important;
+    }
+
+    body.dark .customer-app-table thead th {
+        color: #9ca3af !important;
+        border-bottom-color: #1f2937 !important;
+    }
+
+    body.dark .customer-app-table tbody tr {
+        border-bottom: 1px solid #1f2937 !important;
+    }
+
+    body.dark .customer-app-table tbody td {
+        color: #e5e7eb !important;
+    }
+
+    /* Hover */
+    body.dark .customer-app-table tbody tr:hover {
+        background-color: #020617 !important;
+        box-shadow: inset 3px 0 0 #3b82f6 !important;
+    }
+
+/* App item dark */
+body.dark .cust-app-item {
+    background: #020617 !important;
+    border-color: #1f2937 !important;
+}
+
+body.dark .cust-app-name {
+    color: #e5e7eb !important;
+}
+
+body.dark .cust-app-meta {
+    color: #9ca3af !important;
+}
+
+/* Since & activity dark */
+body.dark .cust-since,
+body.dark .cust-activity-main {
+    color: #e5e7eb !important;
+}
+
+body.dark .cust-since-sub,
+body.dark .cust-activity-sub {
+    color: #9ca3af !important;
+}
+
+/* Feedback chips dark */
+body.dark .feedback-chip {
+    background: #020617 !important;
+    border-color: #1f2937 !important;
+    color: #e5e7eb !important;
+}
+
+body.dark .feedback-positive {
+    border-color: #22c55e !important;
+    background: rgba(22, 163, 74, 0.25) !important;
+    color: #bbf7d0 !important;
+}
+
+body.dark .feedback-neutral {
+    border-color: #eab308 !important;
+    background: rgba(234, 179, 8, 0.25) !important;
+    color: #fef9c3 !important;
+}
+
+body.dark .feedback-negative {
+    border-color: #ef4444 !important;
+    background: rgba(248, 113, 113, 0.25) !important;
+    color: #fecaca !important;
+}
+
+/* Health badge dark */
+body.dark .health-healthy {
+    background: rgba(34, 197, 94, 0.22) !important;
+    color: #bbf7d0 !important;
+}
+
+body.dark .health-watch {
+    background: rgba(234, 179, 8, 0.22) !important;
+    color: #fee2b3 !important;
+}
+
+body.dark .health-danger {
+    background: rgba(248, 113, 113, 0.22) !important;
+    color: #fecaca !important;
+}
+
+
+
+/* ==========================
+   CUSTOMER DETAIL PAGE
+========================== */
+
+.customer-detail-page {
+    padding: 20px;
+}
+
+/* Layout: left / right columns */
+.customer-detail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+    gap: 18px;
+}
+
+.customer-detail-main,
+.customer-detail-side {
+    min-width: 0;
+}
+
+/* Cards */
+.cust-detail-card {
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.cust-detail-card-body {
+    padding: 16px 18px;
+}
+
+.cust-detail-card-header {
+    padding: 12px 18px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+    .cust-detail-card-header h5 {
+        font-size: 0.98rem;
+    }
+
+/* Big avatar */
+.cust-avatar-lg {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #111827;
+}
+
+/* Company name large */
+.cust-company-name-lg {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.cust-company-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+/* Small badges */
+.cust-badge {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+/* Metrics grid */
+.cust-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px 12px;
+    min-width: 260px;
+}
+
+.cust-metric-item .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+}
+
+.cust-metric-item .value {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #111827;
+}
+
+.cust-metric-item .hint {
+    font-size: 0.78rem;
+}
+
+/* App panels */
+.cust-app-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+}
+
+.cust-app-panel {
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 10px 12px;
+    background: #f9fafb;
+}
+
+.cust-app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.cust-app-name {
+    font-weight: 600;
+    font-size: 0.94rem;
+    color: #111827;
+}
+
+.cust-app-sub {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.cust-app-body .app-stat .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+}
+
+.cust-app-body .app-stat .value {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.cust-app-body .app-stat .hint {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+/* Timeline (recent interactions) */
+.cust-timeline-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cust-timeline-item {
+    position: relative;
+    padding-left: 22px;
+    padding-bottom: 14px;
+    border-left: 1px solid #e5e7eb;
+    margin-left: 6px;
+}
+
+    .cust-timeline-item:last-child {
+        padding-bottom: 0;
+    }
+
+    .cust-timeline-item .timeline-dot {
+        position: absolute;
+        left: -4px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        border: 2px solid #ffffff;
+        background: #9ca3af;
+    }
+
+    .cust-timeline-item.positive .timeline-dot {
+        background: #22c55e;
+    }
+
+    .cust-timeline-item.neutral .timeline-dot {
+        background: #eab308;
+    }
+
+    .cust-timeline-item.negative .timeline-dot {
+        background: #ef4444;
+    }
+
+.timeline-content {
+    padding-bottom: 12px;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+.timeline-title {
+    color: #111827;
+}
+
+.timeline-date {
+    color: #6b7280;
+    font-size: 0.8rem;
+}
+
+.timeline-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 3px;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+    .timeline-meta i {
+        margin-right: 4px;
+    }
+
+.timeline-text {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 0.86rem;
+    color: #374151;
+}
+
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.timeline-tag {
+    font-size: 0.72rem;
+    padding: 3px 7px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+    .timeline-tag.tag-success {
+        background: rgba(34, 197, 94, 0.15);
+        color: #15803d;
+    }
+
+    .timeline-tag.tag-feature {
+        background: rgba(59, 130, 246, 0.15);
+        color: #1d4ed8;
+    }
+
+    .timeline-tag.tag-incident {
+        background: rgba(234, 179, 8, 0.18);
+        color: #92400e;
+    }
+
+    .timeline-tag.tag-performance {
+        background: rgba(59, 130, 246, 0.15);
+        color: #1d4ed8;
+    }
+
+    .timeline-tag.tag-critical {
+        background: rgba(248, 113, 113, 0.2);
+        color: #b91c1c;
+    }
+
+    .timeline-tag.tag-sla {
+        background: rgba(56, 189, 248, 0.18);
+        color: #0369a1;
+    }
+
+/* Account activity */
+.activity-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+}
+
+.activity-stat .value {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Sidebar: contact */
+.contact-block .contact-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #111827;
+}
+
+.contact-block .contact-role {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.contact-info > div {
+    font-size: 0.85rem;
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.contact-info i {
+    width: 14px;
+    text-align: center;
+}
+
+.contact-actions {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Sidebar: account metrics */
+.account-metrics-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+}
+
+    .account-metrics-list li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+        gap: 8px;
+    }
+
+        .account-metrics-list li span:first-child {
+            color: #6b7280;
+        }
+
+/* Notes */
+.notes-text {
+    font-size: 0.86rem;
+    color: #374151;
+    margin-bottom: 10px;
+}
+
+/* ==========================
+   DARK MODE - CUSTOMER DETAIL
+========================== */
+
+body.dark .cust-detail-card {
+    background: #020617 !important;
+    border-color: #1e293b !important;
+}
+
+body.dark .cust-detail-card-body {
+    color: #e5e7eb !important;
+}
+
+body.dark .cust-avatar-lg {
+    background: #111827 !important;
+    color: #e5e7eb !important;
+}
+
+body.dark .cust-company-name-lg {
+    color: #e5e7eb !important;
+}
+
+body.dark .cust-badge {
+    background: #111827 !important;
+    color: #9ca3af !important;
+}
+
+/* Metrics */
+body.dark .cust-metric-item .label {
+    color: #9ca3af !important;
+}
+
+body.dark .cust-metric-item .value {
+    color: #e5e7eb !important;
+}
+
+/* App panels */
+body.dark .cust-app-panel {
+    background: #020617 !important;
+    border-color: #1f2937 !important;
+}
+
+body.dark .cust-app-name {
+    color: #e5e7eb !important;
+}
+
+body.dark .cust-app-sub,
+body.dark .cust-app-body .app-stat .label,
+body.dark .cust-app-body .app-stat .hint {
+    color: #9ca3af !important;
+}
+
+/* Timeline */
+body.dark .cust-timeline-item {
+    border-left-color: #1f2937 !important;
+}
+
+body.dark .timeline-title {
+    color: #e5e7eb !important;
+}
+
+body.dark .timeline-date,
+body.dark .timeline-meta,
+body.dark .timeline-text {
+    color: #9ca3af !important;
+}
+
+body.dark .timeline-tag {
+    background: #111827 !important;
+    color: #e5e7eb !important;
+}
+
+/* Contact / side */
+body.dark .contact-block .contact-name {
+    color: #e5e7eb !important;
+}
+
+body.dark .contact-info > div {
+    color: #9ca3af !important;
+}
+
+/* Notes */
+body.dark .notes-text {
+    color: #e5e7eb !important;
+}
+
+/* ==========================
+   RESPONSIVE - CUSTOMER DETAIL
+========================== */
+
+@media (max-width: 992px) {
+    .customer-detail-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cust-metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .customer-detail-page {
+        padding: 12px;
+    }
+
+    .cust-detail-card-body {
+        padding: 14px;
+    }
+
+    .cust-metrics-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

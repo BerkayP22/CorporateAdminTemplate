@@ -1,0 +1,332 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="dashboard-layout">
+
+    <!-- SOL TARAF: ANA DASHBOARD İÇERİĞİ -->
+    <div class="dashboard-main">
+        <div class="container-fluid">
+
+            <!-- PAGE HEADER -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="mb-0">Dashboard</h2>
+                    <small class="text-muted">Overview of your system statistics</small>
+                </div>
+                <button class="btn btn-primary btn-sm">
+                    <i class="fa-solid fa-download me-1"></i>
+                    Export Report
+                </button>
+            </div>
+
+            <!-- KPI CARDS -->
+            <div class="row g-3 mb-4">
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="text-muted small">Total Users</span>
+                                <i class="fa-solid fa-users text-primary"></i>
+                            </div>
+                            <h4 class="mb-0">1,248</h4>
+                            <small class="text-success">
+                                <i class="fa-solid fa-arrow-up"></i> +12% this month
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="text-muted small">Active Sessions</span>
+                                <i class="fa-solid fa-signal text-success"></i>
+                            </div>
+                            <h4 class="mb-0">382</h4>
+                            <small class="text-muted">
+                                Live users right now
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="text-muted small">New Customers</span>
+                                <i class="fa-solid fa-user-plus text-info"></i>
+                            </div>
+                            <h4 class="mb-0">57</h4>
+                            <small class="text-success">
+                                <i class="fa-solid fa-arrow-up"></i> +8% vs last week
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="text-muted small">System Health</span>
+                                <i class="fa-solid fa-heart-pulse text-danger"></i>
+                            </div>
+                            <h4 class="mb-0">99.2%</h4>
+                            <small class="text-muted">
+                                Uptime (last 24h)
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- EXTRA ROW: QUICK + CHART + STATUS -->
+            <div class="row g-3">
+
+                <!-- QUICK ACTIONS -->
+                <div class="col-xl-3 col-lg-4">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white border-0">
+                            <span class="fw-semibold">Quick Actions</span>
+                        </div>
+                        <div class="card-body d-grid gap-2">
+                            <button class="btn btn-outline-primary btn-sm text-start">
+                                <i class="fa-solid fa-user-plus me-2"></i>Create new user
+                            </button>
+                            <button class="btn btn-outline-secondary btn-sm text-start">
+                                <i class="fa-solid fa-code-branch me-2"></i>Create new version
+                            </button>
+                            <button class="btn btn-outline-info btn-sm text-start">
+                                <i class="fa-solid fa-bullhorn me-2"></i>Post announcement
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm text-start">
+                                <i class="fa-solid fa-database me-2"></i>Run backup
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHART -->
+                <div class="col-xl-6 col-lg-8">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                            <span class="fw-semibold">Activity Overview</span>
+                            <small class="text-muted">Last 7 days</small>
+                        </div>
+                        <div class="card-body">
+                           
+                            <div class="chart-placeholder border rounded-3 d-flex align-items-center justify-content-center">
+                                <span class="text-muted">
+                                    Chart placeholder (coming soon)
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SYSTEM STATUS -->
+                <div class="col-xl-3 col-lg-4">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white border-0">
+                            <span class="fw-semibold">System Status</span>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-0 small">
+                                <li class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>API Server</span>
+                                    <span class="badge bg-success">Online</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>Database</span>
+                                    <span class="badge bg-success">Healthy</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>Background Jobs</span>
+                                    <span class="badge bg-warning text-dark">Delayed</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>Email Service</span>
+                                    <span class="badge bg-success">Operational</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <span>Storage</span>
+                                    <span class="badge bg-info text-dark">72% used</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- RECENT TABLE -->
+            <div class="row g-3 mt-3">
+                <div class="col-12">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                            <span class="fw-semibold">Recent Activity</span>
+                            <a href="#" class="small text-decoration-none">View all</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <table class="table mb-0 align-middle recent-activity-table">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Action</th>
+                                        <th class="text-end">Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>john.doe</td>
+                                        <td>Created new version</td>
+                                        <td class="text-end text-muted small">2 min ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td>admin</td>
+                                        <td>Updated customer details</td>
+                                        <td class="text-end text-muted small">15 min ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sarah.k</td>
+                                        <td>Added announcement</td>
+                                        <td class="text-end text-muted small">1 hour ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td>system</td>
+                                        <td>Scheduled backup completed</td>
+                                        <td class="text-end text-muted small">3 hours ago</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /container-fluid -->
+    </div> <!-- /dashboard-main -->
+    <!-- QUICK LINKS / SHORTCUTS -->
+    <div class="card shadow-sm border-0 mt-3">
+        <div class="card-header bg-white border-0">
+            <span class="fw-semibold">Quick Links</span>
+        </div>
+        <div class="card-body small d-grid gap-2">
+            <a href="#" class="btn btn-light btn-sm text-start border">
+                <i class="fa-solid fa-users me-2"></i> Go to User Management
+            </a>
+            <a href="#" class="btn btn-light btn-sm text-start border">
+                <i class="fa-solid fa-code-branch me-2"></i> View All Versions
+            </a>
+            <a href="#" class="btn btn-light btn-sm text-start border">
+                <i class="fa-solid fa-bullhorn me-2"></i> Open Announcements
+            </a>
+        </div>
+    </div>
+    <!-- SAĞ TARAF: EK PANEL -->
+    <aside class="dashboard-side">
+
+        <!-- NOTIFICATIONS -->
+        <div class="card shadow-sm border-0 mb-3">
+            <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                <span class="fw-semibold">Notifications</span>
+                <span class="badge bg-danger">5</span>
+            </div>
+            <div class="list-group list-group-flush small">
+                <div class="list-group-item d-flex justify-content-between">
+                    New user registered <i class="fa-solid fa-user-plus text-success"></i>
+                </div>
+                <div class="list-group-item d-flex justify-content-between">
+                    Version updated <i class="fa-solid fa-code-branch text-primary"></i>
+                </div>
+                <div class="list-group-item d-flex justify-content-between">
+                    Payment pending <i class="fa-solid fa-credit-card text-warning"></i>
+                </div>
+                <div class="list-group-item d-flex justify-content-between">
+                    Disk alert <i class="fa-solid fa-server text-danger"></i>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- TODAY ACTIVITY -->
+        <div class="card shadow-sm border-0 mb-3">
+            <div class="card-header bg-white border-0">
+                <span class="fw-semibold">Today Activity</span>
+            </div>
+            <div class="card-body small">
+                <ul class="timeline list-unstyled">
+                    <li class="mb-2">
+                        <span class="badge bg-success me-2">09:22</span>
+                        Deployment success
+                    </li>
+                    <li class="mb-2">
+                        <span class="badge bg-warning text-dark me-2">10:10</span>
+                        3 warnings detected
+                    </li>
+                    <li class="mb-2">
+                        <span class="badge bg-info text-dark me-2">12:48</span>
+                        New customer onboarding
+                    </li>
+                    <li class="mb-0">
+                        <span class="badge bg-danger me-2">15:02</span>
+                        High CPU detected
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- SYSTEM LOAD -->
+        <div class="card shadow-sm border-0 mb-3">
+            <div class="card-header bg-white border-0">
+                <span class="fw-semibold">System Load</span>
+            </div>
+            <div class="card-body small">
+                <label class="text-muted">CPU Usage</label>
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-danger" style="width: 78%">78%</div>
+                </div>
+
+                <label class="text-muted">RAM</label>
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-warning text-dark" style="width: 64%">64%</div>
+                </div>
+
+                <label class="text-muted">Queue Tasks</label>
+                <div class="progress">
+                    <div class="progress-bar bg-info text-dark" style="width: 42%">42%</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- MINI CHART PLACEHOLDER -->
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                <span class="fw-semibold">Traffic</span>
+                <small class="text-muted">Live</small>
+            </div>
+            <div class="card-body p-2">
+                <div class="d-flex align-items-end gap-1" style="height: 120px;">
+                    <div class="bg-primary rounded" style="width: 10%; height: 50%;"></div>
+                    <div class="bg-primary rounded" style="width: 10%; height: 70%;"></div>
+                    <div class="bg-primary rounded" style="width: 10%; height: 40%;"></div>
+                    <div class="bg-primary rounded" style="width: 10%; height: 80%;"></div>
+                    <div class="bg-primary rounded" style="width: 10%; height: 55%;"></div>
+                    <div class="bg-primary rounded" style="width: 10%; height: 65%;"></div>
+                    <div class="bg-primary rounded" style="width: 10%; height: 75%;"></div>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+</div> <!-- /dashboard-layout -->

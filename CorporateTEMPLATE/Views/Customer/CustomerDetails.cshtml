@@ -1,0 +1,400 @@
+﻿@{
+    ViewData["Title"] = "Customer Details";
+}
+
+<div class="container-fluid customer-detail-page">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4 customer-detail-header">
+        <div>
+            <h2 class="mb-1">St Solutions A.Ş.</h2>
+            <p class="text-muted mb-0">
+                Customer 360 · Full overview of account, usage and recent interactions.
+            </p>
+        </div>
+
+        <div class="d-flex gap-2 align-items-center">
+            <a asp-controller="CustomerManagement" asp-action="CustomerList" class="btn btn-outline-secondary btn-sm">
+                <i class="fa-solid fa-arrow-left-long me-1"></i>
+                Back to list
+            </a>
+            <button class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-pen me-1"></i>
+                Edit customer
+            </button>
+        </div>
+    </div>
+
+
+    <!-- LAYOUT -->
+    <div class="customer-detail-layout">
+
+        <!-- LEFT SIDE: MAIN CONTENT -->
+        <div class="customer-detail-main">
+
+            <!-- PROFILE SUMMARY CARD -->
+            <div class="cust-detail-card mb-3">
+                <div class="cust-detail-card-body">
+
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+
+                        <!-- Company info -->
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="cust-avatar-lg">
+                                <span>SS</span>
+                            </div>
+                            <div>
+                                <div class="cust-company-name-lg">Soft Solutions A.Ş.</div>
+                                <div class="cust-company-tags">
+                                    <span class="cust-badge">FinTech</span>
+                                    <span class="cust-badge">B2B</span>
+                                    <span class="cust-badge">Türkiye</span>
+                                </div>
+                                <div class="cust-company-meta mt-1">
+                                    <span class="cust-code">CUST-1023</span>
+                                    <span class="cust-tier tier-gold">Gold Tier</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Metrics -->
+                        <div class="cust-metrics-grid">
+                            <div class="cust-metric-item">
+                                <div class="label">MRR</div>
+                                <div class="value">₺ 85.000</div>
+                                <div class="hint text-success">+12% last 3 months</div>
+                            </div>
+                            <div class="cust-metric-item">
+                                <div class="label">Active Seats</div>
+                                <div class="value">65 / 80</div>
+                                <div class="hint">High adoption</div>
+                            </div>
+                            <div class="cust-metric-item">
+                                <div class="label">Health</div>
+                                <div class="value">
+                                    <span class="health-badge health-healthy">Healthy</span>
+                                </div>
+                                <div class="hint text-muted">No major incidents</div>
+                            </div>
+                            <div class="cust-metric-item">
+                                <div class="label">Customer Since</div>
+                                <div class="value">2022-03-15</div>
+                                <div class="hint text-muted">3+ years</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- APPLICATIONS -->
+            <div class="cust-detail-card mb-3">
+                <div class="cust-detail-card-header">
+                    <div>
+                        <h5 class="mb-0">Applications in use</h5>
+                        <small class="text-muted">All active products and subscription details.</small>
+                    </div>
+                    <button class="btn btn-outline-primary btn-sm">
+                        <i class="fa-solid fa-plus me-1"></i>
+                        Add application
+                    </button>
+                </div>
+                <div class="cust-detail-card-body">
+
+                    <div class="cust-app-grid">
+
+                        <div class="cust-app-panel">
+                            <div class="cust-app-header">
+                                <div>
+                                    <div class="cust-app-name">Version Manager</div>
+                                    <div class="cust-app-sub">Enterprise Plan · 45 seats</div>
+                                </div>
+                                <span class="cust-status-badge cust-status-active">Active</span>
+                            </div>
+                            <div class="cust-app-body">
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="app-stat">
+                                            <div class="label">Monthly deployments</div>
+                                            <div class="value">120+</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="app-stat">
+                                            <div class="label">Last release</div>
+                                            <div class="value">Today · 09:42</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="app-stat">
+                                            <div class="label">Usage notes</div>
+                                            <div class="hint">
+                                                Used across 3 internal teams (Backend, QA, DevOps).
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cust-app-panel">
+                            <div class="cust-app-header">
+                                <div>
+                                    <div class="cust-app-name">Deployment Monitor</div>
+                                    <div class="cust-app-sub">Pro Plan · 20 seats</div>
+                                </div>
+                                <span class="cust-status-badge cust-status-active">Active</span>
+                            </div>
+                            <div class="cust-app-body">
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="app-stat">
+                                            <div class="label">Incidents this month</div>
+                                            <div class="value">2</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="app-stat">
+                                            <div class="label">Avg. response time</div>
+                                            <div class="value">8 min</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="app-stat">
+                                            <div class="label">Usage notes</div>
+                                            <div class="hint">
+                                                Mainly used by on-call engineers during night shifts.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RECENT INTERACTIONS (SON GÖRÜŞLER) -->
+            <div class="cust-detail-card mb-3">
+                <div class="cust-detail-card-header">
+                    <div>
+                        <h5 class="mb-0">Recent interactions</h5>
+                        <small class="text-muted">Calls, meetings, tickets and important touchpoints.</small>
+                    </div>
+                    <button class="btn btn-outline-secondary btn-sm">
+                        <i class="fa-solid fa-note-sticky me-1"></i>
+                        Add note
+                    </button>
+                </div>
+                <div class="cust-detail-card-body">
+
+                    <ul class="cust-timeline-list">
+
+                        <li class="cust-timeline-item positive">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <span class="timeline-title">Quarterly business review</span>
+                                    <span class="timeline-date">2025-12-02 · 14:00</span>
+                                </div>
+                                <div class="timeline-meta">
+                                    <span><i class="fa-regular fa-user"></i> Handled by: Öykü B.</span>
+                                    <span><i class="fa-regular fa-face-smile"></i> NPS 9</span>
+                                </div>
+                                <p class="timeline-text">
+                                    Customer is happy with current stability and deployment speed.
+                                    Requested roadmap visibility for Q1 features.
+                                </p>
+                                <div class="timeline-tags">
+                                    <span class="timeline-tag tag-success">Success</span>
+                                    <span class="timeline-tag tag-feature">Feature request</span>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="cust-timeline-item neutral">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <span class="timeline-title">Support ticket · Slow dashboard</span>
+                                    <span class="timeline-date">2025-11-18 · 09:35</span>
+                                </div>
+                                <div class="timeline-meta">
+                                    <span><i class="fa-regular fa-user"></i> Handled by: Mehmet K.</span>
+                                    <span><i class="fa-regular fa-envelope"></i> Channel: Email</span>
+                                </div>
+                                <p class="timeline-text">
+                                    Issue reproduced under heavy load, workaround shared. Planned optimization in
+                                    next sprint.
+                                </p>
+                                <div class="timeline-tags">
+                                    <span class="timeline-tag tag-incident">Incident</span>
+                                    <span class="timeline-tag tag-performance">Performance</span>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="cust-timeline-item negative">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <span class="timeline-title">SLA breach · Deployment Monitor</span>
+                                    <span class="timeline-date">2025-10-27 · 01:20</span>
+                                </div>
+                                <div class="timeline-meta">
+                                    <span><i class="fa-regular fa-user"></i> Handled by: On-call team</span>
+                                    <span><i class="fa-solid fa-headset"></i> Channel: On-call</span>
+                                </div>
+                                <p class="timeline-text">
+                                    One incident exceeded the 15-minute SLA. Customer informed and follow-up
+                                    report shared next morning.
+                                </p>
+                                <div class="timeline-tags">
+                                    <span class="timeline-tag tag-critical">Critical</span>
+                                    <span class="timeline-tag tag-sla">SLA</span>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+            <!-- ACCOUNT ACTIVITY -->
+            <div class="cust-detail-card mb-3">
+                <div class="cust-detail-card-header">
+                    <div>
+                        <h5 class="mb-0">Account activity</h5>
+                        <small class="text-muted">Last login and usage stats.</small>
+                    </div>
+                </div>
+                <div class="cust-detail-card-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="activity-stat">
+                                <div class="label">Last login (any user)</div>
+                                <div class="value">Today · 09:42</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="activity-stat">
+                                <div class="label">7-day active users</div>
+                                <div class="value">41 / 65</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="activity-stat">
+                                <div class="label">Errors (last 24h)</div>
+                                <div class="value text-success">Low</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE: SIDEBAR -->
+        <div class="customer-detail-side">
+
+            <!-- CONTACT CARD -->
+            <div class="cust-detail-card mb-3">
+                <div class="cust-detail-card-header">
+                    <h5 class="mb-0">Primary contact</h5>
+                </div>
+                <div class="cust-detail-card-body">
+                    <div class="contact-block">
+                        <div class="contact-name">Mehmet Yılmaz</div>
+                        <div class="contact-role text-muted">CTO · St Solutions A.Ş.</div>
+
+                        <div class="contact-info">
+                            <div>
+                                <i class="fa-regular fa-envelope"></i>
+                                mehmet@stsolutions.com
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-phone"></i>
+                                +90 532 000 00 00
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                İstanbul, Türkiye
+                            </div>
+                        </div>
+
+                        <div class="contact-actions">
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="fa-regular fa-envelope me-1"></i>
+                                Send email
+                            </button>
+                            <button class="btn btn-outline-secondary btn-sm">
+                                <i class="fa-regular fa-calendar me-1"></i>
+                                Schedule call
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCOUNT METRICS -->
+            <div class="cust-detail-card mb-3">
+                <div class="cust-detail-card-header">
+                    <h5 class="mb-0">Account metrics</h5>
+                </div>
+                <div class="cust-detail-card-body">
+                    <ul class="account-metrics-list">
+                        <li>
+                            <span>Renewal date</span>
+                            <span>2026-03-15</span>
+                        </li>
+                        <li>
+                            <span>Contract term</span>
+                            <span>3 years</span>
+                        </li>
+                        <li>
+                            <span>Payment terms</span>
+                            <span>Net 30</span>
+                        </li>
+                        <li>
+                            <span>Last invoice</span>
+                            <span>2025-11-30 · Paid</span>
+                        </li>
+                        <li>
+                            <span>Churn probability</span>
+                            <span class="text-success">Low</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- INTERNAL NOTES -->
+            <div class="cust-detail-card mb-3">
+                <div class="cust-detail-card-header">
+                    <h5 class="mb-0">Internal notes</h5>
+                </div>
+                <div class="cust-detail-card-body">
+                    <div class="notes-block">
+                        <p class="notes-text">
+                            • Very technical customer, prefers clear and detailed incident reports.
+                            • Sensitive to downtime during trading hours (09:00–18:00 TRT).
+                            • Open to early access for new DevOps features.
+                        </p>
+                        <button class="btn btn-outline-secondary btn-sm w-100">
+                            <i class="fa-regular fa-pen-to-square me-1"></i>
+                            Edit internal notes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

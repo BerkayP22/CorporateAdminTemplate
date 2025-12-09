@@ -1,0 +1,322 @@
+﻿@{
+    ViewData["Title"] = "Customer Apps";
+}
+
+<div class="container-fluid customer-page">
+
+    <!-- HEADER -->
+    <div class="customer-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">Customer Applications</h2>
+            <p class="text-muted mb-0">
+                Track which applications your customers use, since when, and their latest feedback.
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+            <!-- SEARCH -->
+            <div class="customer-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="form-control" placeholder="Search customers or apps..." />
+            </div>
+
+            <!-- FILTER HEALTH -->
+            <select class="form-select customer-filter">
+                <option selected>All health</option>
+                <option>Healthy</option>
+                <option>At Risk</option>
+                <option>Churn Risk</option>
+            </select>
+        </div>
+    </div>
+
+
+    <!-- CARD WRAPPER -->
+    <div class="customer-wrapper">
+
+        <div class="customer-card shadow-sm">
+            <div class="customer-card-body">
+
+                <table class="table customer-app-table mb-0">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Applications</th>
+                            <th>Since</th>
+                            <th>Last Activity</th>
+                            <th>Last Feedback</th>
+                            <th>Health</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <!-- ROW 1 -->
+                        <tr>
+                            <td>
+                                <div class="cust-company-block">
+                                    <div class="cust-company-name">St Solutions A.Ş.</div>
+                                    <div class="cust-company-meta">
+                                        <span class="cust-code">CUST-1023</span>
+                                        <span class="cust-tier tier-gold">Gold Tier</span>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="cust-app-list">
+                                    <div class="cust-app-item">
+                                        <div class="cust-app-name">Version Manager</div>
+                                        <div class="cust-app-meta">
+                                            Plan: Enterprise · Seats: 45
+                                        </div>
+                                    </div>
+                                    <div class="cust-app-item">
+                                        <div class="cust-app-name">Deployment Monitor</div>
+                                        <div class="cust-app-meta">
+                                            Plan: Pro · Seats: 20
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="cust-since">2022-03-15</div>
+                                <div class="cust-since-sub text-muted small">3+ years</div>
+                            </td>
+
+                            <td>
+                                <div class="cust-activity-main">Today · 09:42</div>
+                                <div class="cust-activity-sub text-muted small">
+                                    Latest: Version Manager · Release pushed
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="feedback-chip feedback-positive">
+                                    <i class="fa-regular fa-face-smile"></i>
+                                    NPS 9 · “Very stable after last update.”
+                                </div>
+                            </td>
+
+                            <td>
+                                <span class="health-badge health-healthy">Healthy</span>
+                            </td>
+
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm cust-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View timeline">
+                                        <i class="fa-solid fa-timeline"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit apps">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Remove apps">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <!-- ROW 2 -->
+                        <tr>
+                            <td>
+                                <div class="cust-company-block">
+                                    <div class="cust-company-name">Globex Corporation</div>
+                                    <div class="cust-company-meta">
+                                        <span class="cust-code">CUST-2098</span>
+                                        <span class="cust-tier tier-silver">Silver Tier</span>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="cust-app-list">
+                                    <div class="cust-app-item">
+                                        <div class="cust-app-name">Customer Portal</div>
+                                        <div class="cust-app-meta">
+                                            Plan: Business · Seats: 80
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="cust-since">2023-07-01</div>
+                                <div class="cust-since-sub text-muted small">1+ year</div>
+                            </td>
+
+                            <td>
+                                <div class="cust-activity-main">Yesterday · 18:10</div>
+                                <div class="cust-activity-sub text-muted small">
+                                    Latest: Customer Portal · Mass import
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="feedback-chip feedback-neutral">
+                                    <i class="fa-regular fa-face-meh"></i>
+                                    NPS 7 · “Good, but needs better reports.”
+                                </div>
+                            </td>
+
+                            <td>
+                                <span class="health-badge health-watch">At Risk</span>
+                            </td>
+
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm cust-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View timeline">
+                                        <i class="fa-solid fa-timeline"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit apps">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Remove apps">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <!-- ROW 3 -->
+                        <tr>
+                            <td>
+                                <div class="cust-company-block">
+                                    <div class="cust-company-name">Northwind Traders</div>
+                                    <div class="cust-company-meta">
+                                        <span class="cust-code">CUST-3142</span>
+                                        <span class="cust-tier tier-bronze">Bronze Tier</span>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="cust-app-list">
+                                    <div class="cust-app-item">
+                                        <div class="cust-app-name">Log Analyzer</div>
+                                        <div class="cust-app-meta">
+                                            Plan: Starter · Seats: 10
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="cust-since">2024-01-10</div>
+                                <div class="cust-since-sub text-muted small">11 months</div>
+                            </td>
+
+                            <td>
+                                <div class="cust-activity-main">3 days ago</div>
+                                <div class="cust-activity-sub text-muted small">
+                                    Latest: Log Analyzer · Error spike alert
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="feedback-chip feedback-negative">
+                                    <i class="fa-regular fa-face-frown"></i>
+                                    NPS 4 · “Slow dashboards during peak hours.”
+                                </div>
+                            </td>
+
+                            <td>
+                                <span class="health-badge health-danger">Churn Risk</span>
+                            </td>
+
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm cust-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View timeline">
+                                        <i class="fa-solid fa-timeline"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit apps">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Remove apps">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <!-- ROW 4 -->
+                        <tr>
+                            <td>
+                                <div class="cust-company-block">
+                                    <div class="cust-company-name">Acme Technologies</div>
+                                    <div class="cust-company-meta">
+                                        <span class="cust-code">CUST-4011</span>
+                                        <span class="cust-tier tier-gold">Gold Tier</span>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="cust-app-list">
+                                    <div class="cust-app-item">
+                                        <div class="cust-app-name">Deployment Monitor</div>
+                                        <div class="cust-app-meta">
+                                            Plan: Enterprise · Seats: 120
+                                        </div>
+                                    </div>
+                                    <div class="cust-app-item">
+                                        <div class="cust-app-name">Incident Tracker</div>
+                                        <div class="cust-app-meta">
+                                            Plan: Business · Seats: 35
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="cust-since">2021-11-05</div>
+                                <div class="cust-since-sub text-muted small">4+ years</div>
+                            </td>
+
+                            <td>
+                                <div class="cust-activity-main">Today · 07:55</div>
+                                <div class="cust-activity-sub text-muted small">
+                                    Latest: Incident Tracker · SLA breach closed
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="feedback-chip feedback-positive">
+                                    <i class="fa-regular fa-face-smile"></i>
+                                    NPS 10 · “Critical for our operations.”
+                                </div>
+                            </td>
+
+                            <td>
+                                <span class="health-badge health-healthy">Healthy</span>
+                            </td>
+
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm cust-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View timeline">
+                                        <i class="fa-solid fa-timeline"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit apps">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Remove apps">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

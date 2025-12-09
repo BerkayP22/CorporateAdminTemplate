@@ -1,0 +1,465 @@
+﻿@{
+    ViewData["Title"] = "User Analytics";
+}
+
+<div class="container-fluid ua-page">
+
+    <!-- HEADER -->
+    <div class="ua-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">User Analytics</h2>
+            <p class="text-muted mb-0">
+                Satisfaction, sentiment and engagement overview for active users.
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+            <!-- PERIOD -->
+            <div class="ua-filter-group">
+                <label class="form-label mb-0">Period</label>
+                <select class="form-select form-select-sm">
+                    <option>Last 7 days</option>
+                    <option selected>Last 30 days</option>
+                    <option>Last 90 days</option>
+                </select>
+            </div>
+
+            <!-- APP -->
+            <div class="ua-filter-group">
+                <label class="form-label mb-0">Application</label>
+                <select class="form-select form-select-sm">
+                    <option selected>All applications</option>
+                    <option>Customer Portal</option>
+                    <option>Version Manager</option>
+                    <option>Reporting</option>
+                </select>
+            </div>
+
+            <!-- SEGMENT -->
+            <div class="ua-filter-group">
+                <label class="form-label mb-0">Segment</label>
+                <select class="form-select form-select-sm">
+                    <option selected>All users</option>
+                    <option>Power users</option>
+                    <option>New users</option>
+                    <option>At-risk users</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- LAYOUT -->
+    <div class="ua-layout">
+
+        <!-- LEFT SIDE -->
+        <div class="ua-left">
+
+            <!-- MOOD & SENTIMENT -->
+            <div class="ua-card mb-3">
+                <div class="ua-card-header">
+                    <h5 class="mb-0">Mood & satisfaction</h5>
+                    <small class="text-muted">Score and emotional distribution.</small>
+                </div>
+                <div class="ua-card-body">
+
+                    <div class="ua-mood-row">
+
+                        <!-- Gauge -->
+                        <div class="ua-mood-main">
+                            <div class="ua-mood-gauge" data-score="78">
+                                <div class="ua-mood-inner">
+                                    <div class="ua-mood-score">78%</div>
+                                    <div class="ua-mood-label">Happiness</div>
+                                    <div class="ua-mood-emoji">😊</div>
+                                </div>
+                            </div>
+                            <div class="ua-mood-caption">
+                                Most users are generally satisfied, but there is still room for improvement.
+                            </div>
+                        </div>
+
+                        <!-- Sentiment stacked bar -->
+                        <div class="ua-sentiment-panel">
+                            <div class="ua-sentiment-title">
+                                Sentiment distribution
+                            </div>
+                            <div class="ua-sentiment-bar">
+                                <div class="ua-sentiment-seg ua-pos" style="width: 62%;">Positive · 62%</div>
+                                <div class="ua-sentiment-seg ua-neu" style="width: 24%;">Neutral · 24%</div>
+                                <div class="ua-sentiment-seg ua-neg" style="width: 14%;">Negative · 14%</div>
+                            </div>
+
+                            <ul class="ua-sentiment-legend small mb-0 mt-3">
+                                <li><span class="ua-sent-box ua-pos"></span> Happy & engaged</li>
+                                <li><span class="ua-sent-box ua-neu"></span> Neutral / silent</li>
+                                <li><span class="ua-sent-box ua-neg"></span> Unhappy / frustrated</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ENGAGEMENT FUNNEL -->
+            <div class="ua-card mb-3">
+                <div class="ua-card-header">
+                    <h5 class="mb-0">Engagement funnel</h5>
+                    <small class="text-muted">From visitors to power users.</small>
+                </div>
+                <div class="ua-card-body">
+
+                    <div class="ua-funnel-step" data-percent="100">
+                        <div class="ua-funnel-label">
+                            <span>Visited at least once</span>
+                            <span>12,400 users</span>
+                        </div>
+                        <div class="ua-funnel-track">
+                            <div class="ua-funnel-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="ua-funnel-step" data-percent="73">
+                        <div class="ua-funnel-label">
+                            <span>Active users</span>
+                            <span>9,052 users</span>
+                        </div>
+                        <div class="ua-funnel-track">
+                            <div class="ua-funnel-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="ua-funnel-step" data-percent="38">
+                        <div class="ua-funnel-label">
+                            <span>Weekly engaged</span>
+                            <span>4,712 users</span>
+                        </div>
+                        <div class="ua-funnel-track">
+                            <div class="ua-funnel-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="ua-funnel-step" data-percent="14">
+                        <div class="ua-funnel-label">
+                            <span>Power users</span>
+                            <span>1,736 users</span>
+                        </div>
+                        <div class="ua-funnel-track">
+                            <div class="ua-funnel-fill"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FEATURE USAGE -->
+            <div class="ua-card mb-3">
+                <div class="ua-card-header">
+                    <h5 class="mb-0">Feature usage</h5>
+                    <small class="text-muted">Which areas users touch the most.</small>
+                </div>
+                <div class="ua-card-body">
+
+                    <div class="ua-bar-row" data-percent="87">
+                        <div class="ua-bar-label">
+                            <span>Dashboard & reports</span>
+                            <span class="ua-bar-value">87%</span>
+                        </div>
+                        <div class="ua-bar-track">
+                            <div class="ua-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="ua-bar-row" data-percent="69">
+                        <div class="ua-bar-label">
+                            <span>Customer management</span>
+                            <span class="ua-bar-value">69%</span>
+                        </div>
+                        <div class="ua-bar-track">
+                            <div class="ua-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="ua-bar-row" data-percent="52">
+                        <div class="ua-bar-label">
+                            <span>Version deployments</span>
+                            <span class="ua-bar-value">52%</span>
+                        </div>
+                        <div class="ua-bar-track">
+                            <div class="ua-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="ua-bar-row" data-percent="31">
+                        <div class="ua-bar-label">
+                            <span>Announcements</span>
+                            <span class="ua-bar-value">31%</span>
+                        </div>
+                        <div class="ua-bar-track">
+                            <div class="ua-bar-fill"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="ua-right">
+
+            <!-- CHANNEL SENTIMENT -->
+            <div class="ua-card mb-3">
+                <div class="ua-card-header">
+                    <h5 class="mb-0">Sentiment by channel</h5>
+                    <small class="text-muted">How users feel in each contact point.</small>
+                </div>
+                <div class="ua-card-body">
+
+                    <div class="ua-channel-row" data-happy="72" data-unhappy="8">
+                        <div class="ua-channel-header">
+                            <span>In-app feedback</span>
+                            <span class="ua-channel-values">😊 72% · 😞 8%</span>
+                        </div>
+                        <div class="ua-channel-track">
+                            <div class="ua-channel-happy"></div>
+                            <div class="ua-channel-unhappy"></div>
+                        </div>
+                    </div>
+
+                    <div class="ua-channel-row" data-happy="64" data-unhappy="14">
+                        <div class="ua-channel-header">
+                            <span>Support tickets</span>
+                            <span class="ua-channel-values">😊 64% · 😞 14%</span>
+                        </div>
+                        <div class="ua-channel-track">
+                            <div class="ua-channel-happy"></div>
+                            <div class="ua-channel-unhappy"></div>
+                        </div>
+                    </div>
+
+                    <div class="ua-channel-row" data-happy="81" data-unhappy="5">
+                        <div class="ua-channel-header">
+                            <span>Onboarding</span>
+                            <span class="ua-channel-values">😊 81% · 😞 5%</span>
+                        </div>
+                        <div class="ua-channel-track">
+                            <div class="ua-channel-happy"></div>
+                            <div class="ua-channel-unhappy"></div>
+                        </div>
+                    </div>
+
+                    <div class="ua-channel-row" data-happy="57" data-unhappy="19">
+                        <div class="ua-channel-header">
+                            <span>Billing & pricing</span>
+                            <span class="ua-channel-values">😊 57% · 😞 19%</span>
+                        </div>
+                        <div class="ua-channel-track">
+                            <div class="ua-channel-happy"></div>
+                            <div class="ua-channel-unhappy"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ACTIVITY MOOD -->
+            <div class="ua-card mb-3">
+                <div class="ua-card-header">
+                    <h5 class="mb-0">Activity vs. mood</h5>
+                    <small class="text-muted">Sample segments.</small>
+                </div>
+                <div class="ua-card-body">
+
+                    <div class="ua-activity-row" data-percent="92">
+                        <div class="ua-activity-label">
+                            Power users
+                        </div>
+                        <div class="ua-activity-track">
+                            <div class="ua-activity-fill"></div>
+                        </div>
+                        <div class="ua-activity-badge ua-act-good">
+                            😊
+                        </div>
+                    </div>
+
+                    <div class="ua-activity-row" data-percent="71">
+                        <div class="ua-activity-label">
+                            Regular users
+                        </div>
+                        <div class="ua-activity-track">
+                            <div class="ua-activity-fill"></div>
+                        </div>
+                        <div class="ua-activity-badge ua-act-mid">
+                            🙂
+                        </div>
+                    </div>
+
+                    <div class="ua-activity-row" data-percent="46">
+                        <div class="ua-activity-label">
+                            At-risk users
+                        </div>
+                        <div class="ua-activity-track">
+                            <div class="ua-activity-fill"></div>
+                        </div>
+                        <div class="ua-activity-badge ua-act-bad">
+                            😟
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RECENT FEEDBACK -->
+            <div class="ua-card mb-3">
+                <div class="ua-card-header">
+                    <h5 class="mb-0">Recent feedback snapshots</h5>
+                    <small class="text-muted">Short highlights (sample data).</small>
+                </div>
+                <div class="ua-card-body">
+                    <ul class="ua-feedback-list mb-0">
+                        <li class="ua-feedback-item pos">
+                            <span class="ua-feedback-dot"></span>
+                            <div class="ua-feedback-text">
+                                “The new deployment screen is much clearer, I can see all my versions at once.”
+                                <small>– Backend lead</small>
+                            </div>
+                        </li>
+                        <li class="ua-feedback-item neu">
+                            <span class="ua-feedback-dot"></span>
+                            <div class="ua-feedback-text">
+                                “Notifications are okay, but I sometimes miss important alerts.”
+                                <small>– Support engineer</small>
+                            </div>
+                        </li>
+                        <li class="ua-feedback-item neg">
+                            <span class="ua-feedback-dot"></span>
+                            <div class="ua-feedback-text">
+                                “Customer search feels slow when filters are active.”
+                                <small>– Customer success</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* =========
+               MOOD GAUGE
+            ===========*/
+            document.querySelectorAll(".ua-mood-gauge").forEach(g => {
+                const raw = g.getAttribute("data-score") || "0";
+                const score = Math.min(100, Math.max(0, parseInt(raw, 10) || 0));
+
+                let color = "#22c55e"; // good
+                if (score < 60) color = "#ef4444";       // negative
+                else if (score < 80) color = "#f59e0b";  // mid
+
+                const deg = (score / 100) * 360;
+                g.style.background = `conic-gradient(${color} ${deg}deg, #1f2937 0deg)`;
+
+                const scoreEl = g.querySelector(".ua-mood-score");
+                if (scoreEl) scoreEl.textContent = score + "%";
+
+                const emojiEl = g.querySelector(".ua-mood-emoji");
+                if (emojiEl) {
+                    if (score < 40) emojiEl.textContent = "😢";
+                    else if (score < 60) emojiEl.textContent = "😟";
+                    else if (score < 80) emojiEl.textContent = "🙂";
+                    else emojiEl.textContent = "😊";
+                }
+            });
+
+            /* =========
+               FUNNEL
+            ===========*/
+            document.querySelectorAll(".ua-funnel-step").forEach(step => {
+                const raw = step.getAttribute("data-percent") || "0";
+                const percent = Math.min(100, Math.max(0, parseInt(raw, 10) || 0));
+                const fill = step.querySelector(".ua-funnel-fill");
+                if (!fill) return;
+
+                fill.style.width = percent + "%";
+
+                let cls = "ua-fun-good";
+                if (percent < 40) cls = "ua-fun-bad";
+                else if (percent < 70) cls = "ua-fun-mid";
+                fill.classList.add(cls);
+            });
+
+            /* =========
+               FEATURE BARS
+            ===========*/
+            document.querySelectorAll(".ua-bar-row").forEach(row => {
+                const raw = row.getAttribute("data-percent") || "0";
+                const percent = Math.min(100, Math.max(0, parseInt(raw, 10) || 0));
+                const fill = row.querySelector(".ua-bar-fill");
+                const label = row.querySelector(".ua-bar-value");
+
+                if (fill) {
+                    fill.style.width = percent + "%";
+                    let cls = "ua-bar-good";
+                    if (percent < 40) cls = "ua-bar-bad";
+                    else if (percent < 70) cls = "ua-bar-mid";
+                    fill.classList.add(cls);
+                }
+                if (label) label.textContent = percent + "%";
+            });
+
+            /* =========
+               CHANNEL SENTIMENT
+            ===========*/
+            document.querySelectorAll(".ua-channel-row").forEach(row => {
+                const rawH = row.getAttribute("data-happy") || "0";
+                const rawU = row.getAttribute("data-unhappy") || "0";
+                let happy = Math.min(100, Math.max(0, parseInt(rawH, 10) || 0));
+                let unh   = Math.min(100, Math.max(0, parseInt(rawU, 10) || 0));
+
+                // normalize (max 100 total for display)
+                if (happy + unh > 100) {
+                    const factor = 100 / (happy + unh);
+                    happy = Math.round(happy * factor);
+                    unh   = Math.round(unh * factor);
+                }
+
+                const happyEl = row.querySelector(".ua-channel-happy");
+                const unhEl   = row.querySelector(".ua-channel-unhappy");
+
+                if (happyEl) happyEl.style.width = happy + "%";
+                if (unhEl) unhEl.style.width   = unh + "%";
+            });
+
+            /* =========
+               ACTIVITY VS MOOD
+            ===========*/
+            document.querySelectorAll(".ua-activity-row").forEach(row => {
+                const raw = row.getAttribute("data-percent") || "0";
+                const percent = Math.min(100, Math.max(0, parseInt(raw, 10) || 0));
+                const fill = row.querySelector(".ua-activity-fill");
+                if (!fill) return;
+
+                fill.style.width = percent + "%";
+
+                let cls = "ua-bar-good";
+                if (percent < 40) cls = "ua-bar-bad";
+                else if (percent < 70) cls = "ua-bar-mid";
+
+                fill.classList.add(cls);
+            });
+
+        });
+    </script>
+}

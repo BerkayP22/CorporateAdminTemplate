@@ -1,0 +1,447 @@
+﻿/* === AUTH GENEL === */
+
+#authBody {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #020617; /* koyu lacivert - siyaha yakın */
+    color: #e5e7eb;
+    display: block; /* Dashboard için body:flex vardı, burada iptal ediyoruz */
+}
+
+    /* main de full ekran kullansın */
+    #authBody main {
+        min-height: 100vh;
+    }
+
+/* ORTALAMA */
+
+.login-page {
+    position: relative;
+    min-height: 100vh;
+    width: 100vw; /* tam genişlik */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow: hidden;
+}
+
+/* Hafif ama daha fark edilir hareketli arka plan */
+
+.login-bg-layer {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.28), transparent 55%), radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.25), transparent 55%), radial-gradient(circle at 20% 80%, rgba(129, 140, 248, 0.22), transparent 55%), radial-gradient(circle at 80% 0%, rgba(59, 130, 246, 0.28), transparent 55%);
+    animation: bgSoftMove 18s infinite alternate ease-in-out;
+    z-index: 0;
+    opacity: 0.95;
+}
+
+@keyframes bgSoftMove {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(-18px, 14px, 0) scale(1.03);
+    }
+
+    100% {
+        transform: translate3d(18px, -10px, 0) scale(1.02);
+    }
+}
+
+/* LOGIN CARD */
+
+.login-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 18px;
+    padding: 22px 22px 20px;
+    background: #0b1220; /* koyu lacivert kart */
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85), 0 0 0 1px rgba(15, 23, 42, 0.9);
+}
+
+/* LOGO CIRCLE */
+
+.logo-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 20%, #eff6ff, #3b82f6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.6);
+}
+
+    .logo-circle i {
+        color: #0f172a;
+        font-size: 22px;
+    }
+
+/* HEADER TEXTLERİ */
+
+.login-card-header h3 {
+    color: #e5e7eb;
+    font-weight: 600;
+}
+
+.login-card-header p {
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+/* INPUT GRUPLARI (küçük boy) */
+
+.login-input-group .input-group-text {
+    background: #020617;
+    border-color: #1f2937;
+    color: #9ca3af;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+}
+
+.login-input-group .form-control {
+    background: #020617;
+    border-color: #1f2937;
+    color: #e5e7eb;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+}
+
+    .login-input-group .form-control::placeholder {
+        color: #6b7280;
+    }
+
+    .login-input-group .form-control:focus {
+        background: #020617;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    }
+
+/* LABELS */
+
+.form-label {
+    font-size: 0.85rem;
+    color: #cbd5f5;
+}
+
+/* FORGOT LINK */
+
+.forgot-link {
+    text-decoration: none;
+}
+
+    .forgot-link:hover {
+        color: #e5e7eb !important;
+    }
+
+/* CHECKBOX */
+
+.form-check-input {
+    border-color: #4b5563;
+    background-color: transparent;
+}
+
+    .form-check-input:checked {
+        background-color: #2563eb;
+        border-color: #2563eb;
+    }
+
+/* LOGIN BUTTON */
+
+.btn-login {
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    border: none;
+    color: #f9fafb;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+    box-shadow: 0 10px 26px rgba(56, 189, 248, 0.45);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+    .btn-login:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.04);
+        box-shadow: 0 14px 32px rgba(56, 189, 248, 0.6);
+    }
+
+    .btn-login:active {
+        transform: translateY(0);
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.9);
+    }
+
+/* DIVIDER */
+
+.login-divider {
+    position: relative;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+    .login-divider span {
+        background: #0b1220;
+        padding: 0 8px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .login-divider::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 6%;
+        right: 6%;
+        height: 1px;
+        background: #1f2937;
+        z-index: 0;
+    }
+
+/* SOCIAL BUTONLAR */
+
+.btn-social {
+    background: #020617;
+    border: 1px solid #1f2937;
+    color: #e5e7eb;
+    font-size: 0.82rem;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    transition: background 0.1s ease, border-color 0.1s ease, transform 0.1s ease;
+}
+
+    .btn-social:hover {
+        background: #0b1120;
+        border-color: #3b82f6;
+        transform: translateY(-1px);
+    }
+
+/* FOOTER LINK */
+
+.register-link {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+    .register-link:hover {
+        color: #7dd3fc;
+        text-decoration: underline;
+    }
+
+/* RESPONSIVE */
+
+@media (max-width: 576px) {
+    .login-card {
+        padding: 20px 16px 16px;
+    }
+
+    .login-page {
+        padding: 16px;
+    }
+}
+
+/* =========================================
+   LOGIN 2 - SPLIT LAYOUT TASARIM
+========================================= */
+
+.login2-page {
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Sol taraf hero alanı */
+.login2-hero {
+    flex: 1.2;
+    position: relative;
+    padding: 48px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 1;
+}
+
+.login2-hero-inner {
+    max-width: 420px;
+    color: #e5e7eb;
+}
+
+.login2-hero h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.login2-hero p {
+    color: #cbd5f5;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.login2-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.2);
+    color: #bfdbfe;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+.login2-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+    .login2-list li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+        color: #d1d5db;
+    }
+
+        .login2-list li i {
+            color: #4ade80;
+        }
+
+/* Sağ form alanı */
+.login2-form-area {
+    flex: 1;
+    padding: 48px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Kart: Login2 için ayrı tasarım, Login1'i bozmamak için yeni class */
+
+.login2-card {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 18px;
+    padding: 24px 22px 20px;
+    background: #0f172a;
+    border: 1px solid rgba(148, 163, 184, 0.55);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9), 0 0 0 1px rgba(15, 23, 42, 0.9);
+}
+
+/* Kart başlığı */
+
+.login2-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.login2-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0b1120;
+    font-size: 18px;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+}
+
+.login2-card-header h3 {
+    color: #e5e7eb;
+    font-weight: 600;
+}
+
+.login2-card-header p {
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+/* Login2 butonu (daha düz, kurumsal) */
+
+.btn-login2 {
+    background: #2563eb;
+    border: none;
+    color: #f9fafb;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.55);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+    .btn-login2:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.04);
+        box-shadow: 0 14px 30px rgba(37, 99, 235, 0.7);
+    }
+
+    .btn-login2:active {
+        transform: translateY(0);
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.9);
+    }
+
+/* Linkler */
+
+.login2-link {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+    .login2-link:hover {
+        color: #7dd3fc;
+        text-decoration: underline;
+    }
+
+/* RESPONSIVE: küçük ekranda iki taraf üst üste gelsin */
+
+@media (max-width: 992px) {
+    .login2-page {
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    .login2-hero {
+        justify-content: center;
+        padding: 24px 20px 12px;
+        text-align: center;
+    }
+
+    .login2-hero-inner {
+        max-width: 360px;
+    }
+
+    .login2-list {
+        text-align: left;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .login2-form-area {
+        padding: 16px;
+    }
+
+    .login2-card {
+        padding: 20px 16px 16px;
+    }
+}

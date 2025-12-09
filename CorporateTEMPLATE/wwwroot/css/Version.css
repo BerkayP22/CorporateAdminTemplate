@@ -1,0 +1,915 @@
+﻿/* ==========================
+   ALL VERSIONS - BASE
+========================== */
+
+.versions-page {
+    padding: 20px;
+}
+
+.versions-header h2 {
+    font-size: 1.35rem;
+}
+
+/* Header controls */
+.versions-app-select {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.78rem;
+}
+
+    .versions-app-select .form-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #6b7280;
+    }
+
+.versions-env-filter {
+    width: 140px;
+}
+
+.versions-add-btn {
+    font-weight: 600;
+}
+
+/* Layout */
+.versions-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.3fr);
+    gap: 18px;
+}
+
+.versions-main,
+.versions-side {
+    min-width: 0;
+}
+
+/* Cards */
+.ver-card {
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.ver-card-body {
+    padding: 16px 18px;
+}
+
+.ver-card-header {
+    padding: 12px 18px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+    .ver-card-header h5 {
+        font-size: 0.98rem;
+    }
+
+/* App icon & summary */
+.ver-app-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: #ebf2ff;
+    color: #1d4ed8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.ver-app-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.ver-app-code {
+    font-size: 0.82rem;
+    color: #6b7280;
+}
+
+.ver-app-desc {
+    font-size: 0.86rem;
+    color: #4b5563;
+    margin-top: 2px;
+}
+
+.ver-app-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.ver-app-pill {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+/* Metrics grid */
+.ver-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px 12px;
+    min-width: 260px;
+}
+
+.ver-meta-item .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+}
+
+.ver-meta-item .value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.ver-meta-item .hint {
+    font-size: 0.8rem;
+}
+
+/* Environment pill */
+.env-pill {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+.env-alpha {
+    background: rgba(59, 130, 246, 0.08);
+    color: #1d4ed8;
+}
+
+.env-beta {
+    background: rgba(234, 179, 8, 0.12);
+    color: #92400e;
+}
+
+.env-live {
+    background: rgba(34, 197, 94, 0.12);
+    color: #15803d;
+}
+
+/* Version table */
+.ver-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 900px;
+}
+
+    .ver-table thead tr {
+        background-color: #f3f4f6;
+    }
+
+    .ver-table thead th {
+        padding: 10px 14px;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #6b7280;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+        /* sütun genişlikleri */
+        .ver-table thead th:nth-child(1),
+        .ver-table tbody td:nth-child(1) {
+            width: 9%;
+        }
+
+        .ver-table thead th:nth-child(2),
+        .ver-table tbody td:nth-child(2) {
+            width: 12%;
+        }
+
+        .ver-table thead th:nth-child(3),
+        .ver-table tbody td:nth-child(3) {
+            width: 12%;
+        }
+
+        .ver-table thead th:nth-child(4),
+        .ver-table tbody td:nth-child(4) {
+            width: 11%;
+        }
+
+        .ver-table thead th:nth-child(5),
+        .ver-table tbody td:nth-child(5) {
+            width: 13%;
+        }
+
+        .ver-table thead th:nth-child(6),
+        .ver-table tbody td:nth-child(6) {
+            width: 18%;
+        }
+
+        .ver-table thead th:nth-child(7),
+        .ver-table tbody td:nth-child(7) {
+            width: 25%;
+        }
+
+    .ver-table tbody td {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #e5e7eb;
+        vertical-align: middle;
+    }
+
+    .ver-table tbody tr {
+        transition: background-color 0.12s ease, box-shadow 0.12s ease;
+    }
+
+        .ver-table tbody tr:hover {
+            background-color: #f9fafb;
+            box-shadow: inset 3px 0 0 #3b82f6;
+        }
+
+.ver-version-label {
+    font-weight: 600;
+    color: #111827;
+}
+
+.ver-user {
+    font-weight: 500;
+}
+
+/* Status chips */
+.status-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.status-released {
+    background: rgba(34, 197, 94, 0.12);
+    color: #15803d;
+}
+
+.status-inqa {
+    background: rgba(59, 130, 246, 0.12);
+    color: #1d4ed8;
+}
+
+.status-deprecated {
+    background: rgba(148, 163, 184, 0.24);
+    color: #4b5563;
+}
+
+/* Right side stats */
+.ver-stats-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+}
+
+    .ver-stats-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 6px;
+    }
+
+        .ver-stats-list li span:first-child {
+            color: #6b7280;
+        }
+
+/* Last sale card */
+.ver-sale-block .sale-customer {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #111827;
+}
+
+.ver-sale-block .sale-meta {
+    font-size: 0.82rem;
+    margin-bottom: 8px;
+}
+
+.sale-fields {
+    font-size: 0.84rem;
+}
+
+    .sale-fields > div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+    }
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark .ver-card {
+    background: #020617 !important;
+    border-color: #1e293b !important;
+}
+
+body.dark .ver-card-body {
+    color: #e5e7eb !important;
+}
+
+/* Header text */
+body.dark .ver-app-name {
+    color: #e5e7eb !important;
+}
+
+body.dark .ver-app-code,
+body.dark .ver-app-desc {
+    color: #9ca3af !important;
+}
+
+body.dark .ver-app-icon {
+    background: #111827 !important;
+    color: #bfdbfe !important;
+}
+
+body.dark .ver-app-pill {
+    background: #111827 !important;
+    color: #e5e7eb !important;
+}
+
+/* Meta */
+body.dark .ver-meta-item .label {
+    color: #9ca3af !important;
+}
+
+body.dark .ver-meta-item .value {
+    color: #e5e7eb !important;
+}
+
+/* Table dark */
+body.dark .ver-table,
+body.dark .ver-table thead,
+body.dark .ver-table tbody,
+body.dark .ver-table tr,
+body.dark .ver-table th,
+body.dark .ver-table td {
+    background-color: #020617 !important;
+}
+
+    body.dark .ver-table thead tr {
+        background-color: #0b1120 !important;
+    }
+
+    body.dark .ver-table thead th {
+        color: #9ca3af !important;
+        border-bottom-color: #1f2937 !important;
+    }
+
+    body.dark .ver-table tbody tr {
+        border-bottom: 1px solid #1f2937 !important;
+    }
+
+    body.dark .ver-table tbody td {
+        color: #e5e7eb !important;
+    }
+
+    body.dark .ver-table tbody tr:hover {
+        background-color: #020617 !important;
+        box-shadow: inset 3px 0 0 #3b82f6 !important;
+    }
+
+body.dark .ver-version-label {
+    color: #e5e7eb !important;
+}
+
+/* Status & env in dark (biraz parlasın) */
+body.dark .env-alpha {
+    background: rgba(59, 130, 246, 0.25) !important;
+    color: #bfdbfe !important;
+}
+
+body.dark .env-beta {
+    background: rgba(234, 179, 8, 0.28) !important;
+    color: #fef9c3 !important;
+}
+
+body.dark .env-live {
+    background: rgba(34, 197, 94, 0.26) !important;
+    color: #bbf7d0 !important;
+}
+
+body.dark .status-released {
+    background: rgba(34, 197, 94, 0.26) !important;
+    color: #bbf7d0 !important;
+}
+
+body.dark .status-inqa {
+    background: rgba(59, 130, 246, 0.26) !important;
+    color: #bfdbfe !important;
+}
+
+body.dark .status-deprecated {
+    background: rgba(148, 163, 184, 0.35) !important;
+    color: #e5e7eb !important;
+}
+
+/* Stats & sale */
+body.dark .ver-stats-list li span:first-child {
+    color: #9ca3af !important;
+}
+
+body.dark .sale-customer {
+    color: #e5e7eb !important;
+}
+
+body.dark .ver-sale-block .sale-meta {
+    color: #9ca3af !important;
+}
+
+body.dark .sale-fields > div span:first-child {
+    color: #9ca3af !important;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 992px) {
+    .versions-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ver-meta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .versions-page {
+        padding: 12px;
+    }
+
+    .ver-card-body {
+        padding: 14px;
+    }
+
+    .ver-meta-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+/* ==========================
+   CREATE VERSION FORM
+========================== */
+
+.create-version-layout {
+    /* AllVersions ile aynı grid yapısını kullanıyor
+       sadece isimle override etmedik, görsel uyum için */
+}
+
+.ver-form-group {
+    margin-bottom: 6px;
+}
+
+    .ver-form-group .form-label {
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: #4b5563;
+    }
+
+    .ver-form-group .form-control,
+    .ver-form-group .form-select {
+        font-size: 0.9rem;
+    }
+
+/* Radio pill style */
+.ver-radio-pill {
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    background: #ffffff;
+    transition: 0.15s ease;
+}
+
+    .ver-radio-pill input {
+        display: none;
+    }
+
+    .ver-radio-pill .pill-label {
+        color: #374151;
+    }
+
+    .ver-radio-pill:hover {
+        background: #eff6ff;
+        border-color: #3b82f6;
+    }
+
+    /* checked state */
+    .ver-radio-pill input:checked + .pill-label,
+    .ver-radio-pill input:checked ~ .pill-label {
+        font-weight: 600;
+    }
+
+/* Checkbox style */
+.ver-check .form-check-input {
+    margin-top: 0.05rem;
+}
+
+.ver-check .form-check-label {
+    font-size: 0.86rem;
+}
+
+/* File upload box */
+.ver-file-upload {
+    border-radius: 12px;
+    border: 1px dashed #cbd5f5;
+    background: #f9fafb;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.15s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+    .ver-file-upload .icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: #ebf2ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #1d4ed8;
+        font-size: 1.2rem;
+    }
+
+    .ver-file-upload .text .title {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #111827;
+    }
+
+    .ver-file-upload .text .subtitle {
+        font-size: 0.8rem;
+        color: #6b7280;
+    }
+
+    .ver-file-upload .text .selected-file {
+        margin-top: 4px;
+        font-size: 0.8rem;
+        color: #4b5563;
+    }
+
+    /* hidden file input */
+    .ver-file-upload input[type="file"] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    /* hover / has file */
+    .ver-file-upload:hover {
+        border-color: #3b82f6;
+        background: #eef2ff;
+    }
+
+    .ver-file-upload.has-file {
+        border-style: solid;
+        border-color: #22c55e;
+    }
+
+/* Summary box */
+.ver-summary-box {
+    font-size: 0.86rem;
+}
+
+/* Best practice list */
+.ver-bp-list li {
+    margin-bottom: 4px;
+}
+
+/* ==========================
+   DARK MODE - CREATE VERSION
+========================== */
+
+body.dark .ver-form-group .form-label {
+    color: #e5e7eb !important;
+}
+
+body.dark .ver-form-group .form-control,
+body.dark .ver-form-group .form-select {
+    background-color: #020617 !important;
+    border-color: #1f2937 !important;
+    color: #e5e7eb !important;
+}
+
+    body.dark .ver-form-group .form-control::placeholder,
+    body.dark .ver-form-group textarea::placeholder {
+        color: #6b7280 !important;
+    }
+
+/* Radio pill dark */
+body.dark .ver-radio-pill {
+    background: #020617 !important;
+    border-color: #1f2937 !important;
+}
+
+    body.dark .ver-radio-pill .pill-label {
+        color: #e5e7eb !important;
+    }
+
+    body.dark .ver-radio-pill:hover {
+        background: #111827 !important;
+        border-color: #3b82f6 !important;
+    }
+
+/* Checkbox text dark */
+body.dark .ver-check .form-check-label {
+    color: #e5e7eb !important;
+}
+
+/* File upload dark */
+body.dark .ver-file-upload {
+    border-color: #1f2937 !important;
+    background: #020617 !important;
+}
+
+    body.dark .ver-file-upload .icon {
+        background: #111827 !important;
+        color: #bfdbfe !important;
+    }
+
+    body.dark .ver-file-upload .text .title {
+        color: #e5e7eb !important;
+    }
+
+    body.dark .ver-file-upload .text .subtitle {
+        color: #9ca3af !important;
+    }
+
+    body.dark .ver-file-upload .text .selected-file {
+        color: #cbd5f5 !important;
+    }
+
+    body.dark .ver-file-upload:hover {
+        border-color: #3b82f6 !important;
+        background: #020617 !important;
+    }
+
+/* Summary & best practices dark */
+body.dark .ver-summary-box,
+body.dark .ver-bp-list {
+    color: #e5e7eb !important;
+}
+
+    body.dark .ver-summary-box .text-muted,
+    body.dark .ver-bp-list .text-muted {
+        color: #9ca3af !important;
+    }
+
+/* ==========================
+   VERSION HISTORY
+========================== */
+
+.history-layout {
+    /* versions-layout grid yapısını kullanıyoruz,
+       ekstra bir şey gerekirse buraya ekleriz */
+}
+
+.history-date-range {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.78rem;
+}
+
+    .history-date-range .form-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #6b7280;
+    }
+
+    .history-date-range .form-control {
+        font-size: 0.8rem;
+    }
+
+.history-date-sep {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+/* Timeline */
+
+.history-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.history-item {
+    position: relative;
+    padding-left: 22px;
+    padding-bottom: 14px;
+    border-left: 1px solid #e5e7eb;
+    margin-left: 6px;
+}
+
+    .history-item:last-child {
+        padding-bottom: 0;
+    }
+
+.history-dot {
+    position: absolute;
+    left: -4px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: 2px solid #ffffff;
+    background: #3b82f6;
+}
+
+.history-content {
+    padding-bottom: 8px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.86rem;
+}
+
+.history-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.history-right {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.history-app-tag {
+    font-size: 0.78rem;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.history-version {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #111827;
+}
+
+.history-subrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+    .history-subrow i {
+        margin-right: 4px;
+    }
+
+.history-text {
+    margin-top: 6px;
+    margin-bottom: 0;
+    font-size: 0.86rem;
+    color: #374151;
+}
+
+/* Right side stats */
+
+.history-stat-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+}
+
+    .history-stat-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 6px;
+    }
+
+        .history-stat-list li span:first-child {
+            color: #6b7280;
+        }
+
+/* Milestones */
+
+.history-milestone-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .history-milestone-list li {
+        margin-bottom: 8px;
+    }
+
+    .history-milestone-list .ms-label {
+        font-weight: 500;
+        display: block;
+        color: #111827;
+        font-size: 0.86rem;
+    }
+
+    .history-milestone-list .ms-desc {
+        display: block;
+        color: #6b7280;
+        font-size: 0.8rem;
+    }
+
+/* ==========================
+   DARK MODE - VERSION HISTORY
+========================== */
+
+body.dark .history-date-range .form-label {
+    color: #e5e7eb !important;
+}
+
+body.dark .history-date-range .form-control {
+    background-color: #020617 !important;
+    border-color: #1f2937 !important;
+    color: #e5e7eb !important;
+}
+
+body.dark .history-item {
+    border-left-color: #1f2937 !important;
+}
+
+body.dark .history-dot {
+    border-color: #020617 !important;
+    background: #3b82f6 !important;
+}
+
+body.dark .history-app-tag {
+    background: #111827 !important;
+    color: #e5e7eb !important;
+}
+
+body.dark .history-version {
+    color: #e5e7eb !important;
+}
+
+body.dark .history-right,
+body.dark .history-subrow,
+body.dark .history-text {
+    color: #9ca3af !important;
+}
+
+body.dark .history-stat-list li span:first-child {
+    color: #9ca3af !important;
+}
+
+body.dark .history-milestone-list .ms-label {
+    color: #e5e7eb !important;
+}
+
+body.dark .history-milestone-list .ms-desc {
+    color: #9ca3af !important;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .history-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .history-subrow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

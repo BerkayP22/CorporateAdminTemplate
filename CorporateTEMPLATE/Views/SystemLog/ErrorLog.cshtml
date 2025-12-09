@@ -1,0 +1,313 @@
+﻿@{
+    ViewData["Title"] = "Error Logs";
+}
+
+<div class="container-fluid logs-page">
+
+    <!-- HEADER -->
+    <div class="logs-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">Error Logs</h2>
+            <p class="text-muted mb-0">
+                Critical and error-level events across all services, grouped as cards.
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+            <!-- DATE RANGE -->
+            <div class="logs-filter-group">
+                <label class="form-label mb-0">Date range</label>
+                <div class="d-flex gap-1">
+                    <input type="date" class="form-control form-control-sm" id="errDateFrom" />
+                    <span class="logs-date-sep">–</span>
+                    <input type="date" class="form-control form-control-sm" id="errDateTo" />
+                </div>
+            </div>
+
+            <!-- SOURCE FILTER -->
+            <div class="logs-filter-group">
+                <label class="form-label mb-0">Service</label>
+                <select class="form-select form-select-sm" id="errSourceFilter">
+                    <option value="all" selected>All</option>
+                    <option value="deployment">Deployment Service</option>
+                    <option value="auth">Auth API</option>
+                    <option value="worker">Background Worker</option>
+                    <option value="queue">Queue Listener</option>
+                </select>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="logs-search d-flex align-items-center err-search">
+                <i class="fa-solid fa-search"></i>
+                <input id="errSearch" type="text" class="form-control form-control-sm" placeholder="Search error messages...">
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- LAYOUT -->
+    <div class="err-layout">
+
+        <!-- LEFT: ERROR CARDS -->
+        <div class="err-main">
+
+            <!-- ERROR CARD 1 (CRITICAL) -->
+            <div class="err-card"
+                 data-source="deployment"
+                 data-level="critical"
+                 data-text="Failed to deploy version v3.4.2 to production cluster timeout web request">
+                <div class="err-card-header">
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <span class="err-badge err-critical">CRITICAL</span>
+                        <span class="err-code">ERR-DEP-5001</span>
+                        <span class="err-time">2025-12-08 · 09:14:22</span>
+                    </div>
+                    <span class="err-env-pill err-env-prod">Production</span>
+                </div>
+                <div class="err-card-body">
+                    <div class="err-title">
+                        Failed to deploy version <strong>v3.4.2</strong> to production cluster
+                    </div>
+                    <div class="err-meta">
+                        <span><i class="fa-solid fa-microchip"></i> Service: Deployment Service</span>
+                        <span><i class="fa-regular fa-user"></i> User: System</span>
+                        <span><i class="fa-solid fa-link"></i> Correlation Id: #A9F3-DEP-712</span>
+                    </div>
+                    <p class="err-message">
+                        Deployment pipeline reported timeout when pushing artefact to node “TR1-PROD-02”.
+                        Rollback was triggered automatically.
+                    </p>
+
+                    <button type="button" class="btn btn-sm err-stack-toggle">
+                        <i class="fa-solid fa-chevron-down me-1"></i>
+                        View stack trace
+                    </button>
+
+                    <div class="err-stack mt-2">
+                        <pre>System.TimeoutException: The operation has timed out.
+at DeploymentClient.PushPackageAsync(...)
+at DeployJobHandler.ExecuteAsync(...)</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ERROR CARD 2 -->
+            <div class="err-card"
+                 data-source="auth"
+                 data-level="error"
+                 data-text="Failed login attempt invalid password user locked">
+                <div class="err-card-header">
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <span class="err-badge err-error">ERROR</span>
+                        <span class="err-code">ERR-AUTH-4012</span>
+                        <span class="err-time">2025-12-07 · 23:01:05</span>
+                    </div>
+                    <span class="err-env-pill err-env-prod">Production</span>
+                </div>
+                <div class="err-card-body">
+                    <div class="err-title">
+                        Multiple failed login attempts for user <strong>admin@softsolutions.com</strong>
+                    </div>
+                    <div class="err-meta">
+                        <span><i class="fa-solid fa-microchip"></i> Service: Auth API</span>
+                        <span><i class="fa-regular fa-user"></i> User: Unknown</span>
+                        <span><i class="fa-solid fa-link"></i> Correlation Id: #AUTH-LOCK-9920</span>
+                    </div>
+                    <p class="err-message">
+                        Account temporarily locked due to too many invalid credentials in a short period of time.
+                    </p>
+
+                    <button type="button" class="btn btn-sm err-stack-toggle">
+                        <i class="fa-solid fa-chevron-down me-1"></i>
+                        View stack trace
+                    </button>
+
+                    <div class="err-stack mt-2">
+                        <pre>AuthException: User locked out due to failed attempts.
+at AuthService.ValidateCredentials(...)
+at LoginController.Post(...)</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ERROR CARD 3 -->
+            <div class="err-card"
+                 data-source="worker"
+                 data-level="error"
+                 data-text="Background job failed customer sync null reference">
+                <div class="err-card-header">
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <span class="err-badge err-error">ERROR</span>
+                        <span class="err-code">ERR-WRK-3003</span>
+                        <span class="err-time">2025-12-07 · 18:55:01</span>
+                    </div>
+                    <span class="err-env-pill err-env-stg">Staging</span>
+                </div>
+                <div class="err-card-body">
+                    <div class="err-title">
+                        Background job failed while syncing customers for tenant <strong>Acme</strong>
+                    </div>
+                    <div class="err-meta">
+                        <span><i class="fa-solid fa-microchip"></i> Service: Background Worker</span>
+                        <span><i class="fa-regular fa-user"></i> User: Auto Job</span>
+                        <span><i class="fa-solid fa-link"></i> Correlation Id: #SYNC-ACME-3003</span>
+                    </div>
+                    <p class="err-message">
+                        Null reference detected while processing customer payload from external CRM connector.
+                    </p>
+
+                    <button type="button" class="btn btn-sm err-stack-toggle">
+                        <i class="fa-solid fa-chevron-down me-1"></i>
+                        View stack trace
+                    </button>
+
+                    <div class="err-stack mt-2">
+                        <pre>NullReferenceException: Object reference not set to an instance of an object.
+at CustomerSyncHandler.MapCustomer(...)
+at CustomerSyncHandler.ExecuteAsync(...)</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ERROR CARD 4 -->
+            <div class="err-card"
+                 data-source="queue"
+                 data-level="error"
+                 data-text="Queue listener failed to ack message rabbitmq connection dropped">
+                <div class="err-card-header">
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <span class="err-badge err-error">ERROR</span>
+                        <span class="err-code">ERR-QUEUE-2201</span>
+                        <span class="err-time">2025-12-06 · 20:45:50</span>
+                    </div>
+                    <span class="err-env-pill err-env-prod">Production</span>
+                </div>
+                <div class="err-card-body">
+                    <div class="err-title">
+                        Queue listener failed to ack message from <strong>deploy-process</strong>
+                    </div>
+                    <div class="err-meta">
+                        <span><i class="fa-solid fa-microchip"></i> Service: Queue Listener</span>
+                        <span><i class="fa-regular fa-user"></i> User: System</span>
+                        <span><i class="fa-solid fa-link"></i> Correlation Id: #Q-DEP-2201</span>
+                    </div>
+                    <p class="err-message">
+                        Connection to message broker dropped unexpectedly; message will re-appear on queue.
+                    </p>
+
+                    <button type="button" class="btn btn-sm err-stack-toggle">
+                        <i class="fa-solid fa-chevron-down me-1"></i>
+                        View stack trace
+                    </button>
+
+                    <div class="err-stack mt-2">
+                        <pre>BrokerException: Lost connection to RabbitMQ instance.
+at QueueClient.AckAsync(...)
+at QueueListener.ProcessMessage(...)</pre>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT: SUMMARY PANEL -->
+        <div class="err-side">
+
+            <div class="err-summary-card">
+                <h5 class="mb-2">Error summary (sample)</h5>
+
+                <div class="err-summary-row">
+                    <span>Total critical</span>
+                    <span>1</span>
+                </div>
+                <div class="err-summary-row">
+                    <span>Total errors (24h)</span>
+                    <span>4</span>
+                </div>
+                <div class="err-summary-row">
+                    <span>Most affected service</span>
+                    <span>Deployment Service</span>
+                </div>
+
+                <hr class="my-3" />
+
+                <div class="err-summary-subtitle mb-1">By service</div>
+                <ul class="err-summary-list small mb-0">
+                    <li>
+                        <span>Deployment Service</span>
+                        <span>1</span>
+                    </li>
+                    <li>
+                        <span>Auth API</span>
+                        <span>1</span>
+                    </li>
+                    <li>
+                        <span>Background Worker</span>
+                        <span>1</span>
+                    </li>
+                    <li>
+                        <span>Queue Listener</span>
+                        <span>1</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sourceFilter = document.getElementById("errSourceFilter");
+            const searchInput = document.getElementById("errSearch");
+            const cards = document.querySelectorAll(".err-card");
+
+            function applyErrFilters() {
+                const sourceVal = sourceFilter.value;
+                const searchVal = searchInput.value.toLowerCase();
+
+                cards.forEach(card => {
+                    const cardSource = card.getAttribute("data-source");
+                    const text = (card.getAttribute("data-text") || "").toLowerCase();
+
+                    const sourceMatch = (sourceVal === "all" || cardSource === sourceVal);
+                    const searchMatch = (searchVal === "" || text.includes(searchVal));
+
+                    const visible = sourceMatch && searchMatch;
+                    card.style.display = visible ? "" : "none";
+                });
+            }
+
+            sourceFilter.addEventListener("change", applyErrFilters);
+            searchInput.addEventListener("input", applyErrFilters);
+
+            // stack trace toggle
+            document.querySelectorAll(".err-stack-toggle").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const card = btn.closest(".err-card");
+                    const stack = card.querySelector(".err-stack");
+                    const icon = btn.querySelector("i");
+
+                    if (stack.style.display === "block") {
+                        stack.style.display = "none";
+                        icon.classList.remove("fa-chevron-up");
+                        icon.classList.add("fa-chevron-down");
+                    } else {
+                        stack.style.display = "block";
+                        icon.classList.remove("fa-chevron-down");
+                        icon.classList.add("fa-chevron-up");
+                    }
+                });
+            });
+
+            // başlangıçta filtre uygula
+            applyErrFilters();
+        });
+    </script>
+}

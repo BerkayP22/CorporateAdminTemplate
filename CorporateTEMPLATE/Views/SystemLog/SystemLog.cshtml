@@ -1,0 +1,203 @@
+﻿@{
+    ViewData["Title"] = "System Logs";
+}
+
+<div class="container-fluid logs-page">
+
+    <!-- HEADER -->
+    <div class="logs-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">System Logs</h2>
+            <p class="text-muted mb-0">
+                Track platform events, background jobs and critical system operations.
+            </p>
+        </div>
+
+        <div class="d-flex gap-2">
+
+            <!-- DATE RANGE -->
+            <div class="logs-filter-group">
+                <label class="form-label mb-0">Date range</label>
+                <div class="d-flex gap-1">
+                    <input type="date" class="form-control form-control-sm" id="logDateFrom" />
+                    <span class="logs-date-sep">–</span>
+                    <input type="date" class="form-control form-control-sm" id="logDateTo" />
+                </div>
+            </div>
+
+            <!-- LEVEL FILTER -->
+            <div class="logs-filter-group">
+                <label class="form-label mb-0">Level</label>
+                <select class="form-select form-select-sm" id="logLevelFilter">
+                    <option value="all">All</option>
+                    <option value="error" selected>Error</option>
+                    <option value="warning">Warning</option>
+                    <option value="info">Info</option>
+                    <option value="debug">Debug</option>
+                </select>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="logs-search d-flex align-items-center">
+                <i class="fa-solid fa-search"></i>
+                <input id="logSearch" type="text" class="form-control form-control-sm" placeholder="Search logs...">
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- LOG TABLE -->
+    <div class="logs-table-wrapper ann-card">
+        <div class="table-responsive">
+            <table class="table logs-table mb-0">
+                <thead>
+                    <tr>
+                        <th style="width:15%;">Timestamp</th>
+                        <th style="width:10%;">Level</th>
+                        <th style="width:15%;">Source</th>
+                        <th style="width:40%;">Message</th>
+                        <th style="width:13%;">User</th>
+                        <th style="width:7%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- ERROR -->
+                    <tr class="log-row" data-level="error">
+                        <td>2025-12-08 09:14:22</td>
+                        <td><span class="log-level error">ERROR</span></td>
+                        <td>Deployment Service</td>
+                        <td>Failed to push package to server</td>
+                        <td>System</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-log-details">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="log-details-row">
+                        <td colspan="6">
+                            <div class="log-details-box">
+                                <strong>Error Code:</strong> 500<br />
+                                <strong>Stack Trace:</strong> Timeout during web request.<br />
+                                <strong>Environment:</strong> Production
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- WARNING -->
+                    <tr class="log-row" data-level="warning">
+                        <td>2025-12-07 18:55:01</td>
+                        <td><span class="log-level warning">WARN</span></td>
+                        <td>Background Worker</td>
+                        <td>Retrying download... Attempt 3/5</td>
+                        <td>Auto Job</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-log-details">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="log-details-row">
+                        <td colspan="6">
+                            <div class="log-details-box">
+                                <strong>Info:</strong> Slow network detected<br />
+                                <strong>Will retry:</strong> YES
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- INFO -->
+                    <tr class="log-row" data-level="info">
+                        <td>2025-12-07 12:21:33</td>
+                        <td><span class="log-level info">INFO</span></td>
+                        <td>Auth API</td>
+                        <td>User successfully logged in</td>
+                        <td>Öykü B.</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-log-details">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="log-details-row">
+                        <td colspan="6">
+                            <div class="log-details-box">
+                                <strong>IP:</strong> 172.16.58.10<br />
+                                <strong>Browser:</strong> Chrome (Desktop)
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- DEBUG -->
+                    <tr class="log-row" data-level="debug">
+                        <td>2025-12-06 20:45:50</td>
+                        <td><span class="log-level debug">DEBUG</span></td>
+                        <td>Queue Listener</td>
+                        <td>Processing job #12869...</td>
+                        <td>System</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-log-details">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="log-details-row">
+                        <td colspan="6">
+                            <div class="log-details-box">
+                                <strong>Job ID:</strong> 12869<br />
+                                <strong>Queue:</strong> deploy-process
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const levelFilter = document.getElementById("logLevelFilter");
+            const searchInput = document.getElementById("logSearch");
+            const rows = document.querySelectorAll(".log-row");
+            const detailRows = document.querySelectorAll(".log-details-row");
+
+            function applyFilters() {
+                const levelVal = levelFilter.value;
+                const searchVal = searchInput.value.toLowerCase();
+
+                rows.forEach((row, index) => {
+                    const logLevel = row.getAttribute("data-level");
+                    const text = row.textContent.toLowerCase();
+
+                    const levelMatch = (levelVal === "all" || logLevel === levelVal);
+                    const searchMatch = (searchVal === "" || text.includes(searchVal));
+
+                    const visible = (levelMatch && searchMatch);
+                    row.style.display = visible ? "" : "none";
+                    detailRows[index].style.display = "none";
+                });
+            }
+
+            levelFilter.addEventListener("change", applyFilters);
+            searchInput.addEventListener("input", applyFilters);
+
+            // Expand/Collapse details
+            document.querySelectorAll(".btn-log-details").forEach((btn, index) => {
+                btn.addEventListener("click", () => {
+                    const detailsRow = detailRows[index];
+                    detailsRow.style.display =
+                        (detailsRow.style.display === "table-row" ? "none" : "table-row");
+                });
+            });
+
+        });
+    </script>
+}

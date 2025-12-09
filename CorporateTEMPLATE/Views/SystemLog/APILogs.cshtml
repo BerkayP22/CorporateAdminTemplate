@@ -1,0 +1,284 @@
+﻿@{
+    ViewData["Title"] = "API Logs";
+}
+
+<div class="container-fluid logs-page">
+
+    <!-- HEADER -->
+    <div class="logs-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">API Logs</h2>
+            <p class="text-muted mb-0">
+                Inspect incoming API calls, response statuses and performance.
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+            <!-- METHOD FILTER -->
+            <div class="logs-filter-group">
+                <label class="form-label mb-0">Method</label>
+                <select class="form-select form-select-sm" id="apiMethodFilter">
+                    <option value="all" selected>All</option>
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
+            </div>
+
+            <!-- STATUS FILTER -->
+            <div class="logs-filter-group">
+                <label class="form-label mb-0">Status</label>
+                <select class="form-select form-select-sm" id="apiStatusFilter">
+                    <option value="all" selected>All</option>
+                    <option value="2xx">2xx (Success)</option>
+                    <option value="4xx">4xx (Client)</option>
+                    <option value="5xx">5xx (Server)</option>
+                </select>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="logs-search d-flex align-items-center api-search">
+                <i class="fa-solid fa-search"></i>
+                <input id="apiSearch" type="text" class="form-control form-control-sm"
+                       placeholder="Search endpoint or message...">
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- API LOG TABLE -->
+    <div class="api-table-wrapper">
+        <div class="table-responsive">
+            <table class="table api-table mb-0">
+                <thead>
+                    <tr>
+                        <th style="width:16%;">Time</th>
+                        <th style="width:9%;">Method</th>
+                        <th style="width:30%;">Endpoint</th>
+                        <th style="width:9%;">Status</th>
+                        <th style="width:9%;">Duration</th>
+                        <th style="width:17%;">User</th>
+                        <th style="width:10%;">Service</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- ROW 1 -->
+                    <tr class="api-row"
+                        data-method="GET"
+                        data-status="200"
+                        data-text="/api/versions/active list active versions">
+                        <td>2025-12-08 09:32:11</td>
+                        <td><span class="api-method-tag get">GET</span></td>
+                        <td>/api/versions/active</td>
+                        <td><span class="api-status-tag s2xx">200</span></td>
+                        <td>132 ms</td>
+                        <td>admin@softsolutions.com</td>
+                        <td>Version Manager</td>
+                    </tr>
+                    <tr class="api-details-row">
+                        <td colspan="7">
+                            <div class="api-details-box">
+                                <div class="api-details-top">
+                                    <span><strong>Request Id:</strong> REQ-VM-20251208-001</span>
+                                    <span><strong>IP:</strong> 172.16.10.12</span>
+                                </div>
+                                <div class="api-details-body">
+                                    <div>
+                                        <strong>Request:</strong> GET /api/versions/active
+                                    </div>
+                                    <div>
+                                        <strong>Query:</strong> env=live&amp;limit=20
+                                    </div>
+                                    <div>
+                                        <strong>Response:</strong> 200 OK · 12 items
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- ROW 2 - POST 201 -->
+                    <tr class="api-row"
+                        data-method="POST"
+                        data-status="201"
+                        data-text="/api/customers create new customer acme">
+                        <td>2025-12-08 09:28:47</td>
+                        <td><span class="api-method-tag post">POST</span></td>
+                        <td>/api/customers</td>
+                        <td><span class="api-status-tag s2xx">201</span></td>
+                        <td>248 ms</td>
+                        <td>eda.h@softsolutions.com</td>
+                        <td>Customer Portal</td>
+                    </tr>
+                    <tr class="api-details-row">
+                        <td colspan="7">
+                            <div class="api-details-box">
+                                <div class="api-details-top">
+                                    <span><strong>Request Id:</strong> REQ-CUST-20251208-021</span>
+                                    <span><strong>IP:</strong> 172.16.18.7</span>
+                                </div>
+                                <div class="api-details-body">
+                                    <div><strong>Request:</strong> POST /api/customers</div>
+                                    <div><strong>Payload:</strong> { name: "Acme", contact: "ops@acme.com" }</div>
+                                    <div><strong>Response:</strong> 201 Created · customerId = 1842</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- ROW 3 - 401 -->
+                    <tr class="api-row"
+                        data-method="POST"
+                        data-status="401"
+                        data-text="/api/auth/login invalid credentials">
+                        <td>2025-12-08 09:21:03</td>
+                        <td><span class="api-method-tag post">POST</span></td>
+                        <td>/api/auth/login</td>
+                        <td><span class="api-status-tag s4xx">401</span></td>
+                        <td>94 ms</td>
+                        <td>Unknown</td>
+                        <td>Auth API</td>
+                    </tr>
+                    <tr class="api-details-row">
+                        <td colspan="7">
+                            <div class="api-details-box">
+                                <div class="api-details-top">
+                                    <span><strong>Request Id:</strong> REQ-AUTH-20251208-044</span>
+                                    <span><strong>IP:</strong> 10.0.5.33</span>
+                                </div>
+                                <div class="api-details-body">
+                                    <div><strong>Request:</strong> POST /api/auth/login</div>
+                                    <div><strong>Payload:</strong> { username: "admin", password: "***" }</div>
+                                    <div><strong>Response:</strong> 401 Unauthorized · invalid credentials</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- ROW 4 - 500 -->
+                    <tr class="api-row"
+                        data-method="GET"
+                        data-status="500"
+                        data-text="/api/reports/monthly internal server error timeout">
+                        <td>2025-12-07 22:05:42</td>
+                        <td><span class="api-method-tag get">GET</span></td>
+                        <td>/api/reports/monthly</td>
+                        <td><span class="api-status-tag s5xx">500</span></td>
+                        <td>3012 ms</td>
+                        <td>burak.k@softsolutions.com</td>
+                        <td>Reports</td>
+                    </tr>
+                    <tr class="api-details-row">
+                        <td colspan="7">
+                            <div class="api-details-box">
+                                <div class="api-details-top">
+                                    <span><strong>Request Id:</strong> REQ-REP-20251207-011</span>
+                                    <span><strong>IP:</strong> 172.16.12.4</span>
+                                </div>
+                                <div class="api-details-body">
+                                    <div><strong>Request:</strong> GET /api/reports/monthly?month=11&amp;year=2025</div>
+                                    <div><strong>Error:</strong> System.TimeoutException while fetching data from warehouse.</div>
+                                    <div><strong>Response:</strong> 500 Internal Server Error</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- ROW 5 - DELETE 204 -->
+                    <tr class="api-row"
+                        data-method="DELETE"
+                        data-status="204"
+                        data-text="/api/customers/1842 delete customer">
+                        <td>2025-12-07 19:12:09</td>
+                        <td><span class="api-method-tag delete">DELETE</span></td>
+                        <td>/api/customers/1842</td>
+                        <td><span class="api-status-tag s2xx">204</span></td>
+                        <td>167 ms</td>
+                        <td>admin@softsolutions.com</td>
+                        <td>Customer Portal</td>
+                    </tr>
+                    <tr class="api-details-row">
+                        <td colspan="7">
+                            <div class="api-details-box">
+                                <div class="api-details-top">
+                                    <span><strong>Request Id:</strong> REQ-CUST-20251207-090</span>
+                                    <span><strong>IP:</strong> 172.16.18.7</span>
+                                </div>
+                                <div class="api-details-body">
+                                    <div><strong>Request:</strong> DELETE /api/customers/1842</div>
+                                    <div><strong>Response:</strong> 204 No Content</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const methodFilter = document.getElementById("apiMethodFilter");
+            const statusFilter = document.getElementById("apiStatusFilter");
+            const searchInput  = document.getElementById("apiSearch");
+
+            const rows        = document.querySelectorAll(".api-row");
+            const detailRows  = document.querySelectorAll(".api-details-row");
+
+            function apiStatusGroup(status) {
+                const code = parseInt(status, 10);
+                if (code >= 200 && code < 300) return "2xx";
+                if (code >= 400 && code < 500) return "4xx";
+                if (code >= 500 && code < 600) return "5xx";
+                return "other";
+            }
+
+            function applyApiFilters() {
+                const methodVal = methodFilter.value;
+                const statusVal = statusFilter.value;
+                const searchVal = searchInput.value.toLowerCase();
+
+                rows.forEach((row, index) => {
+                    const method = row.getAttribute("data-method");
+                    const status = row.getAttribute("data-status");
+                    const group  = apiStatusGroup(status);
+                    const text   = (row.getAttribute("data-text") || "").toLowerCase();
+
+                    const methodMatch = (methodVal === "all" || method === methodVal);
+                    const statusMatch = (statusVal === "all" || group === statusVal);
+                    const searchMatch = (searchVal === "" || text.includes(searchVal));
+
+                    const visible = methodMatch && statusMatch && searchMatch;
+                    row.style.display = visible ? "" : "none";
+                    detailRows[index].style.display = "none";
+                });
+            }
+
+            methodFilter.addEventListener("change", applyApiFilters);
+            statusFilter.addEventListener("change", applyApiFilters);
+            searchInput.addEventListener("input", applyApiFilters);
+
+            // satıra tıklayınca detay aç/kapa
+            rows.forEach((row, index) => {
+                row.style.cursor = "pointer";
+                row.addEventListener("click", () => {
+                    const dRow = detailRows[index];
+                    const isShown = dRow.style.display === "table-row";
+                    dRow.style.display = isShown ? "none" : "table-row";
+                });
+            });
+
+            applyApiFilters();
+        });
+    </script>
+}

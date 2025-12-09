@@ -1,0 +1,217 @@
+﻿@{
+    ViewData["Title"] = "User Management";
+}
+
+<div class="container-fluid userlist-page">
+
+    <!-- HEADER -->
+    <div class="userlist-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">User Management</h2>
+            <p class="text-muted mb-0">View, create and manage users in the system.</p>
+        </div>
+
+        <div class="d-flex gap-3 align-items-center">
+
+            <!-- Search -->
+            <div class="userlist-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="form-control" placeholder="Search users..." />
+            </div>
+
+            <!-- Add User -->
+            <a asp-controller="UserManagement" asp-action="CreateUser" class="btn btn-add-user">
+                <i class="fa-solid fa-user-plus me-2"></i>
+                Add User
+            </a>
+        </div>
+    </div>
+
+    <!-- WRAPPER (FULL WIDTH) -->
+    <div class="userlist-wrapper">
+
+        <div class="userlist-card shadow-sm">
+            <div class="userlist-card-body">
+
+                <table class="table userlist-table mb-0">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Last Login</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- USER 1 -->
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="user-avatar-circle online">
+                                        <span>JD</span>
+                                    </div>
+                                    <div class="user-main">
+                                        <div class="user-name">John Doe</div>
+                                        <div class="user-sub text-muted small">
+                                            Senior Developer · johndoe
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>johndoe@example.com</td>
+                            <td>
+                                <span class="role-badge role-admin">Admin</span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-online">Online</span>
+                            </td>
+                            <td>
+                                <span class="text-muted small">Today · 09:24</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm user-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- USER 2 -->
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="user-avatar-circle online">
+                                        <span>SK</span>
+                                    </div>
+                                    <div class="user-main">
+                                        <div class="user-name">Sarah King</div>
+                                        <div class="user-sub text-muted small">
+                                            Product Manager · s.king
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>sarah@example.com</td>
+                            <td>
+                                <span class="role-badge role-manager">Manager</span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-online">Online</span>
+                            </td>
+                            <td>
+                                <span class="text-muted small">Today · 08:10</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm user-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- USER 3 -->
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="user-avatar-circle idle">
+                                        <span>MK</span>
+                                    </div>
+                                    <div class="user-main">
+                                        <div class="user-name">Mehmet Kaya</div>
+                                        <div class="user-sub text-muted small">
+                                            Support Engineer · mkaya
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>mehmet@example.com</td>
+                            <td>
+                                <span class="role-badge role-support">Support</span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-idle">Idle</span>
+                            </td>
+                            <td>
+                                <span class="text-muted small">Yesterday · 22:15</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm user-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- USER 4 -->
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="user-avatar-circle offline">
+                                        <span>AS</span>
+                                    </div>
+                                    <div class="user-main">
+                                        <div class="user-name">Ayşe Şen</div>
+                                        <div class="user-sub text-muted small">
+                                            QA Engineer · aysen
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>ayse@example.com</td>
+                            <td>
+                                <span class="role-badge role-admin">Admin</span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-offline">Offline</span>
+                            </td>
+                            <td>
+                                <span class="text-muted small">3 days ago · 16:40</span>
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm user-actions" role="group">
+                                    <button class="btn btn-outline-info" title="View">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Edit">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" title="Delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,703 @@
+﻿/* ==========================
+   USER MANAGEMENT - BASE
+========================== */
+
+.userlist-page {
+    padding: 20px;
+}
+
+/* HEADER */
+.userlist-header h2 {
+    font-size: calc(1.35rem * var(--font-scale, 1));
+}
+
+/* WRAPPER - tabloyu full genişlik yap */
+.userlist-wrapper {
+    width: 100%;
+}
+
+/* CARD */
+.userlist-card {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+}
+
+/* Card içi */
+.userlist-card-body {
+    padding: 0;
+    overflow-x: auto; /* responsive: küçük ekranda yatay scroll */
+}
+
+/* SEARCH BAR */
+.userlist-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+}
+
+    .userlist-search i {
+        color: #9ca3af;
+        font-size: calc(0.9rem * var(--font-scale, 1));
+    }
+
+    .userlist-search .form-control {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        font-size: calc(0.9rem * var(--font-scale, 1));
+        padding: 0;
+    }
+
+        .userlist-search .form-control:focus {
+            box-shadow: none;
+        }
+
+/* ADD USER BUTTON */
+.btn-add-user {
+    background: linear-gradient(135deg, var(--accent-color, #3b82f6), rgba(6, 182, 212, 0.9));
+    border: none !important;
+    color: #ffffff;
+    padding: 9px 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: calc(0.9rem * var(--font-scale, 1));
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+}
+
+    .btn-add-user:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
+        filter: brightness(1.03);
+    }
+
+/* ==========================
+   TABLE LAYOUT
+========================== */
+
+.userlist-table {
+    width: 100%;
+    table-layout: fixed; /* sütunlar sayfayı orantılı kapsasın */
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 800px; /* Küçük ekranda yatay scroll için */
+}
+
+    /* Head */
+    .userlist-table thead tr {
+        background-color: #f1f5f9;
+    }
+
+    .userlist-table thead th {
+        padding: 10px 14px;
+        font-size: calc(0.78rem * var(--font-scale, 1));
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #64748b;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+        /* Sütun genişliklerini orantılı ayarla */
+        .userlist-table thead th:nth-child(1),
+        .userlist-table tbody td:nth-child(1) {
+            width: 26%;
+        }
+
+        .userlist-table thead th:nth-child(2),
+        .userlist-table tbody td:nth-child(2) {
+            width: 20%;
+        }
+
+        .userlist-table thead th:nth-child(3),
+        .userlist-table tbody td:nth-child(3) {
+            width: 12%;
+        }
+
+        .userlist-table thead th:nth-child(4),
+        .userlist-table tbody td:nth-child(4) {
+            width: 12%;
+        }
+
+        .userlist-table thead th:nth-child(5),
+        .userlist-table tbody td:nth-child(5) {
+            width: 15%;
+        }
+
+        .userlist-table thead th:nth-child(6),
+        .userlist-table tbody td:nth-child(6) {
+            width: 15%;
+        }
+
+    /* Body */
+    .userlist-table tbody td {
+        padding: 10px 14px;
+        font-size: calc(0.9rem * var(--font-scale, 1));
+        border-bottom: 1px solid #e5e7eb;
+        vertical-align: middle;
+    }
+
+    /* Hover */
+    .userlist-table tbody tr {
+        transition: background-color 0.12s ease, box-shadow 0.12s ease;
+    }
+
+        .userlist-table tbody tr:hover {
+            background-color: #f8fafc;
+            box-shadow: inset 3px 0 0 var(--accent-color, #3b82f6);
+        }
+
+/* ==========================
+   AVATAR & USER INFO
+========================== */
+
+.user-avatar-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    color: #111827;
+    font-weight: 600;
+    font-size: calc(0.9rem * var(--font-scale, 1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+    .user-avatar-circle.online::after,
+    .user-avatar-circle.idle::after,
+    .user-avatar-circle.offline::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        right: -1px;
+        width: 11px;
+        height: 11px;
+        border-radius: 999px;
+        border: 2px solid #ffffff;
+    }
+
+    .user-avatar-circle.online::after {
+        background: #22c55e;
+    }
+
+    .user-avatar-circle.idle::after {
+        background: #fbbf24;
+    }
+
+    .user-avatar-circle.offline::after {
+        background: #ef4444;
+    }
+
+.user-name {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+/* ==========================
+   ROLE & STATUS BADGES
+========================== */
+
+.role-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: calc(0.78rem * var(--font-scale, 1));
+    font-weight: 600;
+}
+
+.role-admin {
+    background: rgba(37, 99, 235, 0.08);
+    color: #1d4ed8;
+}
+
+.role-manager {
+    background: rgba(16, 185, 129, 0.08);
+    color: #059669;
+}
+
+.role-support {
+    background: rgba(234, 179, 8, 0.08);
+    color: #b45309;
+}
+
+.status-badge {
+    font-size: calc(0.82rem * var(--font-scale, 1));
+    font-weight: 600;
+}
+
+.status-online {
+    color: #16a34a;
+}
+
+.status-idle {
+    color: #d97706;
+}
+
+.status-offline {
+    color: #b91c1c;
+}
+
+/* ==========================
+   ACTION BUTTONS
+========================== */
+
+.user-actions .btn {
+    border-radius: 8px;
+    font-size: calc(0.82rem * var(--font-scale, 1));
+}
+
+.user-actions .btn-outline-info {
+    border-color: #0ea5e9;
+    color: #0284c7;
+}
+
+    .user-actions .btn-outline-info:hover {
+        background: #0ea5e9;
+        color: #ffffff;
+    }
+
+.user-actions .btn-outline-primary {
+    border-color: #3b82f6;
+    color: #1d4ed8;
+}
+
+    .user-actions .btn-outline-primary:hover {
+        background: #3b82f6;
+        color: #ffffff;
+    }
+
+.user-actions .btn-outline-danger {
+    border-color: #ef4444;
+    color: #b91c1c;
+}
+
+    .user-actions .btn-outline-danger:hover {
+        background: #ef4444;
+        color: #ffffff;
+    }
+
+/* ==========================
+   THEME SETTINGS ENTEGRASYON
+========================== */
+
+/* CARD RADIUS: theme-radius-* */
+
+body.theme-radius-soft .userlist-card,
+body.theme-radius-soft .usercreate-card {
+    border-radius: 18px;
+}
+
+body.theme-radius-rounded .userlist-card,
+body.theme-radius-rounded .usercreate-card {
+    border-radius: 24px;
+}
+
+body.theme-radius-sharp .userlist-card,
+body.theme-radius-sharp .usercreate-card {
+    border-radius: 6px;
+}
+
+/* NEON GLOW: theme-neon-* (özellikle dark modda) */
+
+body.dark.theme-neon-soft .userlist-card,
+body.dark.theme-neon-soft .usercreate-card {
+    box-shadow: 0 0 18px rgba(129, 140, 248, 0.45);
+}
+
+body.dark.theme-neon-strong .userlist-card,
+body.dark.theme-neon-strong .usercreate-card {
+    box-shadow: 0 0 26px rgba(129, 140, 248, 0.75);
+}
+
+/* DENSITY: theme-density-compact */
+
+body.theme-density-compact .userlist-card-body {
+    padding: 0;
+}
+
+body.theme-density-compact .userlist-table thead th {
+    padding: 7px 10px;
+}
+
+body.theme-density-compact .userlist-table tbody td {
+    padding: 7px 10px;
+    font-size: calc(0.86rem * var(--font-scale, 1));
+}
+
+/* ==========================
+   DARK MODE OVERRIDES (FINAL)
+========================== */
+
+body.dark .userlist-card {
+    background: #020617;
+    border-color: #1e293b;
+}
+
+/* TABLONUN İÇİNİ KOMPLE KARART */
+body.dark .userlist-table,
+body.dark .userlist-table thead,
+body.dark .userlist-table tbody,
+body.dark .userlist-table tr,
+body.dark .userlist-table th,
+body.dark .userlist-table td {
+    background-color: #020617 !important;
+}
+
+    /* Head */
+    body.dark .userlist-table thead tr {
+        background-color: #111827 !important;
+    }
+
+    body.dark .userlist-table thead th {
+        color: #d1d5db !important;
+        border-bottom-color: #1e293b !important;
+    }
+
+    /* Body */
+    body.dark .userlist-table tbody tr {
+        border-bottom: 1px solid #1e293b !important;
+    }
+
+    body.dark .userlist-table tbody td {
+        color: #e5e7eb !important;
+    }
+
+    /* Hover */
+    body.dark .userlist-table tbody tr:hover {
+        background-color: #0b1120 !important;
+    }
+
+/* SEARCH BAR */
+body.dark .userlist-search {
+    background: #111827;
+    border-color: #1e293b;
+}
+
+    body.dark .userlist-search .form-control {
+        color: #e5e7eb;
+    }
+
+    body.dark .userlist-search i {
+        color: #94a3b8;
+    }
+
+/* AVATAR */
+body.dark .user-avatar-circle {
+    background: #1e293b;
+    color: #f1f5f9;
+}
+
+    body.dark .user-avatar-circle.online::after,
+    body.dark .user-avatar-circle.idle::after,
+    body.dark .user-avatar-circle.offline::after {
+        border-color: #020617;
+    }
+
+/* USER NAME */
+body.dark .user-name {
+    color: #f8fafc;
+}
+
+/* ROLE BADGES */
+body.dark .role-badge {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* STATUS TEXTS */
+body.dark .status-online {
+    color: #4ade80 !important;
+}
+
+body.dark .status-idle {
+    color: #facc15 !important;
+}
+
+body.dark .status-offline {
+    color: #f87171 !important;
+}
+
+/* ACTION BUTTONS DARK */
+body.dark .user-actions .btn-outline-info {
+    border-color: #38bdf8;
+    color: #38bdf8;
+}
+
+body.dark .user-actions .btn-outline-primary {
+    border-color: #60a5fa;
+    color: #60a5fa;
+}
+
+body.dark .user-actions .btn-outline-danger {
+    border-color: #f87171;
+    color: #f87171;
+}
+
+body.dark .user-actions .btn-outline-info:hover {
+    background: #38bdf8;
+    color: #0b1120;
+}
+
+body.dark .user-actions .btn-outline-primary:hover {
+    background: #60a5fa;
+    color: #0b1120;
+}
+
+body.dark .user-actions .btn-outline-danger:hover {
+    background: #f87171;
+    color: #0b1120;
+}
+
+/* ADD USER BUTTON dark */
+body.dark .btn-add-user {
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 992px) {
+    .userlist-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .userlist-search {
+        width: 100%;
+    }
+
+    .btn-add-user {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .userlist-page {
+        padding: 12px;
+    }
+
+    .userlist-header h2 {
+        font-size: calc(1.2rem * var(--font-scale, 1));
+    }
+}
+
+
+/* ==========================
+   CREATE USER PAGE
+========================== */
+
+.usercreate-page {
+    padding: 20px;
+}
+
+.usercreate-header h2 {
+    font-size: calc(1.35rem * var(--font-scale, 1));
+}
+
+.usercreate-card {
+    max-width: 950px;
+    margin: 0 auto;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+}
+
+.usercreate-card-body {
+    padding: 20px 22px 18px;
+}
+
+/* Section title (Basic Info, Role & Status vs.) */
+.userform-section-title {
+    font-size: calc(0.8rem * var(--font-scale, 1));
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .userform-section-title::before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent-color, #3b82f6), rgba(6, 182, 212, 0.9));
+    }
+
+/* Inputs */
+.usercreate-card .form-label {
+    font-size: calc(0.88rem * var(--font-scale, 1));
+    color: #4b5563;
+}
+
+.usercreate-card .form-control,
+.usercreate-card .form-select {
+    font-size: calc(0.9rem * var(--font-scale, 1));
+}
+
+/* Create button */
+.btn-create-user {
+    min-width: 150px;
+    font-weight: 600;
+}
+
+/* Responsive header + card */
+@media (max-width: 992px) {
+    .usercreate-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .usercreate-card {
+        margin-top: 4px;
+    }
+}
+
+@media (max-width: 576px) {
+    .usercreate-page {
+        padding: 12px;
+    }
+
+    .usercreate-card-body {
+        padding: 16px 14px 14px;
+    }
+}
+
+/* ==========================
+   DARK MODE - CREATE USER
+========================== */
+
+body.dark .usercreate-card {
+    background: #020617;
+    border-color: #1e293b;
+}
+
+body.dark .usercreate-card-body {
+    color: #e5e7eb;
+}
+
+body.dark .userform-section-title {
+    color: #9ca3af;
+}
+
+body.dark .usercreate-card .form-label {
+    color: #cbd5f5;
+}
+
+body.dark .usercreate-card .form-control,
+body.dark .usercreate-card .form-select {
+    background-color: #020617;
+    border-color: #1f2937;
+    color: #e5e7eb;
+}
+
+    body.dark .usercreate-card .form-control::placeholder {
+        color: #6b7280;
+    }
+
+    body.dark .usercreate-card .form-control:focus,
+    body.dark .usercreate-card .form-select:focus {
+        border-color: var(--accent-color, #3b82f6);
+        box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
+    }
+
+/* Checkboxes */
+body.dark .usercreate-card .form-check-label {
+    color: #e5e7eb;
+}
+
+/* ==========================
+   ROLES & PERMISSIONS BADGES
+========================== */
+
+.perm-badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: calc(0.76rem * var(--font-scale, 1));
+    font-weight: 600;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    background: #eef2ff;
+    color: #3730a3;
+}
+
+/* Full access (en güçlü) */
+.perm-full {
+    background: rgba(59, 130, 246, 0.12);
+    color: #1d4ed8;
+}
+
+/* Critical permissions (user management, system settings vs.) */
+.perm-critical {
+    background: rgba(239, 68, 68, 0.12);
+    color: #b91c1c;
+}
+
+/* Limited / standard permissions */
+.perm-limited {
+    background: rgba(16, 185, 129, 0.12);
+    color: #047857;
+}
+
+.perm-standard {
+    background: rgba(59, 130, 246, 0.08);
+    color: #1d4ed8;
+}
+
+/* Read-only permissions */
+.perm-readonly {
+    background: rgba(148, 163, 184, 0.18);
+    color: #4b5563;
+}
+
+/* DARK MODE (Roles & Permissions) */
+body.dark .perm-badge {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid #1e293b;
+    color: #e5e7eb;
+}
+
+body.dark .perm-full {
+    background: rgba(37, 99, 235, 0.22);
+    color: #bfdbfe;
+}
+
+body.dark .perm-critical {
+    background: rgba(248, 113, 113, 0.22);
+    color: #fecaca;
+}
+
+body.dark .perm-limited {
+    background: rgba(52, 211, 153, 0.18);
+    color: #bbf7d0;
+}
+
+body.dark .perm-standard {
+    background: rgba(59, 130, 246, 0.18);
+    color: #bfdbfe;
+}
+
+body.dark .perm-readonly {
+    background: rgba(148, 163, 184, 0.18);
+    color: #e5e7eb;
+}
+
+

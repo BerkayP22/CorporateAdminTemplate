@@ -1,0 +1,376 @@
+﻿@{
+    ViewData["Title"] = "All Versions";
+}
+
+<div class="container-fluid versions-page">
+
+    <!-- HEADER -->
+    <div class="versions-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">All Versions</h2>
+            <p class="text-muted mb-0">
+                Track every release across applications, environments and customers.
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+            <!-- APP SELECT -->
+            <div class="versions-app-select">
+                <label for="appSelect" class="form-label mb-0">Application</label>
+                <select id="appSelect" class="form-select form-select-sm">
+                    <option value="version-manager" selected>Version Manager</option>
+                    <option value="deployment-monitor">Deployment Monitor</option>
+                    <option value="customer-portal">Customer Portal</option>
+                    <option value="incident-tracker">Incident Tracker</option>
+                    <option value="log-analyzer">Log Analyzer</option>
+                </select>
+            </div>
+
+            <!-- ENV FILTER (dummy şimdilik) -->
+            <select class="form-select form-select-sm versions-env-filter">
+                <option>All environments</option>
+                <option>Alpha</option>
+                <option>Beta</option>
+                <option>Live</option>
+            </select>
+
+            <!-- CREATE VERSION BUTTON -->
+            <button class="btn btn-primary btn-sm versions-add-btn">
+                <i class="fa-solid fa-plus me-1"></i>
+                Create version
+            </button>
+        </div>
+    </div>
+
+
+    <!-- LAYOUT: LEFT MAIN / RIGHT SIDE -->
+    <div class="versions-layout">
+
+        <!-- LEFT MAIN -->
+        <div class="versions-main">
+
+            <!-- APP SUMMARY CARD -->
+            <div class="ver-card mb-3">
+                <div class="ver-card-body">
+
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+
+                        <!-- APP INFO -->
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="ver-app-icon">
+                                <i class="fa-solid fa-code-branch"></i>
+                            </div>
+                            <div>
+                                <div class="ver-app-name" id="selectedAppName">Version Manager</div>
+                                <div class="ver-app-code" id="selectedAppCode">APP-VM</div>
+                                <div class="ver-app-desc" id="selectedAppDesc">
+                                    Centralized version definition and deployment orchestration.
+                                </div>
+                                <div class="ver-app-meta mt-1">
+                                    <span class="ver-app-pill">Backend</span>
+                                    <span class="ver-app-pill">Critical</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- META METRICS -->
+                        <div class="ver-meta-grid">
+                            <div class="ver-meta-item">
+                                <div class="label">Current version</div>
+                                <div class="value" id="selectedAppCurrentVersion">v3.4.2</div>
+                                <div class="hint text-success">Live · Stable</div>
+                            </div>
+                            <div class="ver-meta-item">
+                                <div class="label">Total releases</div>
+                                <div class="value" id="selectedAppTotalReleases">23</div>
+                                <div class="hint">Last 2 years</div>
+                            </div>
+                            <div class="ver-meta-item">
+                                <div class="label">Last sold to</div>
+                                <div class="value" id="selectedAppCustomer">St Solutions A.Ş.</div>
+                                <div class="hint text-muted">Enterprise contract</div>
+                            </div>
+                            <div class="ver-meta-item">
+                                <div class="label">Primary environment</div>
+                                <div class="value">
+                                    <span class="env-pill env-live">Live</span>
+                                </div>
+                                <div class="hint text-muted">TR · EU clusters</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VERSIONS TABLE -->
+            <div class="ver-card">
+                <div class="ver-card-header">
+                    <div>
+                        <h5 class="mb-0">Version history</h5>
+                        <small class="text-muted">All deployments for selected application.</small>
+                    </div>
+                </div>
+                <div class="ver-card-body">
+
+                    <div class="table-responsive">
+                        <table class="table ver-table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Version</th>
+                                    <th>Release date</th>
+                                    <th>Environment</th>
+                                    <th>Status</th>
+                                    <th>Deployed by</th>
+                                    <th>Sold to</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- VERSION MANAGER VERSIONS -->
+                                <tr class="version-row" data-app="version-manager">
+                                    <td>
+                                        <span class="ver-version-label">v3.4.2</span>
+                                    </td>
+                                    <td>2025-12-01</td>
+                                    <td>
+                                        <span class="env-pill env-live">Live</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-chip status-released">Released</span>
+                                    </td>
+                                    <td>
+                                        <span class="ver-user">Öykü B.</span>
+                                    </td>
+                                    <td>
+                                        St Solutions A.Ş.
+                                    </td>
+                                    <td>
+                                        Hotfix bundle including deployment race-condition fix.
+                                    </td>
+                                </tr>
+
+                                <tr class="version-row" data-app="version-manager">
+                                    <td>
+                                        <span class="ver-version-label">v3.4.0</span>
+                                    </td>
+                                    <td>2025-11-20</td>
+                                    <td>
+                                        <span class="env-pill env-live">Live</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-chip status-released">Released</span>
+                                    </td>
+                                    <td>
+                                        <span class="ver-user">Burak K.</span>
+                                    </td>
+                                    <td>
+                                        Acme Technologies
+                                    </td>
+                                    <td>
+                                        New rollout strategy support, improved rollback visibility.
+                                    </td>
+                                </tr>
+
+                                <tr class="version-row" data-app="version-manager">
+                                    <td>
+                                        <span class="ver-version-label">v3.3.0</span>
+                                    </td>
+                                    <td>2025-10-10</td>
+                                    <td>
+                                        <span class="env-pill env-beta">Beta</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-chip status-inqa">In QA</span>
+                                    </td>
+                                    <td>
+                                        <span class="ver-user">CI Pipeline</span>
+                                    </td>
+                                    <td>
+                                        Internal tenants
+                                    </td>
+                                    <td>
+                                        Feature flags for per-customer configuration.
+                                    </td>
+                                </tr>
+
+                                <tr class="version-row" data-app="version-manager">
+                                    <td>
+                                        <span class="ver-version-label">v3.2.1</span>
+                                    </td>
+                                    <td>2025-08-03</td>
+                                    <td>
+                                        <span class="env-pill env-alpha">Alpha</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-chip status-deprecated">Deprecated</span>
+                                    </td>
+                                    <td>
+                                        <span class="ver-user">Eda H.</span>
+                                    </td>
+                                    <td>
+                                        Globex Corporation
+                                    </td>
+                                    <td>
+                                        Internal schema changes, no external behaviour impact.
+                                    </td>
+                                </tr>
+
+                                <!-- DEPLOYMENT MONITOR -->
+                                <tr class="version-row" data-app="deployment-monitor">
+                                    <td><span class="ver-version-label">v2.1.0</span></td>
+                                    <td>2025-11-28</td>
+                                    <td><span class="env-pill env-live">Live</span></td>
+                                    <td><span class="status-chip status-released">Released</span></td>
+                                    <td><span class="ver-user">On-call Bot</span></td>
+                                    <td>Acme Technologies</td>
+                                    <td>New alerting rules for night-shift deployments.</td>
+                                </tr>
+
+                                <tr class="version-row" data-app="deployment-monitor">
+                                    <td><span class="ver-version-label">v2.0.0</span></td>
+                                    <td>2025-09-10</td>
+                                    <td><span class="env-pill env-beta">Beta</span></td>
+                                    <td><span class="status-chip status-inqa">In QA</span></td>
+                                    <td><span class="ver-user">Burak K.</span></td>
+                                    <td>Northwind Traders</td>
+                                    <td>Advanced incident correlation view.</td>
+                                </tr>
+
+                                <!-- CUSTOMER PORTAL -->
+                                <tr class="version-row" data-app="customer-portal">
+                                    <td><span class="ver-version-label">v1.8.3</span></td>
+                                    <td>2025-10-02</td>
+                                    <td><span class="env-pill env-live">Live</span></td>
+                                    <td><span class="status-chip status-released">Released</span></td>
+                                    <td><span class="ver-user">CI Pipeline</span></td>
+                                    <td>Globex Corporation</td>
+                                    <td>Bulk import improvements, UX tweaks.</td>
+                                </tr>
+
+                                <!-- INCIDENT TRACKER -->
+                                <tr class="version-row" data-app="incident-tracker">
+                                    <td><span class="ver-version-label">v4.0.0</span></td>
+                                    <td>2025-11-15</td>
+                                    <td><span class="env-pill env-live">Live</span></td>
+                                    <td><span class="status-chip status-released">Released</span></td>
+                                    <td><span class="ver-user">Öykü B.</span></td>
+                                    <td>St Solutions A.Ş.</td>
+                                    <td>Full SLA reporting and incident timeline export.</td>
+                                </tr>
+
+                                <!-- LOG ANALYZER -->
+                                <tr class="version-row" data-app="log-analyzer">
+                                    <td><span class="ver-version-label">v0.9.5</span></td>
+                                    <td>2025-09-01</td>
+                                    <td><span class="env-pill env-alpha">Alpha</span></td>
+                                    <td><span class="status-chip status-inqa">In QA</span></td>
+                                    <td><span class="ver-user">QA Team</span></td>
+                                    <td>Internal</td>
+                                    <td>Testing new query engine, limited rollout.</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE PANEL -->
+        <div class="versions-side">
+
+            <!-- RELEASE STATS -->
+            <div class="ver-card mb-3">
+                <div class="ver-card-header">
+                    <h5 class="mb-0">Release stats</h5>
+                </div>
+                <div class="ver-card-body">
+                    <ul class="ver-stats-list">
+                        <li>
+                            <span>Total releases</span>
+                            <span id="statTotalReleases">23</span>
+                        </li>
+                        <li>
+                            <span>Rollbacks</span>
+                            <span id="statRollbacks">1</span>
+                        </li>
+                        <li>
+                            <span>Average cycle time</span>
+                            <span id="statCycleTime">14 days</span>
+                        </li>
+                        <li>
+                            <span>Last incident (version)</span>
+                            <span id="statLastIncident">v3.2.1</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- LAST SALE / CONTRACT -->
+            <div class="ver-card mb-3">
+                <div class="ver-card-header">
+                    <h5 class="mb-0">Last sale</h5>
+                </div>
+                <div class="ver-card-body">
+                    <div class="ver-sale-block">
+                        <div class="sale-customer" id="saleCustomer">St Solutions A.Ş.</div>
+                        <div class="sale-meta text-muted">
+                            Enterprise · 3-year contract
+                        </div>
+                        <div class="sale-fields">
+                            <div>
+                                <span>Sold version</span>
+                                <span id="saleVersion">v3.4.0</span>
+                            </div>
+                            <div>
+                                <span>Sales owner</span>
+                                <span id="saleOwner">Eda H.</span>
+                            </div>
+                            <div>
+                                <span>Closed date</span>
+                                <span id="saleDate">2025-11-22</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-secondary btn-sm w-100 mt-2">
+                            <i class="fa-solid fa-file-contract me-1"></i>
+                            View contract
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENV LEGEND -->
+            <div class="ver-card mb-3">
+                <div class="ver-card-header">
+                    <h5 class="mb-0">Environment legend</h5>
+                </div>
+                <div class="ver-card-body">
+                    <div class="d-flex flex-column gap-2">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="env-pill env-alpha">Alpha</span>
+                            <span class="text-muted small">Internal testing / experimental.</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="env-pill env-beta">Beta</span>
+                            <span class="text-muted small">Limited customer rollout.</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="env-pill env-live">Live</span>
+                            <span class="text-muted small">Production, customer-facing.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

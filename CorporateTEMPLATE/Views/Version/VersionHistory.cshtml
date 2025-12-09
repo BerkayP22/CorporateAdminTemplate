@@ -1,0 +1,325 @@
+﻿@{
+    ViewData["Title"] = "Version History";
+}
+
+<div class="container-fluid versions-page">
+
+    <!-- HEADER -->
+    <div class="versions-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">Version History</h2>
+            <p class="text-muted mb-0">
+                See how applications evolved over time, who deployed which versions, and where they ran.
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+            <!-- APP SELECT -->
+            <div class="versions-app-select">
+                <label for="historyAppSelect" class="form-label mb-0">Application</label>
+                <select id="historyAppSelect" class="form-select form-select-sm">
+                    <option value="all" selected>All applications</option>
+                    <option value="version-manager">Version Manager</option>
+                    <option value="deployment-monitor">Deployment Monitor</option>
+                    <option value="customer-portal">Customer Portal</option>
+                    <option value="incident-tracker">Incident Tracker</option>
+                    <option value="log-analyzer">Log Analyzer</option>
+                </select>
+            </div>
+
+            <!-- DATE RANGE (dummy) -->
+            <div class="history-date-range">
+                <label class="form-label mb-0">Date range</label>
+                <div class="d-flex gap-1">
+                    <input type="date" class="form-control form-control-sm" />
+                    <span class="history-date-sep">–</span>
+                    <input type="date" class="form-control form-control-sm" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- LAYOUT -->
+    <div class="versions-layout history-layout">
+
+        <!-- LEFT: TIMELINE -->
+        <div class="versions-main">
+
+            <div class="ver-card">
+                <div class="ver-card-header">
+                    <div>
+                        <h5 class="mb-0">Release timeline</h5>
+                        <small class="text-muted">Most recent releases first.</small>
+                    </div>
+                </div>
+                <div class="ver-card-body">
+
+                    <ul class="history-timeline">
+
+                        <!-- ITEM 1 -->
+                        <li class="history-item" data-app="version-manager">
+                            <div class="history-dot"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <div class="history-left">
+                                        <span class="history-app-tag">Version Manager</span>
+                                        <span class="history-version">v3.4.2</span>
+                                        <span class="env-pill env-live">Live</span>
+                                    </div>
+                                    <div class="history-right">
+                                        <span class="history-date">2025-12-01 · 09:42</span>
+                                    </div>
+                                </div>
+
+                                <div class="history-subrow">
+                                    <span><i class="fa-regular fa-user"></i> Deployed by: Öykü B.</span>
+                                    <span><i class="fa-solid fa-users"></i> Affected: Soft Solutions A.Ş.</span>
+                                    <span class="status-chip status-released">Released</span>
+                                </div>
+
+                                <p class="history-text">
+                                    Hotfix bundle for race-condition in parallel deployments.
+                                    No breaking changes, minimal downtime (under 1 min).
+                                </p>
+                            </div>
+                        </li>
+
+                        <!-- ITEM 2 -->
+                        <li class="history-item" data-app="deployment-monitor">
+                            <div class="history-dot"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <div class="history-left">
+                                        <span class="history-app-tag">Deployment Monitor</span>
+                                        <span class="history-version">v2.1.0</span>
+                                        <span class="env-pill env-live">Live</span>
+                                    </div>
+                                    <div class="history-right">
+                                        <span class="history-date">2025-11-28 · 22:15</span>
+                                    </div>
+                                </div>
+
+                                <div class="history-subrow">
+                                    <span><i class="fa-regular fa-user"></i> Deployed by: On-call Bot</span>
+                                    <span><i class="fa-solid fa-users"></i> Affected: Acme Technologies</span>
+                                    <span class="status-chip status-released">Released</span>
+                                </div>
+
+                                <p class="history-text">
+                                    Introduced new night-shift alert profiles and reduced noisy alerts by ~35%.
+                                </p>
+                            </div>
+                        </li>
+
+                        <!-- ITEM 3 -->
+                        <li class="history-item" data-app="version-manager">
+                            <div class="history-dot"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <div class="history-left">
+                                        <span class="history-app-tag">Version Manager</span>
+                                        <span class="history-version">v3.4.0</span>
+                                        <span class="env-pill env-live">Live</span>
+                                    </div>
+                                    <div class="history-right">
+                                        <span class="history-date">2025-11-20 · 16:05</span>
+                                    </div>
+                                </div>
+
+                                <div class="history-subrow">
+                                    <span><i class="fa-regular fa-user"></i> Deployed by: Burak K.</span>
+                                    <span><i class="fa-solid fa-users"></i> Affected: Soft Solutions A.Ş., Acme</span>
+                                    <span class="status-chip status-released">Released</span>
+                                </div>
+
+                                <p class="history-text">
+                                    Added rollout strategies (canary, blue-green) and rollback analytics per customer.
+                                </p>
+                            </div>
+                        </li>
+
+                        <!-- ITEM 4 -->
+                        <li class="history-item" data-app="customer-portal">
+                            <div class="history-dot"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <div class="history-left">
+                                        <span class="history-app-tag">Customer Portal</span>
+                                        <span class="history-version">v1.8.3</span>
+                                        <span class="env-pill env-live">Live</span>
+                                    </div>
+                                    <div class="history-right">
+                                        <span class="history-date">2025-10-02 · 10:30</span>
+                                    </div>
+                                </div>
+
+                                <div class="history-subrow">
+                                    <span><i class="fa-regular fa-user"></i> Deployed by: CI Pipeline</span>
+                                    <span><i class="fa-solid fa-users"></i> Affected: Globex Corporation</span>
+                                    <span class="status-chip status-released">Released</span>
+                                </div>
+
+                                <p class="history-text">
+                                    Bulk import performance improvements and UI refinements for account managers.
+                                </p>
+                            </div>
+                        </li>
+
+                        <!-- ITEM 5 -->
+                        <li class="history-item" data-app="incident-tracker">
+                            <div class="history-dot"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <div class="history-left">
+                                        <span class="history-app-tag">Incident Tracker</span>
+                                        <span class="history-version">v4.0.0</span>
+                                        <span class="env-pill env-live">Live</span>
+                                    </div>
+                                    <div class="history-right">
+                                        <span class="history-date">2025-11-15 · 01:20</span>
+                                    </div>
+                                </div>
+
+                                <div class="history-subrow">
+                                    <span><i class="fa-regular fa-user"></i> Deployed by: Öykü B.</span>
+                                    <span><i class="fa-solid fa-users"></i> Affected: Soft Solutions A.Ş.</span>
+                                    <span class="status-chip status-released">Released</span>
+                                </div>
+
+                                <p class="history-text">
+                                    Introduced SLA-aware incident timelines and exportable PDF reports.
+                                </p>
+                            </div>
+                        </li>
+
+                        <!-- ITEM 6 (ROLLEDBACK ÖRNEK) -->
+                        <li class="history-item" data-app="version-manager">
+                            <div class="history-dot"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <div class="history-left">
+                                        <span class="history-app-tag">Version Manager</span>
+                                        <span class="history-version">v3.2.1</span>
+                                        <span class="env-pill env-alpha">Alpha</span>
+                                    </div>
+                                    <div class="history-right">
+                                        <span class="history-date">2025-08-03 · 19:10</span>
+                                    </div>
+                                </div>
+
+                                <div class="history-subrow">
+                                    <span><i class="fa-regular fa-user"></i> Deployed by: Eda H.</span>
+                                    <span><i class="fa-solid fa-users"></i> Affected: Internal tenants</span>
+                                    <span class="status-chip status-deprecated">Rolled back</span>
+                                </div>
+
+                                <p class="history-text">
+                                    Internal schema refactor; reverted after discovering performance regression
+                                    on large datasets.
+                                </p>
+                            </div>
+                        </li>
+
+                        <!-- ITEM 7 -->
+                        <li class="history-item" data-app="log-analyzer">
+                            <div class="history-dot"></div>
+                            <div class="history-content">
+                                <div class="history-header">
+                                    <div class="history-left">
+                                        <span class="history-app-tag">Log Analyzer</span>
+                                        <span class="history-version">v0.9.5</span>
+                                        <span class="env-pill env-alpha">Alpha</span>
+                                    </div>
+                                    <div class="history-right">
+                                        <span class="history-date">2025-09-01 · 11:00</span>
+                                    </div>
+                                </div>
+
+                                <div class="history-subrow">
+                                    <span><i class="fa-regular fa-user"></i> Deployed by: QA Team</span>
+                                    <span><i class="fa-solid fa-users"></i> Affected: Internal only</span>
+                                    <span class="status-chip status-inqa">In QA</span>
+                                </div>
+
+                                <p class="history-text">
+                                    Testing new query engine with anomaly detection. Limited to staging clusters.
+                                </p>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT: SUMMARY / STATS -->
+        <div class="versions-side">
+
+            <!-- RELEASE COUNT PER APP -->
+            <div class="ver-card mb-3">
+                <div class="ver-card-header">
+                    <h5 class="mb-0">Releases per app</h5>
+                </div>
+                <div class="ver-card-body">
+                    <ul class="history-stat-list">
+                        <li>
+                            <span>Version Manager</span>
+                            <span>3 releases</span>
+                        </li>
+                        <li>
+                            <span>Deployment Monitor</span>
+                            <span>1 release</span>
+                        </li>
+                        <li>
+                            <span>Customer Portal</span>
+                            <span>1 release</span>
+                        </li>
+                        <li>
+                            <span>Incident Tracker</span>
+                            <span>1 release</span>
+                        </li>
+                        <li>
+                            <span>Log Analyzer</span>
+                            <span>1 release</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- KEY MILESTONES -->
+            <div class="ver-card mb-3">
+                <div class="ver-card-header">
+                    <h5 class="mb-0">Key milestones</h5>
+                </div>
+                <div class="ver-card-body">
+                    <ul class="history-milestone-list small mb-0">
+                        <li>
+                            <span class="ms-label">v3.4.0 · Version Manager</span>
+                            <span class="ms-desc">Introduced rollout strategies, adopted by 2 enterprise customers.</span>
+                        </li>
+                        <li>
+                            <span class="ms-label">v4.0.0 · Incident Tracker</span>
+                            <span class="ms-desc">First fully SLA-aware incident reports.</span>
+                        </li>
+                        <li>
+                            <span class="ms-label">v2.1.0 · Deployment Monitor</span>
+                            <span class="ms-desc">Improved night-shift operations with new alert profiles.</span>
+                        </li>
+                        <li>
+                            <span class="ms-label">v0.9.5 · Log Analyzer</span>
+                            <span class="ms-desc">New query engine in alpha testing.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,288 @@
+﻿@{
+    ViewData["Title"] = "System Settings";
+}
+
+<div class="container-fluid syssettings-page">
+
+    <!-- HEADER -->
+    <div class="ss-header mb-4">
+        <h2 class="mb-1">System Settings</h2>
+        <p class="text-muted mb-0">
+            Manage system-wide configuration, security and appearance options.
+        </p>
+    </div>
+
+    <!-- GRID LAYOUT -->
+    <div class="ss-grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="ss-left">
+
+            <!-- GENERAL SYSTEM CONFIG -->
+            <div class="ss-card mb-3">
+                <div class="ss-card-header">
+                    <div>
+                        <h5 class="mb-0">General Configuration</h5>
+                        <small class="text-muted">Basic instance-level settings.</small>
+                    </div>
+                    <button type="button" class="btn btn-save">
+                        <i class="fa-solid fa-floppy-disk me-1"></i> Save
+                    </button>
+                </div>
+                <div class="ss-card-body">
+
+                    <div class="mb-3">
+                        <label class="form-label">System name</label>
+                        <input type="text" class="form-control" value="Corporate Version Manager" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Default language</label>
+                        <select class="form-select">
+                            <option selected>English</option>
+                            <option>Turkish</option>
+                            <option>German</option>
+                            <option>French</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Default timezone</label>
+                        <select class="form-select">
+                            <option selected>(UTC+03:00) Istanbul</option>
+                            <option>(UTC+01:00) Berlin</option>
+                            <option>(UTC+00:00) London</option>
+                            <option>(UTC-05:00) New York</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <div>
+                            <label class="form-label mb-0">Maintenance mode</label>
+                            <div class="small text-muted">
+                                When enabled, only admins can access the system.
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span id="maintenanceStatus" class="ss-status-pill status-off">
+                                Disabled
+                            </span>
+                            <div class="form-check form-switch mb-0">
+                                <input class="form-check-input" type="checkbox" id="maintenanceToggle">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SECURITY & AUTH -->
+            <div class="ss-card mb-3">
+                <div class="ss-card-header">
+                    <div>
+                        <h5 class="mb-0">Security & Authentication</h5>
+                        <small class="text-muted">Control access and session behavior.</small>
+                    </div>
+                    <button type="button" class="btn btn-save">
+                        <i class="fa-solid fa-floppy-disk me-1"></i> Save
+                    </button>
+                </div>
+                <div class="ss-card-body">
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="enforceAdmin2fa" checked>
+                        <label class="form-check-label" for="enforceAdmin2fa">
+                            Require two-factor authentication for admin users
+                        </label>
+                        <div class="small text-muted">
+                            Highly recommended for production environments.
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row g-2 align-items-center">
+                        <div class="col-sm-7">
+                            <label class="form-label mb-0">Lock account after failed attempts</label>
+                            <div class="small text-muted">Number of consecutive failures before lock.</div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="input-group">
+                                <input type="number" min="3" max="15" value="5" class="form-control" />
+                                <span class="input-group-text">attempts</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Session timeout</label>
+                        <select class="form-select" id="sessionTimeoutSelect">
+                            <option value="15">15 minutes</option>
+                            <option value="30" selected>30 minutes</option>
+                            <option value="60">1 hour</option>
+                            <option value="120">2 hours</option>
+                        </select>
+                        <div class="small text-muted mt-1">
+                            <span id="sessionTimeoutText">User sessions expire after 30 minutes of inactivity.</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="ss-right">
+
+            <!-- APPEARANCE / THEME -->
+            <div class="ss-card mb-3">
+                <div class="ss-card-header">
+                    <div>
+                        <h5 class="mb-0">Appearance & Theme</h5>
+                        <small class="text-muted">Control default look and feel.</small>
+                    </div>
+                    <button type="button" class="btn btn-save">
+                        <i class="fa-solid fa-floppy-disk me-1"></i> Save
+                    </button>
+                </div>
+                <div class="ss-card-body">
+
+                    <!-- Theme mode -->
+                    <div class="mb-3">
+                        <label class="form-label">Default theme</label>
+                        <div class="ss-theme-row">
+
+                            <label class="ss-theme-option">
+                                <input type="radio" name="themeMode" value="light" checked />
+                                <div class="ss-theme-preview light">
+                                    <div class="ss-theme-top"></div>
+                                    <div class="ss-theme-block"></div>
+                                </div>
+                                <span>Light</span>
+                            </label>
+
+                            <label class="ss-theme-option">
+                                <input type="radio" name="themeMode" value="dark" />
+                                <div class="ss-theme-preview dark">
+                                    <div class="ss-theme-top"></div>
+                                    <div class="ss-theme-block"></div>
+                                </div>
+                                <span>Dark</span>
+                            </label>
+
+                            <label class="ss-theme-option">
+                                <input type="radio" name="themeMode" value="system" />
+                                <div class="ss-theme-preview system">
+                                    <div class="ss-theme-top"></div>
+                                    <div class="ss-theme-block"></div>
+                                </div>
+                                <span>System</span>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <!-- Accent color -->
+                    <div class="mb-3">
+                        <label class="form-label">Accent color</label>
+                        <div class="d-flex align-items-center gap-3">
+                            <select class="form-select w-auto" id="accentColorSelect">
+                                <option value="blue" selected>Blue</option>
+                                <option value="purple">Purple</option>
+                                <option value="emerald">Emerald</option>
+                                <option value="orange">Orange</option>
+                            </select>
+
+                            <div class="ss-accent-preview">
+                                <div class="ss-accent-dot"></div>
+                                <span class="small">Preview</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications -->
+                    <div class="mb-3">
+                        <label class="form-label">Default notification level</label>
+                        <div class="ss-radio-group">
+                            <label class="ss-radio-pill">
+                                <input type="radio" name="notifLevel" value="all" checked />
+                                <span>All events</span>
+                            </label>
+                            <label class="ss-radio-pill">
+                                <input type="radio" name="notifLevel" value="important" />
+                                <span>Important only</span>
+                            </label>
+                            <label class="ss-radio-pill">
+                                <input type="radio" name="notifLevel" value="none" />
+                                <span>Disabled by default</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-1 d-flex align-items-center justify-content-between">
+                        <div>
+                            <div class="form-label mb-0">Send test notification</div>
+                            <div class="small text-muted">
+                                Sends a sample email / in-app notification to the current admin.
+                            </div>
+                        </div>
+                        <button type="button" id="btnTestNotification" class="btn btn-outline-secondary btn-sm">
+                            <i class="fa-solid fa-paper-plane me-1"></i> Send test
+                        </button>
+                    </div>
+
+                    <!-- Fake toast -->
+                    <div id="testNotificationToast" class="ss-toast" aria-hidden="true">
+                        <i class="fa-solid fa-circle-check me-2"></i>
+                        Test notification queued successfully.
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SYSTEM FOOTER INFO -->
+            <div class="ss-card mb-3">
+                <div class="ss-card-header">
+                    <div>
+                        <h5 class="mb-0">Instance Information</h5>
+                        <small class="text-muted">Read-only meta data about this instance.</small>
+                    </div>
+                </div>
+                <div class="ss-card-body">
+                    <div class="row g-2 small">
+                        <div class="col-6">
+                            <div class="ss-meta-item">
+                                <span class="ss-meta-label">Instance ID</span>
+                                <span class="ss-meta-value">CORP-VM-001</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="ss-meta-item">
+                                <span class="ss-meta-label">Version</span>
+                                <span class="ss-meta-value">v3.4.0</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="ss-meta-item">
+                                <span class="ss-meta-label">Environment</span>
+                                <span class="ss-meta-value">Live</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="ss-meta-item">
+                                <span class="ss-meta-label">Last restart</span>
+                                <span class="ss-meta-value">Dec 08, 2025 · 21:14</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /ss-right -->
+
+    </div> <!-- /ss-grid -->
+
+</div>
+
+@section Scripts {
+    <script src="~/js/systemSettings.js"></script>
+}

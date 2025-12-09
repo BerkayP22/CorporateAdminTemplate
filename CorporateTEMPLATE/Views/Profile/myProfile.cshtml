@@ -1,0 +1,241 @@
+﻿@{
+    ViewData["Title"] = "My Profile";
+}
+
+<div class="container-fluid mp-page">
+
+    <div class="mp-grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="mp-left">
+
+            <!-- MAIN PROFILE CARD -->
+            <div class="mp-card mp-main-card">
+
+                <div class="mp-main-top">
+                    <div class="mp-avatar-block">
+                        <div class="mp-avatar-circle mp-status-online">
+                            <span>AN</span>
+                        </div>
+                        <div>
+                            <h3 class="mp-name mb-0">Admin User</h3>
+                            <div class="mp-email" id="mpPrimaryEmail">admin@example.com</div>
+                        </div>
+                    </div>
+
+                    <div class="mp-role-badge">
+                        <span class="mp-role-label">System Administrator</span>
+                    </div>
+                </div>
+
+                <div class="mp-main-body">
+                    <div class="row g-3">
+
+                        <div class="col-sm-6">
+                            <div class="mp-field">
+                                <div class="mp-field-label">Display name</div>
+                                <div class="mp-field-value">Admin User</div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="mp-field">
+                                <div class="mp-field-label">Username</div>
+                                <div class="mp-field-value">admin.root</div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="mp-field">
+                                <div class="mp-field-label">Department</div>
+                                <div class="mp-field-value">IT Operations</div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="mp-field">
+                                <div class="mp-field-label">Role</div>
+                                <div class="mp-field-value">Administrator</div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="mp-field">
+                                <div class="mp-field-label">Phone</div>
+                                <div class="mp-field-value">+90 555 123 45 67</div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="mp-field">
+                                <div class="mp-field-label">Time zone</div>
+                                <div class="mp-field-value">Europe/Istanbul (UTC+3)</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="mp-main-footer">
+                    <button type="button" class="btn btn-outline-secondary btn-sm">
+                        <i class="fa-solid fa-pen-to-square me-1"></i> Edit profile
+                    </button>
+
+                    <a asp-controller="Profile" asp-action="ChangePassword"
+                       class="btn mp-btn-primary btn-sm">
+                        <i class="fa-solid fa-key me-1"></i> Change password
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- CONTACT & ORG CARD -->
+            <div class="mp-card">
+
+                <div class="mp-card-header">
+                    <h5 class="mb-0">Contact & organization</h5>
+                </div>
+
+                <div class="mp-card-body">
+
+                    <div class="mp-list-item">
+                        <div class="mp-list-label">
+                            <i class="fa-solid fa-building me-2"></i> Company
+                        </div>
+                        <div class="mp-list-value">Corporate VM Solutions</div>
+                    </div>
+
+                    <div class="mp-list-item">
+                        <div class="mp-list-label">
+                            <i class="fa-solid fa-location-dot me-2"></i> Location
+                        </div>
+                        <div class="mp-list-value">Istanbul, Türkiye</div>
+                    </div>
+
+                    <div class="mp-list-item">
+                        <div class="mp-list-label">
+                            <i class="fa-solid fa-envelope me-2"></i> Notification email
+                        </div>
+                        <div class="mp-list-value">admin@example.com</div>
+                    </div>
+
+                    <div class="mp-list-item">
+                        <div class="mp-list-label">
+                            <i class="fa-solid fa-clock me-2"></i> Last login
+                        </div>
+                        <div class="mp-list-value">Dec 09, 2025 · 10:14 · Chrome on Windows</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="mp-right">
+
+            <!-- THEME SNAPSHOT -->
+            <div class="mp-card">
+                <div class="mp-card-header">
+                    <h5 class="mb-0">Theme & preferences</h5>
+                </div>
+                <div class="mp-card-body">
+
+                    <div class="mp-pref-row">
+                        <div class="mp-pref-label">
+                            <i class="fa-solid fa-moon me-2"></i> Theme mode
+                        </div>
+                        <div class="mp-pref-value" id="mpThemeModeValue">
+                            -
+                        </div>
+                    </div>
+
+                    <div class="mp-pref-row">
+                        <div class="mp-pref-label">
+                            <i class="fa-solid fa-palette me-2"></i> Accent color
+                        </div>
+                        <div class="mp-pref-value">
+                            <span class="mp-accent-dot" id="mpAccentDot"></span>
+                            <span id="mpAccentLabel">-</span>
+                        </div>
+                    </div>
+
+                    <div class="mp-pref-row">
+                        <div class="mp-pref-label">
+                            <i class="fa-solid fa-maximize me-2"></i> Layout density
+                        </div>
+                        <div class="mp-pref-value" id="mpDensityValue">
+                            -
+                        </div>
+                    </div>
+
+                    <div class="mp-pref-row">
+                        <div class="mp-pref-label">
+                            <i class="fa-solid fa-square me-2"></i> Card corners
+                        </div>
+                        <div class="mp-pref-value" id="mpRadiusValue">
+                            -
+                        </div>
+                    </div>
+
+                    <div class="mt-2 small text-muted">
+                        These settings are read from your local theme configuration.
+                        You can adjust them from <strong>Theme Settings</strong>.
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECENT ACCOUNT ACTIVITY -->
+            <div class="mp-card">
+                <div class="mp-card-header">
+                    <h5 class="mb-0">Recent account activity</h5>
+                </div>
+                <div class="mp-card-body">
+
+                    <ul class="mp-activity-list">
+                        <li>
+                            <div class="mp-activity-title">
+                                Logged in from new browser
+                            </div>
+                            <div class="mp-activity-meta">
+                                Today · 10:14 · Chrome · Istanbul
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mp-activity-title">
+                                Changed theme to dark
+                            </div>
+                            <div class="mp-activity-meta">
+                                Yesterday · 22:07
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mp-activity-title">
+                                Updated notification preferences
+                            </div>
+                            <div class="mp-activity-meta">
+                                Dec 05, 2025 · 18:21
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mp-activity-title">
+                                Logged in from mobile device
+                            </div>
+                            <div class="mp-activity-meta">
+                                Dec 03, 2025 · 09:03 · iOS
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/Profile.js"></script>
+}

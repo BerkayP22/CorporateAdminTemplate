@@ -1,0 +1,437 @@
+﻿@{
+    ViewData["Title"] = "Performance Report";
+}
+
+<div class="container-fluid performance-page">
+
+    <!-- HEADER -->
+    <div class="perf-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">Performance Report</h2>
+            <p class="text-muted mb-0">
+                Team and individual productivity indicators based on recent activity.
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+            <!-- PERIOD -->
+            <div class="perf-filter-group">
+                <label class="form-label mb-0">Period</label>
+                <select class="form-select form-select-sm">
+                    <option>Last 7 days</option>
+                    <option selected>Last 30 days</option>
+                    <option>Last 90 days</option>
+                    <option>This year</option>
+                </select>
+            </div>
+
+            <!-- TEAM -->
+            <div class="perf-filter-group">
+                <label class="form-label mb-0">Team</label>
+                <select class="form-select form-select-sm">
+                    <option selected>All teams</option>
+                    <option>Backend</option>
+                    <option>Frontend</option>
+                    <option>DevOps</option>
+                    <option>Support</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- LAYOUT -->
+    <div class="perf-layout">
+
+        <!-- LEFT SIDE -->
+        <div class="perf-left">
+
+            <!-- GAUGES -->
+            <div class="perf-card perf-gauges-card mb-3">
+                <div class="perf-card-header">
+                    <h5 class="mb-0">Summary</h5>
+                    <small class="text-muted">Automatically colored by score.</small>
+                </div>
+                <div class="perf-card-body">
+
+                    <div class="perf-gauges-row">
+
+                        <!-- OVERALL -->
+                        <div class="perf-gauge-wrapper">
+                            <div class="perf-gauge" data-score="96">
+                                <div class="perf-gauge-inner">
+                                    <div class="perf-gauge-value">96%</div>
+                                    <div class="perf-gauge-label">Overall</div>
+                                </div>
+                            </div>
+                            <div class="perf-gauge-caption">
+                                Stable and above target.
+                            </div>
+                        </div>
+
+                        <!-- DELIVERY -->
+                        <div class="perf-gauge-wrapper">
+                            <div class="perf-gauge" data-score="74">
+                                <div class="perf-gauge-inner">
+                                    <div class="perf-gauge-value">74%</div>
+                                    <div class="perf-gauge-label">Delivery</div>
+                                </div>
+                            </div>
+                            <div class="perf-gauge-caption">
+                                Slightly below target, watch deadlines.
+                            </div>
+                        </div>
+
+                        <!-- QUALITY -->
+                        <div class="perf-gauge-wrapper">
+                            <div class="perf-gauge" data-score="59">
+                                <div class="perf-gauge-inner">
+                                    <div class="perf-gauge-value">59%</div>
+                                    <div class="perf-gauge-label">Quality</div>
+                                </div>
+                            </div>
+                            <div class="perf-gauge-caption">
+                                Needs attention: error rates rising.
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TEAM PERFORMANCE BARS -->
+            <div class="perf-card mb-3">
+                <div class="perf-card-header">
+                    <h5 class="mb-0">Team performance</h5>
+                    <small class="text-muted">Score changes color based on performance.</small>
+                </div>
+                <div class="perf-card-body">
+
+                    <div class="perf-bar-row" data-percent="91">
+                        <div class="perf-bar-label">
+                            <span>Backend Team</span>
+                            <span class="perf-bar-value">91%</span>
+                        </div>
+                        <div class="perf-bar-track">
+                            <div class="perf-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="perf-bar-row" data-percent="82">
+                        <div class="perf-bar-label">
+                            <span>Frontend Team</span>
+                            <span class="perf-bar-value">82%</span>
+                        </div>
+                        <div class="perf-bar-track">
+                            <div class="perf-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="perf-bar-row" data-percent="68">
+                        <div class="perf-bar-label">
+                            <span>DevOps Team</span>
+                            <span class="perf-bar-value">68%</span>
+                        </div>
+                        <div class="perf-bar-track">
+                            <div class="perf-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="perf-bar-row" data-percent="54">
+                        <div class="perf-bar-label">
+                            <span>Support Team</span>
+                            <span class="perf-bar-value">54%</span>
+                        </div>
+                        <div class="perf-bar-track">
+                            <div class="perf-bar-fill"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- INDIVIDUAL TABLE -->
+            <div class="perf-card mb-3">
+                <div class="perf-card-header">
+                    <h5 class="mb-0">Individual performance</h5>
+                    <small class="text-muted">Top contributors this period.</small>
+                </div>
+                <div class="perf-card-body">
+                    <div class="table-responsive">
+                        <table class="table perf-individual-table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Employee</th>
+                                    <th>Role</th>
+                                    <th>Score</th>
+                                    <th>Workload</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-percent="93">
+                                    <td>
+                                        <div class="perf-user-cell">
+                                            <div class="perf-avatar-circle">ÖB</div>
+                                            <div>
+                                                <div class="perf-user-name">Öykü Balseven</div>
+                                                <small class="text-muted">Backend</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Senior Software Engineer</td>
+                                    <td>
+                                        <span class="perf-score-pill">93</span>
+                                    </td>
+                                    <td>
+                                        <div class="perf-mini-track">
+                                            <div class="perf-mini-fill"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr data-percent="81">
+                                    <td>
+                                        <div class="perf-user-cell">
+                                            <div class="perf-avatar-circle">BK</div>
+                                            <div>
+                                                <div class="perf-user-name">Burak Kaya</div>
+                                                <small class="text-muted">DevOps</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>DevOps Engineer</td>
+                                    <td>
+                                        <span class="perf-score-pill">81</span>
+                                    </td>
+                                    <td>
+                                        <div class="perf-mini-track">
+                                            <div class="perf-mini-fill"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr data-percent="72">
+                                    <td>
+                                        <div class="perf-user-cell">
+                                            <div class="perf-avatar-circle">EH</div>
+                                            <div>
+                                                <div class="perf-user-name">Eda Hançer</div>
+                                                <small class="text-muted">Frontend</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Frontend Developer</td>
+                                    <td>
+                                        <span class="perf-score-pill">72</span>
+                                    </td>
+                                    <td>
+                                        <div class="perf-mini-track">
+                                            <div class="perf-mini-fill"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr data-percent="61">
+                                    <td>
+                                        <div class="perf-user-cell">
+                                            <div class="perf-avatar-circle">MT</div>
+                                            <div>
+                                                <div class="perf-user-name">Mert Tekin</div>
+                                                <small class="text-muted">Support</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Support Specialist</td>
+                                    <td>
+                                        <span class="perf-score-pill">61</span>
+                                    </td>
+                                    <td>
+                                        <div class="perf-mini-track">
+                                            <div class="perf-mini-fill"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="perf-right">
+
+            <!-- DISTRIBUTION BAR -->
+            <div class="perf-card mb-3">
+                <div class="perf-card-header">
+                    <h5 class="mb-0">Score distribution</h5>
+                    <small class="text-muted">Share of employees by performance band.</small>
+                </div>
+                <div class="perf-card-body">
+                    <div class="perf-distribution-bar">
+                        <div class="perf-dist-segment dist-low" style="width: 15%;">&lt; 60</div>
+                        <div class="perf-dist-segment dist-mid" style="width: 45%;">60 - 80</div>
+                        <div class="perf-dist-segment dist-high" style="width: 40%;">80+</div>
+                    </div>
+
+                    <ul class="perf-distribution-legend small mb-0 mt-3">
+                        <li><span class="legend-box low"></span> Needs improvement</li>
+                        <li><span class="legend-box mid"></span> On track</li>
+                        <li><span class="legend-box high"></span> High performers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ACTIVITY STYLE -->
+            <div class="perf-card mb-3">
+                <div class="perf-card-header">
+                    <h5 class="mb-0">Work pattern</h5>
+                    <small class="text-muted">Relative activity by day (sample).</small>
+                </div>
+                <div class="perf-card-body">
+
+                    <div class="perf-activity-row" data-percent="68">
+                        <div class="perf-activity-label">Monday</div>
+                        <div class="perf-activity-track">
+                            <div class="perf-activity-fill"></div>
+                        </div>
+                        <div class="perf-activity-value">68%</div>
+                    </div>
+
+                    <div class="perf-activity-row" data-percent="91">
+                        <div class="perf-activity-label">Tuesday</div>
+                        <div class="perf-activity-track">
+                            <div class="perf-activity-fill"></div>
+                        </div>
+                        <div class="perf-activity-value">91%</div>
+                    </div>
+
+                    <div class="perf-activity-row" data-percent="76">
+                        <div class="perf-activity-label">Wednesday</div>
+                        <div class="perf-activity-track">
+                            <div class="perf-activity-fill"></div>
+                        </div>
+                        <div class="perf-activity-value">76%</div>
+                    </div>
+
+                    <div class="perf-activity-row" data-percent="59">
+                        <div class="perf-activity-label">Thursday</div>
+                        <div class="perf-activity-track">
+                            <div class="perf-activity-fill"></div>
+                        </div>
+                        <div class="perf-activity-value">59%</div>
+                    </div>
+
+                    <div class="perf-activity-row" data-percent="47">
+                        <div class="perf-activity-label">Friday</div>
+                        <div class="perf-activity-track">
+                            <div class="perf-activity-fill"></div>
+                        </div>
+                        <div class="perf-activity-value">47%</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* =========
+               GAUGES
+            ===========*/
+            document.querySelectorAll(".perf-gauge").forEach(gauge => {
+                const raw = gauge.getAttribute("data-score") || "0";
+                const score = Math.min(100, Math.max(0, parseInt(raw, 10) || 0));
+                let color = "#22c55e"; // green
+                if (score < 60) color = "#ef4444";       // red
+                else if (score < 80) color = "#f59e0b";  // amber
+
+                const deg = (score / 100) * 360;
+                gauge.style.background = `conic-gradient(${color} ${deg}deg, #1f2937 0deg)`;
+
+                const valueEl = gauge.querySelector(".perf-gauge-value");
+                if (valueEl) valueEl.textContent = score + "%";
+            });
+
+            /* =========
+               TEAM BARLAR
+            ===========*/
+            document.querySelectorAll(".perf-bar-row").forEach(row => {
+                const raw = row.getAttribute("data-percent") || "0";
+                const percent = Math.min(100, Math.max(0, parseInt(raw, 10) || 0));
+                const fill = row.querySelector(".perf-bar-fill");
+                const valueLabel = row.querySelector(".perf-bar-value");
+                if (fill) {
+                    fill.style.width = percent + "%";
+                    let colorClass = "perf-bar-good";
+                    if (percent < 60) colorClass = "perf-bar-bad";
+                    else if (percent < 80) colorClass = "perf-bar-mid";
+                    fill.classList.add(colorClass);
+                }
+                if (valueLabel) valueLabel.textContent = percent + "%";
+            });
+
+            /* =========
+               INDIVIDUAL MINI BARLAR
+            ===========*/
+            document.querySelectorAll(".perf-individual-table tbody tr").forEach(row => {
+                const raw = row.getAttribute("data-percent") || "0";
+                const percent = Math.min(100, Math.max(0, parseInt(raw, 10) || 0));
+
+                const miniFill = row.querySelector(".perf-mini-fill");
+                const scorePill = row.querySelector(".perf-score-pill");
+
+                if (miniFill) {
+                    miniFill.style.width = percent + "%";
+                    let colorClass = "perf-bar-good";
+                    if (percent < 60) colorClass = "perf-bar-bad";
+                    else if (percent < 80) colorClass = "perf-bar-mid";
+                    miniFill.classList.add(colorClass);
+                }
+
+                if (scorePill) {
+                    scorePill.textContent = percent;
+                    if (percent < 60) scorePill.classList.add("score-bad");
+                    else if (percent < 80) scorePill.classList.add("score-mid");
+                    else scorePill.classList.add("score-good");
+                }
+            });
+
+            /* =========
+               ACTIVITY BARLAR
+            ===========*/
+            document.querySelectorAll(".perf-activity-row").forEach(row => {
+                const raw = row.getAttribute("data-percent") || "0";
+                const percent = Math.min(100, Math.max(0, parseInt(raw, 10) || 0));
+                const fill = row.querySelector(".perf-activity-fill");
+                const valLabel = row.querySelector(".perf-activity-value");
+
+                if (fill) {
+                    fill.style.width = percent + "%";
+                    let colorClass = "perf-bar-good";
+                    if (percent < 60) colorClass = "perf-bar-bad";
+                    else if (percent < 80) colorClass = "perf-bar-mid";
+                    fill.classList.add(colorClass);
+                }
+
+                if (valLabel) {
+                    valLabel.textContent = percent + "%";
+                }
+            });
+
+        });
+    </script>
+}

@@ -1,0 +1,213 @@
+﻿@{
+    ViewData["Title"] = "Theme Settings";
+}
+
+<div class="container-fluid theme-page">
+
+    <!-- HEADER -->
+    <div class="theme-header mb-4">
+        <h2 class="mb-1">Theme Settings</h2>
+        <p class="text-muted mb-0">
+            Fine-tune layout, colors and typography. Your choices are stored locally in this browser.
+        </p>
+    </div>
+
+    <div class="theme-grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="theme-left">
+
+            <!-- LAYOUT & SURFACE -->
+            <div class="theme-card mb-3">
+                <div class="theme-card-header">
+                    <div>
+                        <h5 class="mb-0">Layout & Surfaces</h5>
+                        <small class="text-muted">
+                            Control card shape, sidebar style and glow.
+                        </small>
+                    </div>
+                </div>
+                <div class="theme-card-body">
+
+                    <!-- CARD RADIUS -->
+                    <div class="mb-3">
+                        <label class="form-label">Card corner style</label>
+                        <div class="theme-pill-group" id="cardRadiusGroup">
+                            <label class="theme-pill">
+                                <input type="radio" name="cardRadius" value="soft" checked />
+                                <span>Soft</span>
+                            </label>
+                            <label class="theme-pill">
+                                <input type="radio" name="cardRadius" value="rounded" />
+                                <span>Rounded</span>
+                            </label>
+                            <label class="theme-pill">
+                                <input type="radio" name="cardRadius" value="sharp" />
+                                <span>Sharp</span>
+                            </label>
+                        </div>
+                        <div class="small text-muted">
+                            Affects most dashboard cards and panels (where supported).
+                        </div>
+                    </div>
+
+                    <!-- SIDEBAR STYLE -->
+                    <div class="mb-3">
+                        <label class="form-label">Sidebar style</label>
+                        <div class="theme-pill-group" id="sidebarStyleGroup">
+                            <label class="theme-pill">
+                                <input type="radio" name="sidebarStyle" value="solid" checked />
+                                <span>Solid</span>
+                            </label>
+                            <label class="theme-pill">
+                                <input type="radio" name="sidebarStyle" value="bordered" />
+                                <span>Bordered</span>
+                            </label>
+                            <label class="theme-pill">
+                                <input type="radio" name="sidebarStyle" value="glass" />
+                                <span>Glass</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- NEON GLOW -->
+                    <div class="mb-3">
+                        <label class="form-label">Neon glow</label>
+                        <div class="theme-pill-group" id="neonGlowGroup">
+                            <label class="theme-pill">
+                                <input type="radio" name="neonGlow" value="off" checked />
+                                <span>Off</span>
+                            </label>
+                            <label class="theme-pill">
+                                <input type="radio" name="neonGlow" value="soft" />
+                                <span>Soft</span>
+                            </label>
+                            <label class="theme-pill">
+                                <input type="radio" name="neonGlow" value="strong" />
+                                <span>Strong</span>
+                            </label>
+                        </div>
+                        <div class="small text-muted">
+                            Used mainly in dark mode around primary cards / highlights.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PREVIEW -->
+            <div class="theme-card mb-3">
+                <div class="theme-card-header">
+                    <div>
+                        <h5 class="mb-0">Live preview</h5>
+                        <small class="text-muted">
+                            Approximation of how your current theme looks.
+                        </small>
+                    </div>
+                </div>
+                <div class="theme-card-body">
+
+                    <div class="theme-preview-wrapper">
+                        <div class="theme-preview-sidebar"></div>
+                        <div class="theme-preview-main">
+                            <div class="theme-preview-topbar"></div>
+                            <div class="theme-preview-card-row">
+                                <div class="theme-preview-card"></div>
+                                <div class="theme-preview-card"></div>
+                            </div>
+                            <div class="theme-preview-card-large"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="theme-right">
+
+            <!-- ACCENT & TYPOGRAPHY -->
+            <div class="theme-card mb-3">
+                <div class="theme-card-header">
+                    <div>
+                        <h5 class="mb-0">Accent & Typography</h5>
+                        <small class="text-muted">
+                            Accent color, font size and density.
+                        </small>
+                    </div>
+                </div>
+                <div class="theme-card-body">
+
+                    <!-- ACCENT COLOR -->
+                    <div class="mb-3">
+                        <label class="form-label">Accent color</label>
+                        <div class="theme-accent-row" id="accentGroup">
+                            <button type="button" class="theme-accent-dot" data-accent="blue" title="Blue"></button>
+                            <button type="button" class="theme-accent-dot" data-accent="purple" title="Purple"></button>
+                            <button type="button" class="theme-accent-dot" data-accent="emerald" title="Emerald"></button>
+                            <button type="button" class="theme-accent-dot" data-accent="orange" title="Orange"></button>
+                        </div>
+                        <div class="small text-muted">
+                            Used for buttons, highlights and active indicators.
+                        </div>
+                    </div>
+
+                    <!-- FONT SCALE -->
+                    <div class="mb-3">
+                        <label class="form-label">Font size</label>
+                        <div class="theme-pill-group" id="fontScaleGroup">
+                            <label class="theme-pill">
+                                <input type="radio" name="fontScale" value="sm" />
+                                <span>Small</span>
+                            </label>
+                            <label class="theme-pill">
+                                <input type="radio" name="fontScale" value="md" checked />
+                                <span>Medium</span>
+                            </label>
+                            <label class="theme-pill">
+                                <input type="radio" name="fontScale" value="lg" />
+                                <span>Large</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- DENSITY -->
+                    <div class="mb-3">
+                        <label class="form-label">Layout density</label>
+                        <div class="theme-pill-group" id="densityGroup">
+                            <label class="theme-pill">
+                                <input type="radio" name="density" value="comfortable" checked />
+                                <span>Comfortable</span>
+                            </label>
+                            <label class="theme-pill">
+                                <input type="radio" name="density" value="compact" />
+                                <span>Compact</span>
+                            </label>
+                        </div>
+                        <div class="small text-muted">
+                            Mainly affects padding and vertical spacing in lists (where supported).
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" id="btnResetTheme">
+                            <i class="fa-solid fa-rotate-left me-1"></i> Reset to defaults
+                        </button>
+                        <div class="small text-muted">
+                            Changes are applied instantly and stored in this browser.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/ThemeSetting.js"></script>
+}
